@@ -1,0 +1,514 @@
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-container {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 82px;
+
+    gap: 2rem;
+}
+.site-logo-image {
+    display: block;
+    width: auto;
+    height: 60px;
+}
+
+.site-logo {
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+.logo-placeholder {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 95px;
+    min-height: 42px;
+
+    padding: 0.5rem 1rem;
+
+    font-weight: 700;
+
+    border: 1px solid var(--color-text);
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.nav-list {
+    display: flex;
+
+    align-items: center;
+
+    gap: 1.6rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.nav-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-primary);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+
+    font-weight: 700;
+}
+/* ========================================
+   HERO
+======================================== */
+.hero-image {
+    position: relative;
+
+    width: 100%;
+}
+
+.hero-image::before {
+    position: absolute;
+
+    top: -12px;
+    right: -12px;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--color-primary);
+
+    content: "";
+}
+
+.hero-image img {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 0.75rem 1.35rem;
+
+    color: var(--color-text);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    border-radius: var(--radius-small);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.button-primary {
+    color: #ffffff;
+
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+}
+
+.button-primary:hover {
+    background: var(--color-primary-dark);
+
+    border-color: var(--color-primary-dark);
+}
+
+.button-secondary {
+    background: transparent;
+
+    border-color: var(--color-border);
+}
+
+.button-secondary:hover,
+.button-outline:hover {
+    background: var(--color-background-light);
+}
+
+.button-outline {
+    color: var(--color-primary);
+
+    background: transparent;
+
+    border-color: var(--color-primary);
+}
+
+.button-outline:hover {
+    color: #ffffff;
+
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+}
+
+.header-contact:hover {
+    color: #ffffff;
+
+    background: var(--color-primary);
+}
+
+.button-small {
+    min-height: 38px;
+
+    padding: 0.55rem 1rem;
+
+    font-size: 0.75rem;
+}
+
+
+/* ========================================
+   PLACEHOLDER IMAGES
+======================================== */
+
+.image-placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 180px;
+
+    padding: 1.5rem;
+
+    color: var(--color-text-light);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            to top right,
+            transparent calc(50% - 1px),
+            var(--color-border),
+            transparent calc(50% + 1px)
+        ),
+        linear-gradient(
+            to bottom right,
+            transparent calc(50% - 1px),
+            var(--color-border),
+            transparent calc(50% + 1px)
+        ),
+        #fafafa;
+
+    border: 1px solid var(--color-border);
+}
+
+.large-placeholder {
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 430px;
+}
+
+.large-placeholder span {
+    font-weight: 700;
+}
+
+.large-placeholder small {
+    margin-top: 0.3rem;
+}
+
+
+/* ========================================
+   WHY BENCHMARK ICONS
+======================================== */
+
+.icon-placeholder,
+.resource-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 54px;
+
+    margin: 0 auto 1rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    border: 1px solid var(--color-border);
+
+    background: #ffffff;
+}
+
+
+/* ========================================
+   SERVICE CARDS
+======================================== */
+
+.service-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-medium);
+}
+
+.service-card-content {
+    padding: 1.5rem;
+}
+
+.service-card-content p {
+    min-height: 80px;
+
+    color: var(--color-text-light);
+}
+
+
+/* ========================================
+   RESOURCE CARDS
+======================================== */
+
+.resource-card {
+    display: block;
+
+    padding: 1.5rem 1rem;
+
+    color: inherit;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background: #ffffff;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-small);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-small);
+}
+
+.resource-card p {
+    margin-bottom: 0;
+
+    color: var(--color-text-light);
+
+    font-size: 0.85rem;
+}
+
+
+/* ========================================
+   PUBLICATION CARDS
+======================================== */
+
+.publication-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-small);
+}
+
+.publication-image .image-placeholder {
+    min-height: 155px;
+
+    border: none;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.publication-content {
+    padding: 1.25rem;
+}
+
+.publication-type {
+    margin-bottom: 0.4rem;
+
+    color: var(--color-secondary);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+.publication-content p:not(.publication-type) {
+    color: var(--color-text-light);
+
+    font-size: 0.9rem;
+}
+
+
+/* ========================================
+   PATHART
+======================================== */
+
+.pathart-placeholder {
+    min-height: 330px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer {
+    background: #ffffff;
+
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-brand p {
+    max-width: 270px;
+
+    margin-top: 1.5rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.9rem;
+}
+
+.footer-column h3 {
+    margin-bottom: 1rem;
+
+    font-size: 0.9rem;
+
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-column a {
+    color: var(--color-text-light);
+
+    font-size: 0.88rem;
+
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: var(--color-text);
+}
+
+.footer-contact p {
+    margin-bottom: 0.7rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.88rem;
+}
+
+.social-links {
+    display: flex;
+
+    gap: 0.6rem;
+
+    margin-top: 1.3rem;
+}
+
+.social-links a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    color: var(--color-text);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    border: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    font-size: 0.78rem;
+}
+
+.footer-legal {
+    display: flex;
+
+    gap: 1.5rem;
+}
+
+.footer-legal a {
+    color: var(--color-text-light);
+
+    font-size: 0.78rem;
+
+    text-decoration: none;
+}

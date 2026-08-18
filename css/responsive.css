@@ -1,0 +1,159 @@
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1050px) {
+
+    .main-nav {
+        display: none;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 3rem;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 1rem;
+    }
+
+    .benefit-card {
+        border: 1px solid var(--color-border);
+    }
+
+    .resource-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .publication-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    :root {
+        --section-padding: 3.5rem;
+    }
+
+
+    /* Header */
+
+    .header-container {
+        min-height: 70px;
+    }
+
+    .header-contact {
+        margin-left: auto;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding-block: 3.5rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+    .hero-content {
+        order: 1;
+    }
+
+    .hero-image {
+        order: 2;
+    }
+
+    .large-placeholder {
+        min-height: 300px;
+    }
+
+
+    /* Benefits */
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Services */
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card-content p {
+        min-height: auto;
+    }
+
+
+    /* Resources */
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Publications */
+
+    .publication-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PathArt */
+
+    .pathart-grid {
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+
+    /* CTA */
+
+    .contact-cta-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* Footer */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+
+        gap: 1rem;
+    }
+
+}
