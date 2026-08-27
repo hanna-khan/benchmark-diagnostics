@@ -15,7 +15,8 @@
 	<header class="site-header">
 		<div class="container header-container">
 			<a href="index.html" class="site-logo" aria-label="Benchmark Diagnostics Home"><span class="logo-placeholder">LOGO</span></a>
-			<nav class="main-nav" aria-label="Main navigation">
+			<button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
+			<nav class="main-nav" id="main-navigation" aria-label="Main navigation">
 				<ul class="nav-list">
 					<li><a href="index.html" class="nav-link active">Home</a></li>
 					<li><a href="pages/about.html" class="nav-link">About</a></li>
@@ -23,6 +24,7 @@
 					<li><a href="pages/physician-resources.html" class="nav-link">Physician Resources</a></li>
 					<li><a href="pages/research.html" class="nav-link">Research</a></li>
 					<li><a href="pages/pathart-gallery.html" class="nav-link">PathArt Gallery</a></li>
+					<li class="mobile-contact-item"><a href="pages/contact.html" class="nav-link">Contact</a></li>
 				</ul>
 			</nav>
 			<a href="pages/contact.html" class="button button-outline header-contact">Contact</a>
@@ -46,5 +48,6 @@
 		</div>
 		<div class="container footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="pages/privacy-policy.html">Privacy Policy</a><a href="pages/terms-of-use.html">Terms of Use</a><a href="pages/accessibility.html">Accessibility</a></div></div>
 	</footer>
+	<script src="js/components/navigation.js"></script>
 </body>
 </html>

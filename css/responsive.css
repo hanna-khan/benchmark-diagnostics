@@ -4,8 +4,58 @@
 
 @media (max-width: 1050px) {
 
+    .site-header {
+        position: relative;
+        z-index: 10;
+    }
+
+    .menu-toggle {
+        display: flex;
+
+        margin-left: auto;
+    }
+
+    .header-contact {
+        display: none;
+    }
+
     .main-nav {
         display: none;
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 20;
+
+        margin-left: 0;
+
+        background: #ffffff;
+        border-top: 1px solid var(--color-border);
+        box-shadow: var(--shadow-small);
+    }
+
+    .main-nav.is-open {
+        display: block;
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .main-nav .nav-link {
+        display: block;
+
+        width: 100%;
+        padding: 0.9rem 1rem;
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .mobile-contact-item {
+        display: list-item;
     }
 
     .hero-grid {
@@ -155,5 +205,105 @@
 
         gap: 1rem;
     }
+
+}
+/* ========================================
+   SERVICES PAGE RESPONSIVE
+======================================== */
+
+
+@media (max-width: 1050px) {
+
+	.additional-service-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.turnaround-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.turnaround-item:nth-child(2) {
+		border-right: none;
+	}
+
+	.services-faq-grid {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+
+	.faq-visual {
+		display: none;
+	}
+
+}
+
+
+@media (max-width: 750px) {
+
+	.services-hero-grid,
+	.service-detail-grid,
+	.service-detail-reverse {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+
+	.services-hero {
+		padding-block: 3.5rem;
+	}
+
+	.services-hero-image img {
+		height: 300px;
+	}
+
+	.service-detail-image img {
+		height: 280px;
+	}
+
+	/* Keep image first when sections stack */
+
+	.service-detail-reverse .service-detail-image {
+		order: 1;
+	}
+
+	.service-detail-reverse .service-detail-content {
+		order: 2;
+	}
+
+	.additional-service-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.turnaround-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.turnaround-item {
+		border-right: none;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.turnaround-item:last-child {
+		border-bottom: none;
+	}
+
+	.services-cta-inner {
+		flex-direction: column;
+
+		align-items: flex-start;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.services-hero-image img,
+	.service-detail-image img {
+		height: 240px;
+	}
+
+	.services-cta-content {
+		align-items: flex-start;
+	}
 
 }
