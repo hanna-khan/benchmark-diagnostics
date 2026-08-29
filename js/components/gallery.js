@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.activeItemId = item.id;
 
         if (detailMainImage) {
-            detailMainImage.src = item.image || '../assets/images/pathart/detail-main.jpg';
+            detailMainImage.src = item.image || '../assets/images/pathart/detail-main.png';
             detailMainImage.alt = item.title ? `${item.title} pathology image` : 'Pathology detail image';
         }
 
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (detailThumbnailContainer) {
             const thumbnails = Array.isArray(item.thumbnails) && item.thumbnails.length
                 ? item.thumbnails
-                : [item.image || '../assets/images/pathart/detail-main.jpg'];
+                : [item.image || '../assets/images/pathart/detail-main.png'];
 
             detailThumbnailContainer.innerHTML = thumbnails
                 .map((thumb, index) => `
