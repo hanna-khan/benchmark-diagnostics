@@ -307,3 +307,290 @@
 	}
 
 }
+/* ========================================
+   PHYSICIAN RESOURCES RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+
+	.quick-access-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.resource-turnaround-grid,
+	.download-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.resource-contact-grid {
+		grid-template-columns: repeat(2, 1fr);
+
+		gap: 2rem;
+	}
+
+	.resource-contact-item {
+		padding: 0;
+
+		border-right: none;
+	}
+
+	.resource-faq-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.resource-faq-visual {
+		display: none;
+	}
+
+}
+
+
+@media (max-width: 750px) {
+
+	.resources-hero-grid,
+	.resource-detail-grid,
+	.resource-detail-reverse {
+		grid-template-columns: 1fr;
+
+		gap: 2.5rem;
+	}
+
+	.resources-hero-image img {
+		height: 280px;
+	}
+
+	.resource-detail-image img {
+		height: 260px;
+	}
+
+	.resource-detail-reverse .resource-detail-image {
+		order: 1;
+	}
+
+	.resource-detail-reverse .resource-detail-content {
+		order: 2;
+	}
+
+	.quick-access-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.quick-access-card {
+		min-height: 145px;
+	}
+
+	.resource-turnaround-grid,
+	.download-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.resource-contact-grid {
+		grid-template-columns: 1fr;
+
+		gap: 1.75rem;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.resources-hero-image img,
+	.resource-detail-image img {
+		height: 230px;
+	}
+
+}
+/* ========================================
+   RESEARCH PAGE RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+
+	.research-card-grid,
+	.education-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+
+@media (max-width: 750px) {
+
+	.research-hero-grid,
+	.featured-research-grid {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+
+	.research-hero-image img,
+	.featured-research-image img {
+		height: 250px;
+	}
+
+	.research-card-grid,
+	.education-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.research-collaboration-inner {
+		grid-template-columns: 1fr;
+
+		text-align: left;
+	}
+
+	.research-collaboration-icon {
+		width: 55px;
+		height: 55px;
+	}
+
+}
+/* ========================================
+   PATHART RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+
+	.gallery-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.category-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.related-cases-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gallery-controls {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+
+@media (max-width: 750px) {
+
+	.pathart-hero-grid,
+	.pathart-featured-grid,
+	.pathart-details-grid {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+
+	.pathart-hero-image img,
+	.pathart-featured-image img,
+	.pathart-detail-main img {
+		height: 250px;
+	}
+
+	.gallery-arrow-left {
+		left: 5px;
+	}
+
+	.gallery-arrow-right {
+		right: 5px;
+	}
+
+	.gallery-grid,
+	.category-grid,
+	.related-cases-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gallery-controls {
+		grid-template-columns: 1fr;
+	}
+
+	.related-cases-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.related-cases-wrapper > .gallery-arrow {
+		display: none;
+	}
+
+	.pathart-cta-inner {
+		flex-direction: column;
+
+		align-items: flex-start;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.gallery-grid,
+	.category-grid,
+	.related-cases-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.pathart-thumbnails {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.pathart-detail-actions {
+		flex-direction: column;
+	}
+
+}
+/* ========================================
+   CONTACT PAGE RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+
+	.contact-info-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.office-hours-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.contact-resource-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+}
+
+
+@media (max-width: 750px) {
+
+	.contact-hero-grid,
+	.contact-form-grid,
+	.map-directions-grid {
+		grid-template-columns: 1fr;
+
+		gap: 2.5rem;
+	}
+
+	.contact-hero-image img,
+	.map-placeholder img {
+		height: 250px;
+	}
+
+	.contact-info-grid,
+	.office-hours-grid,
+	.contact-resource-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.response-card {
+		max-width: none;
+	}
+
+	.contact-final-cta-inner {
+		flex-direction: column;
+
+		align-items: flex-start;
+	}
+
+	.pickup-notice {
+		align-items: flex-start;
+	}
+
+}

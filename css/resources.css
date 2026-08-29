@@ -1,0 +1,658 @@
+/* ========================================
+   PHYSICIAN RESOURCES PAGE
+======================================== */
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.resources-hero {
+	background: var(--color-background-light);
+}
+
+.resources-hero-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 4rem;
+}
+
+.resources-hero-content {
+	max-width: 580px;
+}
+
+.resources-hero-lead {
+	max-width: 520px;
+	margin-bottom: 2rem;
+
+	color: var(--color-text-light);
+	font-size: 1rem;
+}
+
+.resources-hero-image {
+	overflow: hidden;
+}
+
+.resources-hero-image img {
+	display: block;
+	width: 100%;
+	height: 330px;
+	object-fit: cover;
+}
+
+
+/* ========================================
+   QUICK ACCESS
+======================================== */
+
+.quick-access-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1rem;
+}
+
+.quick-access-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	min-height: 190px;
+
+	padding: 1.5rem;
+
+	text-align: center;
+	text-decoration: none;
+
+	color: var(--color-text);
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.quick-access-icon {
+	width: 44px;
+	height: 44px;
+
+	margin-bottom: 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+	font-size: 1.8rem;
+}
+
+.quick-access-icon img {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+}
+
+.quick-access-card h3 {
+	margin-bottom: 1rem;
+	font-size: 0.9rem;
+}
+
+.quick-access-arrow {
+	color: var(--color-primary);
+	font-size: 1.1rem;
+}
+
+
+/* ========================================
+   DETAIL SECTIONS
+======================================== */
+
+.resource-detail-grid {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	align-items: center;
+
+	max-width: 1000px;
+	margin-inline: auto;
+
+	gap: 4rem;
+}
+
+.resource-detail-reverse {
+	grid-template-columns: 1.2fr 0.8fr;
+}
+
+.resource-detail-content {
+	max-width: 580px;
+}
+
+.resource-detail-visual {
+	min-height: 250px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.resource-detail-visual img {
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+}
+
+.resource-detail-image {
+	overflow: hidden;
+}
+
+.resource-detail-image img {
+	display: block;
+
+	width: 100%;
+	height: 250px;
+
+	object-fit: cover;
+}
+
+
+/* ========================================
+   CHECK LIST
+======================================== */
+
+.resource-check-list {
+	margin: 1.5rem 0 2rem;
+	padding: 0;
+
+	list-style: none;
+}
+
+.resource-check-list li {
+	position: relative;
+
+	margin-bottom: 0.6rem;
+
+	padding-left: 1.4rem;
+
+	color: var(--color-text-light);
+}
+
+.resource-check-list li::before {
+	content: "✓";
+
+	position: absolute;
+	left: 0;
+
+	color: var(--color-primary);
+
+	font-weight: 700;
+}
+
+
+/* ========================================
+   TURNAROUND TIMES
+======================================== */
+
+.resource-turnaround-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 1rem;
+}
+
+.resource-turnaround-card {
+	padding: 1.75rem 1rem;
+
+	text-align: center;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.resource-time-icon {
+	width: 40px;
+	height: 40px;
+
+	margin: 0 auto 0.75rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+
+	font-size: 1.75rem;
+}
+
+.resource-turnaround-card h3 {
+	margin-bottom: 0.4rem;
+}
+
+.resource-turnaround-card p {
+	margin: 0;
+
+	color: var(--color-text-light);
+
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+
+/* ========================================
+   DOWNLOADS
+======================================== */
+
+.download-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 1.25rem;
+}
+
+.download-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	min-height: 200px;
+
+	padding: 1.5rem;
+
+	text-align: center;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.download-icon {
+	width: 44px;
+	height: 44px;
+
+	margin-bottom: 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.download-icon img {
+	width: 30px;
+	height: 30px;
+
+	object-fit: contain;
+}
+
+.download-card h3 {
+	flex-grow: 1;
+
+	font-size: 0.9rem;
+}
+
+
+/* ========================================
+   FAQ
+======================================== */
+
+.resource-faq-grid {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	align-items: center;
+
+	max-width: 1000px;
+	margin-inline: auto;
+
+	gap: 4rem;
+}
+
+.faq-list {
+	width: 100%;
+}
+
+.faq-item {
+	margin-bottom: 0.5rem;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.faq-item summary {
+	position: relative;
+
+	padding: 0.85rem 3rem 0.85rem 1rem;
+
+	font-weight: 600;
+
+	cursor: pointer;
+
+	list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq-item summary::after {
+	content: "+";
+
+	position: absolute;
+
+	top: 50%;
+	right: 1rem;
+
+	transform: translateY(-50%);
+
+	color: var(--color-primary);
+}
+
+.resource-faq-visual {
+	position: relative;
+
+	min-height: 240px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.resource-contact {
+	padding-block: 3rem;
+}
+
+.resource-contact-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 0;
+}
+
+.resource-contact-item {
+	display: flex;
+	align-items: flex-start;
+
+	gap: 0.8rem;
+
+	padding: 0 1.5rem;
+
+	border-right: 1px solid var(--color-border);
+}
+
+.resource-contact-item:last-child {
+	border-right: none;
+}
+
+.resource-contact-icon {
+	flex-shrink: 0;
+
+	width: 34px;
+	height: 34px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+
+	font-size: 1.25rem;
+}
+
+.resource-contact-item h3 {
+	margin-bottom: 0.25rem;
+
+	font-size: 0.85rem;
+}
+
+.resource-contact-item p {
+	margin: 0;
+
+	color: var(--color-text-light);
+
+	font-size: 0.8rem;
+}
+/* ========================================
+   RESEARCH PAGE
+======================================== */
+
+
+/* HERO */
+
+.research-hero {
+	background: var(--color-background-light);
+}
+
+.research-hero-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 4rem;
+}
+
+.research-hero-content {
+	max-width: 580px;
+}
+
+.research-hero-lead {
+	max-width: 520px;
+	margin-bottom: 2rem;
+
+	color: var(--color-text-light);
+}
+
+.research-hero-image {
+	overflow: hidden;
+}
+
+.research-hero-image img {
+	display: block;
+	width: 100%;
+	height: 330px;
+	object-fit: cover;
+}
+
+
+/* FEATURED RESEARCH */
+
+.featured-research-grid {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr;
+	align-items: center;
+	gap: 3rem;
+
+	max-width: 1000px;
+	margin-inline: auto;
+}
+
+.featured-research-image {
+	overflow: hidden;
+}
+
+.featured-research-image img {
+	display: block;
+	width: 100%;
+	height: 260px;
+	object-fit: cover;
+}
+
+.featured-research-content {
+	max-width: 560px;
+}
+
+.research-label {
+	display: inline-block;
+
+	margin-bottom: 0.8rem;
+	padding: 0.35rem 0.65rem;
+
+	color: var(--color-primary);
+
+	font-size: 0.7rem;
+	font-weight: 700;
+
+	text-transform: uppercase;
+
+	border: 1px solid var(--color-border);
+}
+
+.research-pagination {
+	display: flex;
+	gap: 0.45rem;
+
+	margin-top: 1rem;
+}
+
+.research-dot {
+	width: 8px;
+	height: 8px;
+
+	border: 1px solid var(--color-text-light);
+	border-radius: 50%;
+}
+
+.research-dot.active {
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+
+/* SHARED RESEARCH CARD GRID */
+
+.research-card-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.25rem;
+}
+
+.research-card {
+	padding: 1.5rem;
+
+	text-align: left;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.research-card-icon {
+	width: 40px;
+	height: 40px;
+
+	margin-bottom: 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+
+	font-size: 1.8rem;
+}
+
+.research-card h3 {
+	font-size: 0.95rem;
+}
+
+.research-card p {
+	color: var(--color-text-light);
+
+	font-size: 0.82rem;
+}
+
+
+/* EDUCATIONAL RESOURCES */
+
+.education-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.25rem;
+}
+
+.education-card {
+	padding: 1.5rem;
+
+	text-align: center;
+
+	background: #ffffff;
+
+	border: 1px solid var(--color-border);
+}
+
+.education-icon {
+	width: 44px;
+	height: 44px;
+
+	margin: 0 auto 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+
+	font-size: 1.8rem;
+}
+
+.education-card h3 {
+	font-size: 0.95rem;
+}
+
+.education-card p {
+	color: var(--color-text-light);
+
+	font-size: 0.82rem;
+}
+
+
+/* RESEARCH COLLABORATION CTA */
+
+.research-collaboration {
+	padding-block: 3rem;
+
+	background: var(--color-background-light);
+}
+
+.research-collaboration-inner {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 2rem;
+}
+
+.research-collaboration-icon {
+	width: 70px;
+	height: 70px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-primary);
+
+	font-size: 2rem;
+
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+}
+
+.research-collaboration-content h2 {
+	margin-bottom: 0.4rem;
+
+	font-size: 1.7rem;
+}
+
+.research-collaboration-content p {
+	margin-bottom: 0;
+
+	color: var(--color-text-light);
+}

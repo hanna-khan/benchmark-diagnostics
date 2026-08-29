@@ -1,0 +1,262 @@
+[
+  {
+    "id": "pathart-001",
+    "title": "Case 01",
+    "image": "../assets/images/pathart/gallery-1.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Inflammatory Dermatoses",
+    "stain": "H&E",
+    "magnification": "20x",
+    "caseType": "Biopsy",
+    "caseId": "BD-CASE-001",
+    "dateAcquired": "2024-05-12",
+    "educationalNotes": "Microscopic detail is reviewed in context with specimen architecture and staining pattern. Information coming soon.",
+    "learningPoints": [
+      "Specimen architecture is reviewed in context with lesion layout.",
+      "Staining patterns and tissue distribution are highlighted.",
+      "Additional interpretation will be added as needed."
+    ],
+    "featured": true,
+    "description": "A representative microscopic specimen highlighting tissue architecture and staining pattern.",
+    "relatedCaseIds": ["pathart-002", "pathart-005", "pathart-008"]
+  },
+  {
+    "id": "pathart-002",
+    "title": "Case 02",
+    "image": "../assets/images/pathart/gallery-2.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Neoplastic Lesions",
+    "stain": "H&E",
+    "magnification": "40x",
+    "caseType": "Excision",
+    "caseId": "BD-CASE-002",
+    "dateAcquired": "2024-06-08",
+    "educationalNotes": "This specimen demonstrates cellular distribution and tissue organization for educational review. Information coming soon.",
+    "learningPoints": [
+      "Cellular distribution is reviewed alongside tissue architecture.",
+      "Staining pattern contributes to the overall histologic interpretation.",
+      "Additional educational notes will be added over time."
+    ],
+    "featured": true,
+    "description": "A focused microscopic view of tissue organization and cellular detail.",
+    "relatedCaseIds": ["pathart-001", "pathart-006", "pathart-009"]
+  },
+  {
+    "id": "pathart-003",
+    "title": "Case 03",
+    "image": "../assets/images/pathart/gallery-3.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Podiatric Pathology",
+    "stain": "H&E",
+    "magnification": "20x",
+    "caseType": "Specimen",
+    "caseId": "BD-CASE-003",
+    "dateAcquired": "2024-07-19",
+    "educationalNotes": "This image supports general educational review of tissue architecture and specimen context. Information coming soon.",
+    "learningPoints": [
+      "Podiatric pathology examples emphasize structure and pattern recognition.",
+      "Educational review supports comparison across tissue types.",
+      "Additional notes will be added as case details are confirmed."
+    ],
+    "featured": true,
+    "description": "A pathology image selected to highlight tissue pattern and educational review.",
+    "relatedCaseIds": ["pathart-004", "pathart-007", "pathart-010"]
+  },
+  {
+    "id": "pathart-004",
+    "title": "Case 04",
+    "image": "../assets/images/pathart/gallery-4.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Infectious Diseases",
+    "stain": "H&E",
+    "magnification": "40x",
+    "caseType": "Biopsy",
+    "caseId": "BD-CASE-004",
+    "dateAcquired": "2024-08-02",
+    "educationalNotes": "This educational slide emphasizes tissue pattern, staining interpretation, and structural context. Information coming soon.",
+    "learningPoints": [
+      "Educational review supports consistent recognition of tissue pattern.",
+      "Staining interpretation is reviewed alongside specimen context.",
+      "Additional clinical information will be added when available."
+    ],
+    "featured": true,
+    "description": "A specimen image intended for educational review of tissue architecture and stain interpretation.",
+    "relatedCaseIds": ["pathart-003", "pathart-005", "pathart-009"]
+  },
+  {
+    "id": "pathart-005",
+    "title": "Case 05",
+    "image": "../assets/images/pathart/gallery-5.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Other Conditions",
+    "stain": "H&E",
+    "magnification": "20x",
+    "caseType": "Specimen",
+    "caseId": "BD-CASE-005",
+    "dateAcquired": "2024-09-14",
+    "educationalNotes": "This pathology image is presented as part of a broader educational gallery. Information coming soon.",
+    "learningPoints": [
+      "Pattern recognition supports educational review.",
+      "The image highlights structural nuance in tissue architecture.",
+      "Additional notes will be added when available."
+    ],
+    "featured": false,
+    "description": "A representative pathology image for educational review and comparison.",
+    "relatedCaseIds": ["pathart-001", "pathart-004", "pathart-010"]
+  },
+  {
+    "id": "pathart-006",
+    "title": "Case 06",
+    "image": "../assets/images/pathart/gallery-6.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Inflammatory Dermatoses",
+    "stain": "H&E",
+    "magnification": "40x",
+    "caseType": "Biopsy",
+    "caseId": "BD-CASE-006",
+    "dateAcquired": "2024-10-20",
+    "educationalNotes": "This educational specimen supports pattern recognition and histologic review. Information coming soon.",
+    "learningPoints": [
+      "Tissue pattern is highlighted for educational comparison.",
+      "Stain and section context support interpretation review.",
+      "Additional details will be added as needed."
+    ],
+    "featured": false,
+    "description": "A microscopic specimen selected for educational review of structure and pattern.",
+    "relatedCaseIds": ["pathart-002", "pathart-007", "pathart-008"]
+  },
+  {
+    "id": "pathart-007",
+    "title": "Case 07",
+    "image": "../assets/images/pathart/gallery-7.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Neoplastic Lesions",
+    "stain": "H&E",
+    "magnification": "20x",
+    "caseType": "Excision",
+    "caseId": "BD-CASE-007",
+    "dateAcquired": "2024-11-07",
+    "educationalNotes": "Educational review focuses on architectural cues and tissue contrast within the specimen. Information coming soon.",
+    "learningPoints": [
+      "Architecture and tissue distribution are emphasized.",
+      "Molecular context is not included in this gallery demonstration.",
+      "Additional notes will be added as needed."
+    ],
+    "featured": false,
+    "description": "An educational specimen image chosen for tissue architecture review.",
+    "relatedCaseIds": ["pathart-003", "pathart-006", "pathart-010"]
+  },
+  {
+    "id": "pathart-008",
+    "title": "Case 08",
+    "image": "../assets/images/pathart/gallery-8.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Podiatric Pathology",
+    "stain": "H&E",
+    "magnification": "40x",
+    "caseType": "Specimen",
+    "caseId": "BD-CASE-008",
+    "dateAcquired": "2024-12-02",
+    "educationalNotes": "This image is used for educational comparison of tissue architecture and specimen detail. Information coming soon.",
+    "learningPoints": [
+      "The image supports comparative review of tissue organization.",
+      "Staining pattern is reviewed within the wider specimen context.",
+      "Additional educational notes will be added over time."
+    ],
+    "featured": false,
+    "description": "A pathology image selected for educational comparison of tissue architecture.",
+    "relatedCaseIds": ["pathart-001", "pathart-006", "pathart-009"]
+  },
+  {
+    "id": "pathart-009",
+    "title": "Case 09",
+    "image": "../assets/images/pathart/gallery-9.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Infectious Diseases",
+    "stain": "H&E",
+    "magnification": "20x",
+    "caseType": "Biopsy",
+    "caseId": "BD-CASE-009",
+    "dateAcquired": "2025-01-16",
+    "educationalNotes": "This slide supports educational review of tissue pattern and section interpretation. Information coming soon.",
+    "learningPoints": [
+      "Microscopic pattern and tissue structure are reviewed.",
+      "Stain interpretation contributes to specimen context.",
+      "Additional detailed commentary will be added when available."
+    ],
+    "featured": false,
+    "description": "A specimen image for educational review of tissue pattern and context.",
+    "relatedCaseIds": ["pathart-002", "pathart-004", "pathart-008"]
+  },
+  {
+    "id": "pathart-010",
+    "title": "Case 10",
+    "image": "../assets/images/pathart/gallery-10.jpg",
+    "thumbnails": [
+      "../assets/images/pathart/detail-1.jpg",
+      "../assets/images/pathart/detail-2.jpg",
+      "../assets/images/pathart/detail-3.jpg",
+      "../assets/images/pathart/detail-4.jpg"
+    ],
+    "category": "Other Conditions",
+    "stain": "H&E",
+    "magnification": "40x",
+    "caseType": "Specimen",
+    "caseId": "BD-CASE-010",
+    "dateAcquired": "2025-02-11",
+    "educationalNotes": "This image is included for educational comparison and general pathology review. Information coming soon.",
+    "learningPoints": [
+      "The specimen illustrates layout and structural patterns.",
+      "Staining context is reviewed as part of educational use.",
+      "Additional notes will be added when confirmed."
+    ],
+    "featured": false,
+    "description": "A specimen image used to support broader educational comparison in the gallery.",
+    "relatedCaseIds": ["pathart-003", "pathart-005", "pathart-007"]
+  }
+]
