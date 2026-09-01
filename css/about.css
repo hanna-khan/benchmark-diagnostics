@@ -1,0 +1,483 @@
+/* =========================================================
+   BENCHMARK DIAGNOSTICS
+   ABOUT PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   01. ABOUT HERO
+   ========================================================= */
+
+.about-hero {
+    background: #ffffff;
+}
+
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+.about-hero-content {
+    max-width: 620px;
+}
+
+.about-hero-content h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(3rem, 5vw, 4.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.about-hero-lead {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-light, #526273);
+}
+
+.about-hero-image {
+    overflow: hidden;
+    min-height: 440px;
+    border-radius: 2px;
+}
+
+.about-hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   02. MISSION & VISION
+   ========================================================= */
+
+.mission-vision {
+    background: #f4f8fb;
+}
+
+.mission-vision .section-heading {
+    margin-bottom: 3rem;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mission-vision-card {
+    padding: 3rem;
+    background: #ffffff;
+    border: 1px solid #d8e2eb;
+    text-align: center;
+}
+
+.about-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+}
+
+.about-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.mission-vision-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.mission-vision-card p {
+    margin: 0 auto;
+    max-width: 390px;
+    line-height: 1.7;
+    color: var(--color-text-light, #526273);
+}
+
+
+/* =========================================================
+   03. LEADERSHIP
+   ========================================================= */
+
+.leadership {
+    background: #ffffff;
+}
+
+.leadership .section-heading {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.leadership .section-heading > p:last-child {
+    margin-top: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-light, #526273);
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.leadership-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d8e2eb;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.leadership-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(18, 52, 77, 0.08);
+}
+
+.leadership-image {
+    height: 330px;
+    overflow: hidden;
+    background: #edf3f7;
+}
+
+.leadership-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.leadership-content {
+    padding: 1.75rem;
+}
+
+.leadership-content h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+}
+
+.leadership-title {
+    margin: 0 0 1rem;
+    color: #0068b5;
+    font-weight: 600;
+}
+
+.leadership-content > p:not(.leadership-title) {
+    line-height: 1.65;
+    color: var(--color-text-light, #526273);
+}
+
+.leadership-content .text-link {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+
+/* =========================================================
+   04. OUR STORY / HISTORY
+   ========================================================= */
+
+.about-history {
+    background: #f4f8fb;
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+.history-content {
+    max-width: 620px;
+}
+
+.history-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.15;
+}
+
+.history-content > p:not(.eyebrow) {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-light, #526273);
+}
+
+.history-image {
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.history-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   05. RESEARCH & EDUCATION
+   ========================================================= */
+
+.research-commitment {
+    background: #ffffff;
+}
+
+.research-commitment-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+.research-commitment-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    background: #f4f8fb;
+}
+
+.research-icon-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    border: 1px solid #d8e2eb;
+    background: #ffffff;
+}
+
+.research-icon-large img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.research-commitment-content {
+    max-width: 650px;
+}
+
+.research-commitment-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.15;
+}
+
+.research-commitment-content > p:not(.eyebrow) {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-light, #526273);
+}
+
+.research-commitment-content .button {
+    margin-top: 1rem;
+}
+
+
+/* =========================================================
+   06. ACCREDITATIONS
+   ========================================================= */
+
+.accreditations {
+    background: #f4f8fb;
+}
+
+.accreditations .section-heading {
+    margin-bottom: 3rem;
+}
+
+.accreditation-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: stretch;
+    gap: 1.5rem;
+}
+
+.accreditation-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #d8e2eb;
+}
+
+.accreditation-item img {
+    display: block;
+    width: 100%;
+    max-width: 130px;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   07. ABOUT CTA
+   ========================================================= */
+
+.about-cta {
+    padding: 5rem 0;
+    background: #0b5fa5;
+    color: #ffffff;
+}
+
+.about-cta-inner {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-cta .eyebrow {
+    color: #ffffff;
+    opacity: 0.85;
+}
+
+.about-cta h2 {
+    margin: 0 auto 1rem;
+    max-width: 750px;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.about-cta p:not(.eyebrow) {
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+/* Make primary button visible against blue CTA */
+.about-cta .button-primary {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #0b5fa5;
+}
+
+.about-cta .button-primary:hover {
+    background: #f1f6fa;
+}
+
+
+/* =========================================================
+   08. TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .about-hero-grid,
+    .history-grid,
+    .research-commitment-grid {
+        gap: 3rem;
+    }
+
+    .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .accreditation-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================================
+   09. MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .about-hero-grid,
+    .history-grid,
+    .research-commitment-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-hero-content h1 {
+        font-size: clamp(2.5rem, 11vw, 3.5rem);
+    }
+
+    .about-hero-image,
+    .about-hero-image img {
+        min-height: 300px;
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-vision-card {
+        padding: 2rem;
+    }
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leadership-image {
+        height: 360px;
+    }
+
+    .history-image,
+    .history-image img {
+        min-height: 300px;
+    }
+
+    .research-commitment-visual {
+        min-height: 240px;
+    }
+
+    .accreditation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-cta {
+        padding: 4rem 0;
+    }
+}
+
+
+/* =========================================================
+   10. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .accreditation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leadership-image {
+        height: 300px;
+    }
+
+    .mission-vision-card {
+        padding: 1.5rem;
+    }
+
+    .about-hero-image,
+    .about-hero-image img,
+    .history-image,
+    .history-image img {
+        min-height: 250px;
+    }
+}
