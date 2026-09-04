@@ -384,10 +384,18 @@
 		grid-template-columns: 1fr;
 	}
 
+	.download-preview img {
+		height: 220px;
+	}
+
 	.resource-contact-grid {
 		grid-template-columns: 1fr;
 
 		gap: 1.75rem;
+	}
+
+	.download-card-actions .button {
+		flex: 1 1 auto;
 	}
 
 }
@@ -406,6 +414,14 @@
 ======================================== */
 
 @media (max-width: 1050px) {
+
+	.research-hero-image img {
+		height: 340px;
+	}
+
+	.featured-research-image img {
+		height: 290px;
+	}
 
 	.research-card-grid,
 	.education-grid {

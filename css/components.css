@@ -832,3 +832,170 @@
 	border: 1px solid var(--color-primary);
 	border-radius: 50%;
 }
+/* ========================================
+   404 ERROR PAGE
+======================================== */
+
+.error-page {
+    display: flex;
+    align-items: center;
+
+    min-height: 70vh;
+    padding-block: 6rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbfd 0%,
+            #eef6fb 100%
+        );
+}
+
+
+.error-page-inner {
+    max-width: 760px;
+
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+
+/* Large 404 number */
+
+.error-code {
+    margin: 0 0 0.5rem;
+
+    color: var(--color-primary);
+
+    font-size: clamp(6rem, 16vw, 11rem);
+    font-weight: 700;
+    line-height: 0.9;
+
+    opacity: 0.12;
+}
+
+
+/* Heading */
+
+.error-page h1 {
+    max-width: 650px;
+
+    margin: 0 auto 1.25rem;
+}
+
+
+/* Description */
+
+.error-description {
+    max-width: 580px;
+
+    margin: 0 auto;
+
+    color: var(--color-text-light);
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+/* Buttons */
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+
+/* Helpful links */
+
+.error-help {
+    margin-top: 4rem;
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--color-border);
+}
+
+.error-help > p {
+    margin-bottom: 1rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.9rem;
+}
+
+
+.error-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1.5rem;
+}
+
+
+.error-links a {
+    color: var(--color-primary);
+
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.error-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   404 MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    .error-page {
+        min-height: 60vh;
+
+        padding-block: 4rem;
+    }
+
+
+    .error-page-inner {
+        text-align: left;
+    }
+
+
+    .error-code {
+        font-size: 6rem;
+    }
+
+
+    .error-page h1,
+    .error-description {
+        margin-left: 0;
+    }
+
+
+    .error-actions {
+        justify-content: flex-start;
+    }
+
+
+    .error-help {
+        margin-top: 3rem;
+    }
+
+
+    .error-links {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 0.75rem;
+    }
+
+}
