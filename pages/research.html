@@ -189,7 +189,7 @@
 				<div class="section-heading centered">
 
 					<h2>
-						Featured Research
+						Featured Case & Research
 					</h2>
 
 				</div>
@@ -200,7 +200,7 @@
 					<div class="featured-research-image">
 
 						<img
-							src="../assets/images/research/featured-research.jpg"
+							src="../assets/images/research/featured-research.png"
 							alt="Featured Benchmark Diagnostics pathology research"
 						>
 
@@ -210,25 +210,29 @@
 					<div class="featured-research-content">
 
 						<span class="research-label">
-							Featured
+							Featured Dermatopathology Case
 						</span>
 
 						<h3>
-							Research Title Goes Here
+							Collision Lesion of Dermal Nevus and Pilar Leiomyoma
 						</h3>
 
 						<p>
-							A brief description of the research study,
-							its purpose, findings, and impact on the
-							field of pathology.
+							An uncommon collision lesion demonstrating a dermal nevus and
+							pilar leiomyoma, with histologic and immunohistochemical findings
+							supporting both components.
+						</p>
+						<p class="research-author">
+							Arif Usmani, M.D.
 						</p>
 
-						<a
-							href="#"
-							class="button button-outline"
+						<button
+							type="button"
+							class="button button-outline case-modal-open"
+							data-modal-target="featured-case-modal"
 						>
-							Read Full Study
-						</a>
+							View Full Case
+						</button>
 
 
 						<div
@@ -807,6 +811,74 @@
 	</main>
 
 
+	<div
+		class="case-modal"
+		id="featured-case-modal"
+		aria-hidden="true"
+	>
+		<div class="case-modal-overlay" data-modal-close></div>
+
+		<div
+			class="case-modal-dialog"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="featured-case-modal-title"
+		>
+			<button
+				type="button"
+				class="case-modal-close"
+				aria-label="Close featured case"
+				data-modal-close
+			>
+				&times;
+			</button>
+
+			<div class="case-modal-content">
+
+				<p class="eyebrow">
+					Featured Dermatopathology Case
+				</p>
+
+				<h2 id="featured-case-modal-title">
+					Collision Lesion of Dermal Nevus and Pilar Leiomyoma
+				</h2>
+
+				<p class="case-modal-author">
+					Arif Usmani, M.D.
+				</p>
+
+				<p>
+					An uncommon collision lesion demonstrating a dermal nevus
+					and pilar leiomyoma, with histologic and immunohistochemical
+					findings supporting both components.
+				</p>
+
+				<h3>Diagnosis</h3>
+
+				<p>
+					Left central lateral neck: collision lesion of dermal nevus
+					and pilar leiomyoma.
+				</p>
+
+				<p>
+					The lesion extends to the deep tissue edge in the sections examined.
+				</p>
+
+				<h3>Microscopic Findings</h3>
+
+				<p>
+					The sections exhibit a circumscribed melanocytic proliferation
+					within the dermis without significant atypia. Fascicles of
+					smooth muscle are intermingled with the melanocytic proliferation.
+					Sox-10 and desmin stains highlight the two components. Multiple
+					deeper levels were examined.
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+
 
 	<!-- ========================================
 	     FOOTER
@@ -985,6 +1057,7 @@
 
 
 	<script src="../js/components/navigation.js"></script>
+	<script src="../js/components/modal.js"></script>
 
 </body>
 

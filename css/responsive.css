@@ -167,6 +167,10 @@
         grid-template-columns: 1fr;
     }
 
+	.publication-image {
+		height: 230px;
+	}
+
 
     /* PathArt */
 
