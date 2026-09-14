@@ -496,13 +496,17 @@
 	.pathart-featured-grid,
 	.pathart-details-grid {
 		grid-template-columns: 1fr;
-		gap: 2.5rem;
+		gap: 2rem;
+	}
+
+	.pathart-featured-content {
+		max-width: none;
 	}
 
 	.pathart-hero-image img,
-	.pathart-featured-image img,
+	.pathart-featured-image > img,
 	.pathart-detail-main img {
-		height: 250px;
+		height: 260px;
 	}
 
 	.gallery-arrow-left {

@@ -251,6 +251,24 @@
 	gap: 1.25rem;
 }
 
+.resources-coming-soon {
+	max-width: 720px;
+	margin-inline: auto;
+	padding: 2.5rem 2rem;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid var(--color-border);
+}
+
+.resources-coming-soon h3 {
+	margin-bottom: 0.65rem;
+}
+
+.resources-coming-soon p {
+	margin: 0;
+	color: var(--color-text-light);
+}
+
 .download-card {
 	display: flex;
 	flex-direction: column;
@@ -662,12 +680,14 @@ body.modal-open {
 
 .research-card-grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1.25rem;
 }
 
 .research-card {
 	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
 
 	text-align: left;
 
@@ -696,9 +716,30 @@ body.modal-open {
 }
 
 .research-card p {
+	margin-bottom: 1.5rem;
+
 	color: var(--color-text-light);
 
 	font-size: 0.82rem;
+}
+
+.research-card .text-link {
+	margin-top: auto;
+}
+
+.monthly-reports-grid {
+	grid-template-columns: repeat(4, 1fr);
+	align-items: stretch;
+}
+
+.monthly-reports-grid .research-card {
+	min-width: 0;
+	padding: 1.25rem;
+}
+
+.monthly-reports-grid .research-card .button {
+	width: 100%;
+	margin-top: auto;
 }
 
 .monthly-report-hidden {
