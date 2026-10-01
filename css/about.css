@@ -129,7 +129,7 @@
 
 .leadership-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2rem;
 }
 
@@ -140,6 +140,11 @@
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
+}
+
+.leadership-card:first-child .leadership-image img {
+    transform: scale(0.92);
+    object-position: center 18%;
 }
 
 .leadership-card:hover {
