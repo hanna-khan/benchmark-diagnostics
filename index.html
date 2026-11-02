@@ -1,818 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Benchmark Diagnostics | Dermatopathology & Podiatric Pathology</title>
-
-    <meta
-        name="description"
-        content="Benchmark Diagnostics provides dermatopathology and podiatric pathology services, physician resources, research, and diagnostic expertise."
-    >
-
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="description" content="Benchmark Diagnostics provides dermatopathology and podiatric pathology services, physician resources, research, and diagnostic expertise.">
+    <meta name="theme-color" content="#04101e">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/home.css">
 </head>
-
-<body>
-
-    <!-- ========================================
-         01. NAVIGATION
-    ========================================= -->
-
-    <header class="site-header">
-        <div class="container header-container">
-
-            <a href="index.html" class="site-logo" aria-label="Benchmark Diagnostics Home">
-                <img
-                    src="assets/images/branding/logo.jpg"
-                    alt="Benchmark Diagnostics"
-                    class="site-logo-image"
-                >
-            </a>
-
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li>
-                        <a href="index.html" class="nav-link active">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/about.html" class="nav-link">About</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html" class="nav-link">Services</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/research.html" class="nav-link">Educational Resources</a>
-                    </li>
-
-                    <li class="mobile-contact-item">
-                        <a href="pages/contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <a href="pages/contact.html" class="button button-outline header-contact">
-                Contact
-            </a>
-
-        </div>
-    </header>
-
-
-    <main>
-
-        <!-- ========================================
-             02. HERO SECTION
-        ========================================= -->
-
-        <section class="hero section">
-            <div class="container hero-grid">
-
-                <div class="hero-content">
-
-                    <p class="eyebrow">
-                        Diagnostic Pathology Expertise
-                    </p>
-
-                    <h1>
-                        Precision Diagnostics.
-                        <br>
-                        Trusted Expertise.
-                    </h1>
-
-                    <p class="hero-lead">
-                        Specialized dermatopathology and podiatric pathology
-                        services supporting physicians with accurate,
-                        timely and clinically meaningful diagnoses.
-                    </p>
-
-                    <div class="hero-actions">
-
-                        <a href="pages/services.html" class="button button-primary">
-                            Explore Our Services
-                        </a>
-
-                        <a href="pages/research.html" class="button button-secondary">
-                            Educational Resources
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <div class="hero-image">
-                    <!-- TODO: Replace with the client-provided hero image when available. -->
-                    <img
-                        src="assets/images/services/services-hero.png"
-                        alt="Benchmark Diagnostics laboratory professional reviewing pathology specimens"
-                    >
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ========================================
-             03. WHY BENCHMARK DIAGNOSTICS
-        ========================================= -->
-
-        <section class="why-benchmark section section-light">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-                    <p class="eyebrow">Why Benchmark Diagnostics</p>
-
-                    <h2>
-                        Pathology Expertise You Can Depend On
-                    </h2>
-                </div>
-
-
-                <div class="benefit-grid">
-
-                    <article class="benefit-card">
-
-                        <img
-                            src="assets/images/icons/microscope.png"
-                            alt=""
-                            aria-hidden="true"
-                            class="benefit-icon"
-                        >
-
-                        <h3>Specialized Expertise</h3>
-
-                        <p>
-                            Focused diagnostic expertise in:<br>
-                            Dermatopathology<br>
-                            Podiatric pathology<br>
-                            Surgical pathology
-                        </p>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <img
-                            src="assets/images/icons/accuracy.png"
-                            alt=""
-                            aria-hidden="true"
-                            class="benefit-icon"
-                        >
-
-                        <h3>Diagnostic Accuracy</h3>
-
-                        <p>
-                            Careful evaluation designed to provide physicians
-                            with clear and reliable diagnostic information.
-                        </p>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <img
-                            src="assets/images/icons/communication.png"
-                            alt=""
-                            aria-hidden="true"
-                            class="benefit-icon"
-                        >
-
-                        <h3>Responsive Service</h3>
-
-                        <p>
-                            Physician-centered communication and dependable
-                            support throughout the diagnostic process.
-                        </p>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <img
-                            src="assets/images/icons/collaboration.png"
-                            alt=""
-                            aria-hidden="true"
-                            class="benefit-icon"
-                        >
-
-                        <h3>Clinical Collaboration</h3>
-
-                        <p>
-                            Supporting healthcare providers through pathology
-                            consultation and clinical insight.
-                        </p>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <img
-                            src="assets/images/icons/research-education.png"
-                            alt=""
-                            aria-hidden="true"
-                            class="benefit-icon"
-                        >
-
-                        <h3>Research & Education</h3>
-
-                        <p>
-                            Advancing pathology through research,
-                            publications and continued education.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ========================================
-             04. SERVICES OVERVIEW
-        ========================================= -->
-
-        <section class="services-overview section">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-
-                    <p class="eyebrow">Our Services</p>
-
-                    <h2>
-                        Specialized Pathology Services
-                    </h2>
-
-                </div>
-
-
-                <div class="service-grid">
-
-                    <article class="service-card">
-
-                        <div class="service-image">
-                            <img
-                                src="assets/images/services/dermatopathology.png"
-                                alt="Dermatopathology service"
-                            >
-                        </div>
-
-                        <div class="service-card-content">
-
-                            <h3>Dermatopathology</h3>
-
-                            <p>
-                                Diagnostic evaluation of skin disorders,
-                                biopsies and complex dermatologic conditions.
-                            </p>
-
-                            <a href="pages/services.html" class="button button-small button-outline">
-                                Learn More
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="service-card">
-
-                        <div class="service-image">
-                            <img
-                                src="assets/images/services/podiatric-pathology.png"
-                                alt="Podiatric pathology service"
-                            >
-                        </div>
-
-                        <div class="service-card-content">
-
-                            <h3>Podiatric Pathology</h3>
-
-                            <p>
-                                Specialized pathology services supporting
-                                podiatrists in the diagnosis of foot and
-                                lower-extremity conditions.
-                            </p>
-
-                            <a href="pages/services.html" class="button button-small button-outline">
-                                Learn More
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="service-card">
-
-                        <div class="service-image">
-                            <img
-                                src="assets/images/services/surgical-pathology.png"
-                                alt="Surgical pathology service"
-                            >
-                        </div>
-
-                        <div class="service-card-content">
-
-                            <h3>Surgical Pathology</h3>
-
-                            <p>
-                                Comprehensive surgical pathology services
-                                for the diagnosis and staging of cancer and
-                                other diseases.
-                                healthcare organizations.
-                            </p>
-
-                            <a href="pages/services.html" class="button button-small button-outline">
-                                Learn More
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ========================================
-             05. PHYSICIAN RESOURCES
-        ========================================= -->
-
-        <section class="physician-resources section section-light">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-
-                    <p class="eyebrow">
-                        Physician Resources
-                    </p>
-
-                    <h2>
-                        Resources for Healthcare Providers
-                    </h2>
-
-                </div>
-
-
-                <div class="resource-grid">
-
-                    <!-- TODO: Replace with in-house testing menu link -->
-                    <a href="#" class="resource-card">
-
-                        <div class="resource-icon">
-                            <img
-                                src="assets/images/icons/test-information.png"
-                                alt=""
-                                aria-hidden="true"
-                            >
-                        </div>
-
-                        <h3>In-house Testing Menu</h3>
-
-                        <p>
-                            Benchmark offers vast in-house testing to expedite turnaround time and ensure precision diagnostics. Test menu is also available for technical component (TC) only clients.
-                        </p>
-
-                    </a>
-
-
-                    <!-- TODO: Replace with contracted insurance list link -->
-                    <a href="#" class="resource-card">
-
-                        <div class="resource-icon">
-                            <img
-                                src="assets/images/icons/specimen-guidelines.png"
-                                alt=""
-                                aria-hidden="true"
-                            >
-                        </div>
-
-                        <h3>Contracted Insurance List</h3>
-
-                        <p>
-                            We are contracted with most major insurers and many local companies, including Aultcare.
-                        </p>
-
-                    </a>
-
-
-                    <article class="resource-card">
-
-                        <div class="resource-icon">
-                            <img
-                                src="assets/images/icons/forms.png"
-                                alt=""
-                                aria-hidden="true"
-                            >
-                        </div>
-
-                        <h3>Free Local Courier Service</h3>
-
-                        <p>
-                            Available on a call-in or pre-scheduled basis to meet each client’s individual needs.
-                        </p>
-
-                    </article>
-
-
-                    <a href="pages/physician-resources.html" class="resource-card">
-
-                        <div class="resource-icon">
-                            <img
-                                src="assets/images/icons/ordering-resources.png"
-                                alt=""
-                                aria-hidden="true"
-                            >
-                        </div>
-
-                        <h3>TC/PC Work</h3>
-
-                        <p>
-                            Our ASCP-registered laboratory professionals are available for Technical Component (TC)-only services, including grossing, embedding, microtomy, and staining. Professional Component (PC)-only services are also offered by our skilled and knowledgeable pathologists.
-                        </p>
-
-                    </a>
-
-
-                    <a href="pages/contact.html" class="resource-card">
-
-                        <div class="resource-icon">
-                            <img
-                                src="assets/images/icons/physician-support.png"
-                                alt=""
-                                aria-hidden="true"
-                            >
-                        </div>
-
-                        <h3>Physician Support</h3>
-
-                        <p>
-                            Contact Benchmark Diagnostics for questions or
-                            additional assistance.
-                        </p>
-
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ========================================
-             06. RESEARCH & PUBLICATIONS
-        ========================================= -->
-
-        <section class="research-publications section">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-
-                    <p class="eyebrow">
-                        Research & Publications
-                    </p>
-
-                    <h2>
-                        Advancing Pathology Through Research, Publications, and Lab Communications
-                    </h2>
-
-                </div>
-
-
-                <div class="publication-grid">
-
-                    <article class="publication-card">
-
-                        <div class="publication-image">
-                            <img
-                                src="assets/images/research/laboratory-communications.png"
-                                alt="Laboratory communications and reports"
-                            >
-                        </div>
-
-                        <div class="publication-content">
-
-                            <p class="publication-type">
-                                Laboratory Communications
-                            </p>
-
-                            <h3>
-                                Laboratory Communications
-                            </h3>
-
-                            <p>
-                                Including the monthly “Lab Report”, providing insights beyond diagnosis, and quarterly “Interesting Cases From Our Clinicians”.
-                            </p>
-
-                            <!-- TODO: Replace with Laboratory Communications destination link -->
-                            <a href="pages/research.html" class="text-link">
-                                View Item →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="publication-card">
-
-                        <div class="publication-image">
-                            <img
-                                src="assets/images/research/featured-journal-article.png"
-                                alt="Featured pathology journal article"
-                            >
-                        </div>
-
-                        <div class="publication-content">
-
-                            <p class="publication-type">
-                                Publication
-                            </p>
-
-                            <h3>
-                                Publications & Journal Articles
-                            </h3>
-
-                            <p>
-                                Research publications authored by Dr. Usmani
-                            </p>
-                        <!-- TODO: Replace with Dr. Usmani publications link -->
-                            <a href="pages/research.html" class="text-link">
-                                View Item →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="publication-card">
-
-                        <div class="publication-image">
-                            <img
-                                src="assets/images/services/presentation-image.png"
-                                alt="Original Insights in Dermatopathology"
-                            >
-                        </div>
-
-                        <div class="publication-content">
-
-                            <p class="publication-type">
-                                Presentation
-                            </p>
-
-                            <h3>
-                                Original Insights in Dermatopathology
-                            </h3>
-
-                            <p>
-                                Benchmark Diagnostics Studies Describing Pathological Mechanisms &amp; Observations
-                            </p>
-
-                            <a href="pages/research.html" class="text-link">
-                                View Item →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="publication-card">
-
-                        <div class="publication-image">
-                            <img
-                                src="assets/images/research/blogs-pathology.png"
-                                alt="Blogs about pathology and laboratory medicine"
-                            >
-                        </div>
-
-                        <div class="publication-content">
-
-                            <p class="publication-type">
-                                Blogs
-                            </p>
-
-                            <h3>
-                                Blogs
-                            </h3>
-
-                            <p>
-                                Perspectives in pathology and laboratory medicine.
-                            </p>
-
-                            <!-- TODO: Replace with specific Blogs destination URL -->
-                            <a href="pages/research.html" class="text-link">
-                                View Item →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ========================================
-             08. CONTACT CALL TO ACTION
-        ========================================= -->
-
-        <section class="contact-cta">
-
-            <div class="container contact-cta-inner">
-
-                <div>
-
-                    <p class="eyebrow">
-                        Contact Benchmark Diagnostics
-                    </p>
-
-                    <h2>
-                        Partner With Our Laboratory
-                    </h2>
-
-                    <p>
-                        Contact our team to discuss pathology services,
-                        physician resources or laboratory partnerships.
-                    </p>
-
-                </div>
-
-
-                <a
-                    href="pages/contact.html"
-                    class="button button-primary"
-                >
-                    Contact Our Laboratory
-                </a>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- ========================================
-         09. FOOTER
-    ========================================= -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-grid">
-
-            <div class="footer-brand">
-
-                <a href="index.html" class="site-logo">
-                    <img
-                        src="assets/images/branding/logo.jpg"
-                        alt="Benchmark Diagnostics"
-                        class="site-logo-image"
-                    >
-                </a>
-
-                <p>
-                    Specialized dermatopathology and podiatric pathology
-                    diagnostic services.
-                </p>
-
-                <div class="social-links">
-
-                    <a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>Quick Links</h3>
-
-                <ul>
-                    <li>
-                        <a href="pages/about.html">About</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html">Services</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/research.html">
-                            Educational Resources
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>Services</h3>
-
-                <ul>
-                    <li>
-                        <a href="pages/services.html">
-                            Dermatopathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html">
-                            Podiatric Pathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html">
-                            Diagnostic Consultation
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column footer-contact">
-
-                <h3>Contact Us</h3>
-
-                <p>
-                    6777 Engle Rd, Suite M<br>
-                    Middleburg Heights, OH 44130
-                </p>
-
-                <p>
-                    <a href="tel:+14403597115">(440) 359-7115</a>
-                </p>
-
-                <p>
-                    <a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a>
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="container footer-bottom">
-
-            <p>
-                © 2026 Benchmark Diagnostics, LLC. All Rights Reserved.
+<body class="home">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Benchmark Diagnostics Home">
+            <img src="assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics">
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+                <li><a href="pages/about.html" class="nav-link">About</a></li>
+                <li><a href="pages/services.html" class="nav-link">Services</a></li>
+                <li><a href="pages/research.html" class="nav-link">Educational Resources</a></li>
+                <li class="mobile-only"><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a href="pages/contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
+
+<main id="main">
+
+    <!-- HERO: a microscope lens that follows the cursor over stylised tissue -->
+    <section class="hero" aria-labelledby="hero-title">
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-fallback" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <p class="kicker">Diagnostic pathology expertise</p>
+            <h1 id="hero-title">
+                <span class="line"><span>Precision Diagnostics.</span></span>
+                <span class="line"><span>Personalized Service.</span></span>
+            </h1>
+            <p class="hero-lead">
+                Specialized pathology services providing physicians with timely, reliable, and clinically meaningful diagnoses to support confident decisions and better patient care.
             </p>
-
-
-            <div class="footer-legal">
-
-                <a href="pages/privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="pages/terms-of-use.html">
-                    Terms of Use
-                </a>
-
-                <a href="pages/accessibility.html">
-                    Accessibility
-                </a>
-
+            <div class="hero-actions">
+                <a href="pages/services.html" class="pill pill-solid" data-magnetic><span>Explore Our Services</span></a>
+                <a href="pages/research.html" class="pill pill-ghost" data-magnetic><span>Educational Resources</span></a>
             </div>
-
         </div>
 
-    </footer>
+        <p class="hero-hint" aria-hidden="true">Move your cursor to bring the tissue into focus</p>
+    </section>
 
-    <script src="js/components/navigation.js"></script>
+    <!-- WHY BENCHMARK -->
+    <section class="why" aria-labelledby="why-title">
+        <div class="wrap">
+            <div class="section-head" data-reveal>
+                <p class="kicker kicker-dark">Why Benchmark Diagnostics</p>
+                <h2 id="why-title">Expertise You Can Trust. Service You Can Count On.</h2>
+            </div>
+
+            <div class="why-grid">
+                <article class="why-card why-card-lead" data-spot data-tilt data-reveal>
+                    <img class="why-icon" src="assets/images/icons/microscope.png" alt="" width="154" height="147" loading="lazy">
+                    <h3>Specialized Expertise</h3>
+                    <p>Focused expertise in dermatopathology, podiatric pathology, and selected surgical pathology subspecialties.</p>
+                </article>
+
+                <article class="why-card" data-spot data-reveal>
+                    <img class="why-icon" src="assets/images/icons/accuracy.png" alt="" width="174" height="172" loading="lazy">
+                    <h3>Diagnostic Accuracy</h3>
+                    <p>Thorough tissue evaluation and thoughtful interpretation to deliver clear, reliable, and clinically meaningful findings.</p>
+                </article>
+
+                <article class="why-card" data-spot data-reveal>
+                    <img class="why-icon" src="assets/images/icons/communication.png" alt="" width="162" height="126" loading="lazy">
+                    <h3>Personalized Service</h3>
+                <p>Direct physician-to-pathologist communication, timely reporting, and individualized support for referring providers.</p>
+                </article>
+
+                <article class="why-card" data-spot data-reveal>
+                    <img class="why-icon" src="assets/images/icons/collaboration.png" alt="" width="177" height="132" loading="lazy">
+                    <h3 class="linked"><a href="pages/contact.html">Laboratory Overflow Support</a></h3>
+                <p>Flexible histology and professional interpretation services to assist laboratories during staffing shortages or increased workloads.</p>
+                </article>
+
+                <article class="why-card" data-spot data-reveal>
+                    <img class="why-icon" src="assets/images/icons/research-education.png" alt="" width="183" height="148" loading="lazy">
+                    <h3 class="linked"><a href="pages/research.html">Research &amp; Education</a></h3>
+                <p>Advancing pathology through research, scholarly publications, and continuing medical education.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" aria-labelledby="services-title">
+        <div class="wrap">
+            <div class="section-head" data-reveal>
+                <p class="kicker kicker-dark">Our Services</p>
+                <h2 id="services-title">Pathology Services for Your Practice</h2>
+            </div>
+
+            <div class="service-layout">
+            <ul class="service-list">
+                <li class="service-row" data-reveal>
+                    <img class="service-thumb" src="assets/images/home/dermatopathology.webp" width="340" height="306" alt="Dermatopathology service" loading="lazy">
+                    <h3><a href="pages/services.html#dermatopathology">Dermatopathology</a></h3>
+                <p>Evaluation of inflammatory, neoplastic, and other skin disorders, integrating histopathologic findings with relevant clinical information.</p>
+                <span class="learn">Learn More</span>
+                    <span class="arrow" aria-hidden="true"></span>
+                </li>
+                <li class="service-row" data-reveal>
+                    <img class="service-thumb" src="assets/images/home/podiatric-pathology.webp" width="343" height="391" alt="Podiatric pathology service" loading="lazy">
+                    <h3><a href="pages/services.html#podiatric-pathology">Podiatric Pathology</a></h3>
+                <p>Diagnostic evaluation of skin, nail, and soft tissue disorders of the foot and lower extremity, supporting comprehensive podiatric care.</p>
+                <span class="learn">Learn More</span>
+                    <span class="arrow" aria-hidden="true"></span>
+                </li>
+                <li class="service-row" data-reveal>
+                    <img class="service-thumb" src="assets/images/home/surgical-pathology.webp" width="1100" height="733" alt="Surgical pathology service" loading="lazy">
+                    <h3><a href="pages/services.html#surgical-pathology">Surgical Pathology</a></h3>
+                <p>Focused evaluation of biopsies and surgical specimens, including gastrointestinal, ophthalmic, and other selected surgical pathology cases.</p>
+                <span class="learn">Learn More</span>
+                    <span class="arrow" aria-hidden="true"></span>
+                </li>
+            </ul>
+            <div class="service-stage" aria-hidden="true">
+                <img src="assets/images/home/dermatopathology.webp" alt="" width="340" height="306" loading="lazy">
+                <img src="assets/images/home/podiatric-pathology.webp" alt="" width="343" height="391" loading="lazy">
+                <img src="assets/images/home/surgical-pathology.webp" alt="" width="1100" height="733" loading="lazy">
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHYSICIAN RESOURCES -->
+    <section class="resources" aria-labelledby="resources-title">
+        <div class="wrap resources-grid">
+            <div class="section-head resources-head" data-reveal>
+                <p class="kicker">Physician Resources</p>
+                <h2 id="resources-title">Resources for Healthcare Providers</h2>
+            </div>
+
+            <ul class="resource-list">
+            <li data-reveal><a href="pages/physician-resources.html#downloads" class="resource" data-spot>
+                <span class="resource-icon"><img src="assets/images/icons/test-information.png" alt="" width="156" height="147" loading="lazy"></span>
+                <div class="resource-text"><h3>In-House Testing Menu</h3>
+                <p>Explore our available histochemical stains, immunohistochemistry, and other ancillary diagnostic tests. Technical Component (TC)-only services are also available.</p><span class="res-cta">View Testing Menu</span></div>
+                <span class="arrow" aria-hidden="true"></span></a></li>
+            <li data-reveal><a href="pages/physician-resources.html#downloads" class="resource" data-spot>
+                <span class="resource-icon"><img src="assets/images/icons/specimen-guidelines.png" alt="" width="144" height="139" loading="lazy"></span>
+                <div class="resource-text"><h3>Accepted Insurance Plans</h3>
+                <p>Benchmark Diagnostics participates with major insurance carriers and regional health plans, including AultCare.</p><span class="res-cta">View Insurance List</span></div>
+                <span class="arrow" aria-hidden="true"></span></a></li>
+            <li data-reveal><a href="pages/physician-resources.html#courier-information" class="resource" data-spot>
+                <span class="resource-icon"><img src="assets/images/icons/forms.png" alt="" width="145" height="148" loading="lazy"></span>
+                <div class="resource-text"><h3>Complimentary Local Courier Service</h3>
+                <p>Convenient specimen pickup, available by request or on a regularly scheduled basis to accommodate your practice's needs.</p><span class="res-cta">Request Pickup</span></div>
+                <span class="arrow" aria-hidden="true"></span></a></li>
+            <li data-reveal><a href="pages/physician-resources.html" class="resource" data-spot>
+                <span class="resource-icon"><img src="assets/images/icons/ordering-resources.png" alt="" width="136" height="154" loading="lazy"></span>
+                <div class="resource-text"><h3>Technical &amp; Professional Component Services</h3>
+                <p>Flexible Technical Component (TC) services, including tissue processing, embedding, microtomy, and staining, as well as Professional Component (PC) interpretation by experienced pathologists.</p><span class="res-cta">Explore TC/PC Services</span></div>
+                <span class="arrow" aria-hidden="true"></span></a></li>
+            <li data-reveal><a href="pages/contact.html" class="resource" data-spot>
+                <span class="resource-icon"><img src="assets/images/icons/physician-support.png" alt="" width="154" height="135" loading="lazy"></span>
+                <div class="resource-text"><h3>Physician Support</h3>
+                <p>Direct access to our team for specimen inquiries, diagnostic consultations, and assistance with laboratory services.</p><span class="res-cta">Contact Us</span></div>
+                <span class="arrow" aria-hidden="true"></span></a></li>
+        </ul>
+        </div>
+    </section>
+
+    <!-- RESEARCH & PUBLICATIONS -->
+    <section class="research" aria-labelledby="research-title">
+        <div class="wrap">
+            <div class="research-head">
+                <div class="section-head" data-reveal>
+                    <p class="kicker kicker-dark">Research &amp; Publications</p>
+                    <h2 id="research-title">Advancing Pathology Through Research &amp; Education</h2>
+                </div>
+                <a href="pages/research.html" class="pill pill-line" data-reveal>Browse Educational Resources</a>
+            </div>
+
+            <div class="doc-grid">
+                <article class="doc doc-blue" data-reveal>
+                    <a href="pages/research.html#laboratory-communications" class="doc-link">
+                        <div class="doc-cover"><span class="paper"><img src="assets/images/home/laboratory-communications.webp" width="186" height="189" alt="Laboratory communications and reports" loading="lazy"></span></div>
+                        <p class="type">Laboratory Communications</p>
+                        <h3>The Lab Report &amp; Laboratory Communications</h3>
+                        <p class="doc-text">Practical diagnostic insights, emerging concepts, and interesting clinical cases shared through The Lab Report and other educational communications.</p>
+                        <span class="doc-foot"><span class="more">Explore Laboratory Communications</span><span class="arrow" aria-hidden="true"></span></span>
+                    </a>
+                </article>
+
+                <article class="doc doc-teal" data-reveal>
+                    <a href="pages/research.html#publications" class="doc-link">
+                        <div class="doc-cover"><span class="paper"><img src="assets/images/home/featured-journal-article.webp" width="216" height="217" alt="Featured pathology journal article" loading="lazy"></span></div>
+                        <p class="type">Publication</p>
+                        <h3>Scientific Publications</h3>
+                        <p class="doc-text">Peer-reviewed research and scholarly articles contributing to the understanding of dermatopathology and related disciplines.</p>
+                        <span class="doc-foot"><span class="more">Explore Publications</span><span class="arrow" aria-hidden="true"></span></span>
+                    </a>
+                </article>
+
+                <article class="doc doc-navy doc-wide" data-reveal>
+                    <a href="pages/research.html#original-insights" class="doc-link">
+                        <div class="doc-cover"><span class="paper paper-wide"><img src="assets/images/home/presentation.webp" width="468" height="309" alt="Original Insights in Dermatopathology" loading="lazy"></span></div>
+                        <p class="type">Presentation</p>
+                        <h3>Original Insights in Dermatopathology</h3>
+                        <p class="doc-text">Original observations and investigations exploring histopathologic patterns, disease mechanisms, and diagnostic concepts.</p>
+                        <span class="doc-foot"><span class="more">Explore Original Insights</span><span class="arrow" aria-hidden="true"></span></span>
+                    </a>
+                </article>
+
+                <article class="doc doc-rose" data-reveal>
+                    <a href="pages/research.html#blogs" class="doc-link">
+                        <div class="doc-cover"><span class="paper"><img src="assets/images/home/blogs-pathology.webp" width="214" height="212" alt="Blogs about pathology and laboratory medicine" loading="lazy"></span></div>
+                        <p class="type">Blogs</p>
+                        <h3>Pathology Perspectives</h3>
+                        <p class="doc-text">Commentaries and reflections on pathology, laboratory medicine, and evolving diagnostic practices.</p>
+                        <span class="doc-foot"><span class="more">Explore Blogs</span><span class="arrow" aria-hidden="true"></span></span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="cta" aria-labelledby="cta-title">
+        <div class="cta-glow" aria-hidden="true"></div>
+        <canvas class="cta-canvas" aria-hidden="true"></canvas>
+        <div class="wrap cta-inner">
+            <p class="kicker">Contact Benchmark Diagnostics</p>
+            <h2 id="cta-title">Partner With Benchmark Diagnostics</h2>
+            <p class="cta-lead">Whether you need diagnostic pathology services, physician consultation, or laboratory support, our team is ready to assist.</p>
+            <a href="pages/contact.html" class="pill pill-solid pill-large" data-magnetic><span>Contact Our Laboratory</span></a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
+        </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="pages/about.html">About Us</a></li><li><a href="pages/services.html">Our Services</a></li><li><a href="pages/physician-resources.html">Physician Resources</a></li><li><a href="pages/research.html">Research &amp; Publications</a></li><li><a href="pages/contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="pages/services.html#dermatopathology">Dermatopathology</a></li><li><a href="pages/services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="pages/services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="pages/physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="pages/privacy-policy.html">Privacy Policy</a><a href="pages/terms-of-use.html">Terms of Use</a><a href="pages/accessibility.html">Accessibility</a></div></div>
+</footer>
+
+<script src="js/home.js" defer></script>
 </body>
-
 </html>

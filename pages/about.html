@@ -5,167 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Benchmark Diagnostics</title>
     <meta name="description" content="Learn about Benchmark Diagnostics, our mission, leadership, history, research commitment, and dedication to specialized pathology services.">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/about.css">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/about-page.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-container">
-            <a href="../index.html" class="site-logo" aria-label="Benchmark Diagnostics Home">
-                <img src="../assets/images/branding/logo.jpg" alt="Benchmark Diagnostics" class="site-logo-image">
-            </a>
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link active">About</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="research.html" class="nav-link">Educational Resources</a></li>
-                    <li class="mobile-contact-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="contact.html" class="button button-outline header-contact">Contact</a>
+<body class="about">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="research.html" class="nav-link">Educational Resources</a></li>
+                <li class="mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
+
+<main id="main">
+    <!-- HERO: drifting stained cells; the cursor brings nearby cells into focus -->
+    <section class="hero a-hero" aria-labelledby="about-title" data-hero>
+        <canvas class="a-canvas" aria-hidden="true"></canvas>
+        <div class="hero-fallback" aria-hidden="true"></div>
+        <div class="hero-content" data-hero-content>
+            <p class="kicker">About Benchmark Diagnostics</p>
+            <h1 id="about-title">
+                <span class="line"><span>Dedicated to Excellence</span></span>
+                <span class="line"><span>in Pathology.</span></span>
+            </h1>
+            <p class="hero-lead">Benchmark Diagnostics provides specialized dermatopathology, podiatric pathology, and surgical pathology services with a commitment to diagnostic accuracy, physician collaboration, and responsive support. Our team works closely with healthcare providers to deliver timely, clinically meaningful pathology services tailored to the needs of each practice.</p>
+            <div class="hero-actions"><a href="contact.html" class="pill pill-solid" data-magnetic><span>Partner With Us</span></a></div>
         </div>
-    </header>
+        <p class="hero-hint" aria-hidden="true">Move your cursor to bring the cells into focus</p>
+    </section>
 
-    <main>
-        <section class="about-hero section">
-            <div class="container about-hero-grid">
-                <div class="about-hero-content">
-                    <p class="eyebrow">About Benchmark Diagnostics</p>
-                    <h1>Dedicated to Excellence<br>in Pathology.</h1>
-                    <p class="about-hero-lead">Benchmark Diagnostics provides specialized dermatopathology, podiatric pathology, and surgical pathology services with a commitment to diagnostic accuracy, physician collaboration, and responsive support. Our team works closely with healthcare providers to deliver timely, clinically meaningful pathology services tailored to the needs of each practice.</p>
-                    <a href="contact.html" class="button button-primary">Partner With Us</a>
-                </div>
-                <div class="about-hero-image">
-                    <img src="../assets/images/leadership/about-hero.png" alt="Benchmark Diagnostics pathology laboratory">
-                </div>
+    <!-- OUR STORY: sticky image unmasks, words light up as you read -->
+    <section class="story" aria-labelledby="story-title" data-story>
+        <div class="wrap story-grid">
+            <div class="story-side">
+                <p class="kicker kicker-dark">Our Story</p>
+                <h2 id="story-title">Building a Laboratory Around Quality and Collaboration</h2>
+                <figure class="story-img"><img src="../assets/images/leadership/history.png" alt="Benchmark Diagnostics laboratory team and workspace" loading="lazy"></figure>
             </div>
-        </section>
-
-        <section class="mission-vision section">
-            <div class="container">
-                <div class="section-heading centered">
-                    <p class="eyebrow">Our Purpose</p>
-                    <h2>Our Mission &amp; Vision</h2>
-                </div>
-                <div class="mission-vision-grid">
-                    <article class="mission-vision-card">
-                        <div class="about-icon"><img src="../assets/images/icons/accuracy.png" alt="" aria-hidden="true"></div>
-                        <h3>Our Mission</h3>
-                        <p>To provide physicians with accurate, timely, and clinically meaningful pathology services while maintaining a personalized and collaborative approach to patient care.</p>
-                    </article>
-                    <article class="mission-vision-card">
-                        <div class="about-icon"><img src="../assets/images/icons/research-education.png" alt="" aria-hidden="true"></div>
-                        <h3>Our Vision</h3>
-                        <p>To remain a trusted pathology partner through diagnostic excellence, physician collaboration, research, education, and continued innovation.</p>
-                    </article>
-                </div>
+            <div class="story-text">
+                <p data-words>Benchmark Diagnostics was established with the goal of providing physicians with specialized pathology expertise alongside responsive, personalized laboratory service.</p>
+                <p data-words>Our approach emphasizes diagnostic quality, clear communication, and strong relationships with the physicians and healthcare organizations we serve.</p>
+                <p data-words>As Benchmark Diagnostics continues to grow, those principles remain central to our work.</p>
             </div>
-        </section>
-
-        <section class="leadership section section-light">
-            <div class="container">
-                <div class="section-heading centered">
-                    <p class="eyebrow">Leadership</p>
-                    <h2>Meet Our Leadership</h2>
-                    <p>Experienced pathology professionals dedicated to diagnostic quality, clinical collaboration, and physician service.</p>
-                </div>
-                <div class="leadership-grid">
-                    <article class="leadership-card">
-                        <div class="leadership-image"><img src="../assets/images/leadership/leader-3.png" alt="Benchmark Diagnostics physician"></div>
-                        <div class="leadership-content"><h3>Arif Usmani, M.D.</h3><p class="leadership-title">Lab Director and Dermatopathologist</p><p>Oversees laboratory operations and diagnostic quality while providing dermatopathology expertise and supporting physician collaboration at Benchmark Diagnostics.</p></div>
-                    </article>
-                    <article class="leadership-card">
-                        <div class="leadership-image"><img src="../assets/images/leadership/leader-2.jpg" alt="Benchmark Diagnostics physician"></div>
-                        <div class="leadership-content"><h3>Carolyn Sok, M.D.</h3><p class="leadership-title">Dermatopathologist</p><p>Provides dermatopathology diagnostic services and contributes to the evaluation of skin-related specimens and physician support at Benchmark Diagnostics.</p></div>
-                    </article>
-                    <article class="leadership-card">
-                        <div class="leadership-image"><img src="../assets/images/leadership/leader-1.jpg" alt="Benchmark Diagnostics physician"></div>
-                        <div class="leadership-content"><h3>Karen Turgeon, M.D.</h3><p class="leadership-title">Clinical Consultant, Dermatologist, and Dermatopathologist</p><p>Dr. Turgeon provides invaluable clinical insights during routine intradepartmental challenging case review conferences.</p></div>
-                    </article>
-                    <article class="leadership-card">
-                        <div class="leadership-image"><img src="../assets/images/leadership/leader-4.png" alt="Colleen, Benchmark Diagnostics leadership"></div>
-                        <div class="leadership-content">
-                            <h3>Colleen Caputa, H.T.</h3>
-                            <p class="leadership-title">Lab Supervisor and Practice Manager</p>
-                            <p>Supports day-to-day laboratory operations, workflow management, and practice operations at Benchmark Diagnostics.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-history section">
-            <div class="container history-grid">
-                <div class="history-content">
-                    <p class="eyebrow">Our Story</p>
-                    <h2>Building a Laboratory Around Quality and Collaboration</h2>
-                    <p>Benchmark Diagnostics was established with the goal of providing physicians with specialized pathology expertise alongside responsive, personalized laboratory service.</p>
-                    <p>Our approach emphasizes diagnostic quality, clear communication, and strong relationships with the physicians and healthcare organizations we serve.</p>
-                    <p>As Benchmark Diagnostics continues to grow, those principles remain central to our work.</p>
-                </div>
-                <div class="history-image"><img src="../assets/images/leadership/history.png" alt="Benchmark Diagnostics laboratory team and workspace"></div>
-            </div>
-        </section>
-
-        <section class="research-commitment section section-light">
-            <div class="container research-commitment-grid">
-                <div class="research-commitment-visual"><div class="research-icon-large"><img src="../assets/images/icons/research-education.png" alt="" aria-hidden="true"></div></div>
-                <div class="research-commitment-content">
-                    <p class="eyebrow">Research &amp; Education</p>
-                    <h2>Advancing Pathology Beyond the Laboratory</h2>
-                    <p>Benchmark Diagnostics supports continued research and education as part of our commitment to advancing the field of pathology.</p>
-                    <p>Our research, publications, presentations, and educational activities contribute to ongoing learning and the exchange of knowledge throughout the medical community.</p>
-                    <a href="research.html" class="button button-outline">View Research &amp; Publications</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="accreditations section">
-            <div class="container">
-                <div class="section-heading centered"><p class="eyebrow">Quality &amp; Standards</p><h2>Accreditations &amp; Affiliations</h2></div>
-                <div class="accreditation-grid">
-                    <div class="accreditation-item"><img src="../assets/images/accreditations/accreditation-1.png" alt="Benchmark Diagnostics accreditation"></div>
-                    <div class="accreditation-item"><img src="../assets/images/accreditations/accreditation-2.jpeg" alt="Benchmark Diagnostics accreditation"></div>
-                    <div class="accreditation-item"><img src="../assets/images/accreditations/accreditation-3.png" alt="Benchmark Diagnostics accreditation"></div>
-                    <div class="accreditation-item"><img src="../assets/images/accreditations/accreditation-4.png" alt="Benchmark Diagnostics accreditation"></div>
-                    <div class="accreditation-item"><img src="../assets/images/accreditations/accreditation-5.jpg" alt="Benchmark Diagnostics accreditation"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-cta">
-            <div class="container about-cta-inner">
-                <p class="eyebrow">Work With Benchmark</p>
-                <h2>Partner With a Laboratory Committed to Your Practice</h2>
-                <p>Contact our team to learn more about our pathology services and physician support.</p>
-                <a href="contact.html" class="button button-primary">Contact Our Laboratory</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <a href="../index.html" class="site-logo"><img src="../assets/images/branding/logo.jpg" alt="Benchmark Diagnostics" class="site-logo-image"></a>
-                <p>Specialized dermatopathology and podiatric pathology diagnostic services.</p>
-                <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
-            </div>
-            <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research</a></li></ul></div>
-            <div class="footer-column"><h3>Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#additional-services">Diagnostic Consultation</a></li></ul></div>
-            <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
         </div>
-        <div class="container footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
-    </footer>
-    <script src="../js/components/navigation.js"></script>
+    </section>
+
+    <!-- MISSION & VISION: two lit glass panels -->
+    <section class="mv" aria-labelledby="mv-title">
+        <div class="wrap">
+            <div class="section-head" data-reveal><p class="kicker">Our Purpose</p><h2 id="mv-title">Our Mission &amp; Vision</h2></div>
+            <div class="mv-grid">
+                <article class="mv-panel" data-tilt data-reveal>
+                    <span class="mv-orb" aria-hidden="true"></span>
+                    <span class="mv-num" aria-hidden="true">01</span>
+                    <h3>Our Mission</h3>
+                    <p>To provide physicians with accurate, timely, and clinically meaningful pathology services while maintaining a personalized and collaborative approach to patient care.</p>
+                </article>
+                <article class="mv-panel mv-vision" data-tilt data-reveal style="--d:.12s">
+                    <span class="mv-orb" aria-hidden="true"></span>
+                    <span class="mv-num" aria-hidden="true">02</span>
+                    <h3>Our Vision</h3>
+                    <p>To remain a trusted pathology partner through diagnostic excellence, physician collaboration, research, education, and continued innovation.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="lead" aria-labelledby="lead-title">
+        <div class="wrap">
+            <div class="section-head" data-reveal>
+                <p class="kicker kicker-dark">Leadership</p>
+                <h2 id="lead-title">Meet Our Leadership</h2>
+                <p class="section-sub">Experienced pathology professionals dedicated to diagnostic quality, clinical collaboration, and physician service.</p>
+            </div>
+            <div class="lead-grid">
+                <article class="lead-card" data-tilt data-reveal>
+                    <div class="lead-photo"><img src="../assets/images/leadership/leader-3.png" alt="Benchmark Diagnostics physician" loading="lazy"></div>
+                    <h3>Arif Usmani, M.D.</h3><p class="lead-role">Lab Director and Dermatopathologist</p>
+                    <p>Oversees laboratory operations and diagnostic quality while providing dermatopathology expertise and supporting physician collaboration at Benchmark Diagnostics.</p>
+                </article>
+                <article class="lead-card" data-tilt data-reveal style="--d:.08s">
+                    <div class="lead-photo"><img src="../assets/images/leadership/leader-2.jpg" alt="Benchmark Diagnostics physician" loading="lazy"></div>
+                    <h3>Carolyn Sok, M.D.</h3><p class="lead-role">Dermatopathologist</p>
+                    <p>Provides dermatopathology diagnostic services and contributes to the evaluation of skin-related specimens and physician support at Benchmark Diagnostics.</p>
+                </article>
+                <article class="lead-card" data-tilt data-reveal style="--d:.16s">
+                    <div class="lead-photo"><img src="../assets/images/leadership/leader-1.jpg" alt="Benchmark Diagnostics physician" loading="lazy"></div>
+                    <h3>Karen Turgeon, M.D.</h3><p class="lead-role">Clinical Consultant, Dermatologist, and Dermatopathologist</p>
+                    <p>Dr. Turgeon provides invaluable clinical insights during routine intradepartmental challenging case review conferences.</p>
+                </article>
+                <article class="lead-card" data-tilt data-reveal style="--d:.24s">
+                    <div class="lead-photo"><img src="../assets/images/leadership/leader-4.png" alt="Colleen, Benchmark Diagnostics leadership" loading="lazy"></div>
+                    <h3>Colleen Caputa, H.T.</h3><p class="lead-role">Lab Supervisor and Practice Manager</p>
+                    <p>Supports day-to-day laboratory operations, workflow management, and practice operations at Benchmark Diagnostics.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & EDUCATION: tilting orbit rings -->
+    <section class="rx" aria-labelledby="rx-title">
+        <div class="wrap rx-grid">
+            <div class="rx-visual" aria-hidden="true" data-orbit>
+                <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+                <img src="../assets/images/icons/research-education.png" alt="" width="160" height="160" loading="lazy">
+            </div>
+            <div data-reveal>
+                <p class="kicker">Research &amp; Education</p>
+                <h2 id="rx-title">Advancing Pathology Beyond the Laboratory</h2>
+                <p class="rx-p">Benchmark Diagnostics supports continued research and education as part of our commitment to advancing the field of pathology.</p>
+                <p class="rx-p">Our research, publications, presentations, and educational activities contribute to ongoing learning and the exchange of knowledge throughout the medical community.</p>
+                <a href="research.html" class="pill pill-ghost" data-magnetic><span>View Research &amp; Publications</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCREDITATIONS -->
+    <section class="acc" aria-labelledby="acc-title">
+        <div class="wrap">
+            <div class="section-head" data-reveal><p class="kicker kicker-dark">Quality &amp; Standards</p><h2 id="acc-title">Accreditations &amp; Affiliations</h2></div>
+            <ul class="acc-grid">
+                <li data-reveal><img src="../assets/images/accreditations/accreditation-1.png" alt="Benchmark Diagnostics accreditation" loading="lazy"></li>
+                <li data-reveal style="--d:.06s"><img src="../assets/images/accreditations/accreditation-2.jpeg" alt="Benchmark Diagnostics accreditation" loading="lazy"></li>
+                <li data-reveal style="--d:.12s"><img src="../assets/images/accreditations/accreditation-3.png" alt="Benchmark Diagnostics accreditation" loading="lazy"></li>
+                <li data-reveal style="--d:.18s"><img src="../assets/images/accreditations/accreditation-4.png" alt="Benchmark Diagnostics accreditation" loading="lazy"></li>
+                <li data-reveal style="--d:.24s"><img src="../assets/images/accreditations/accreditation-5.jpg" alt="Benchmark Diagnostics accreditation" loading="lazy"></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" aria-labelledby="cta-title" data-cta>
+        <div class="cta-glow" aria-hidden="true"></div>
+        <canvas class="a-canvas" aria-hidden="true"></canvas>
+        <div class="wrap cta-inner">
+            <p class="kicker">Work With Benchmark</p>
+            <h2 id="cta-title">Partner With a Laboratory Committed to Your Practice</h2>
+            <p class="cta-lead">Contact our team to learn more about our pathology services and physician support.</p>
+            <a href="contact.html" class="pill pill-solid pill-large" data-magnetic><span>Contact Our Laboratory</span></a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
+        </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
+</footer>
+<script src="../js/about.js" defer></script>
 </body>
 </html>

@@ -1,739 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>Contact | Benchmark Diagnostics</title>
-
-	<meta
-		name="description"
-		content="Contact Benchmark Diagnostics for pathology services, physician support, laboratory questions, directions, and office information."
-	>
-
-	<link rel="stylesheet" href="../css/variables.css">
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/layout.css">
-	<link rel="stylesheet" href="../css/components.css">
-	<link rel="stylesheet" href="../css/forms.css">
-	<link rel="stylesheet" href="../css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Benchmark Diagnostics</title>
+    <meta name="description" content="Contact Benchmark Diagnostics for pathology services, physician support, submission forms, collaboration, and general inquiries.">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/inner-pages.css">
 </head>
-
-<body>
-
-	<!-- ========================================
-	     HEADER
-	========================================= -->
-
-	<header class="site-header">
-
-		<div class="container header-container">
-
-			<a
-				href="../index.html"
-				class="site-logo"
-				aria-label="Benchmark Diagnostics Home"
-			>
-				<img
-					src="../assets/images/branding/logo.jpg"
-					alt="Benchmark Diagnostics"
-					class="site-logo-image"
-				>
-			</a>
-
-
-			<button
-				class="menu-toggle"
-				type="button"
-				aria-label="Open navigation menu"
-				aria-expanded="false"
-				aria-controls="main-navigation"
-			>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
-
-
-			<nav
-				class="main-nav"
-				id="main-navigation"
-				aria-label="Main navigation"
-			>
-
-				<ul class="nav-list">
-
-					<li>
-						<a href="../index.html" class="nav-link">
-							Home
-						</a>
-					</li>
-
-					<li>
-						<a href="about.html" class="nav-link">
-							About
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html" class="nav-link">
-							Services
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html" class="nav-link">
-							Educational Resources
-						</a>
-					</li>
-
-					<li class="mobile-contact-item">
-						<a href="contact.html" class="nav-link active">
-							Contact
-						</a>
-					</li>
-
-				</ul>
-
-			</nav>
-
-
-			<a
-				href="contact.html"
-				class="button button-outline header-contact active"
-			>
-				Contact
-			</a>
-
-		</div>
-
-	</header>
-
-
-
-	<main>
-
-		<!-- ========================================
-		     01. CONTACT HERO
-		========================================= -->
-		<section
-			id="contact-form"
-			class="contact-form-section section section-light"
-		>
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Send Us a Message
-					</h2>
-
-				</div>
-
-
-				<div class="contact-form-grid">
-
-					<form
-						class="contact-form"
-						action="https://formspree.io/f/mqpkrlpw"
-						method="post"
-					>
-
-						<div class="form-group">
-
-							<label for="full-name">
-								Full Name
-							</label>
-
-							<input
-								type="text"
-								id="full-name"
-								name="full-name"
-								placeholder="Enter your full name"
-								required
-							>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label for="email">
-								Email Address
-							</label>
-
-							<input
-								type="email"
-								id="email"
-								name="email"
-								placeholder="Enter your email"
-								required
-							>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label for="phone">
-								Phone Number (Optional)
-							</label>
-
-							<input
-								type="tel"
-								id="phone"
-								name="phone"
-								placeholder="Enter your phone number"
-							>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label for="subject">
-								Subject
-							</label>
-
-							<select
-								id="subject"
-								name="subject"
-								required
-							>
-								<option value="">
-									Select a subject
-								</option>
-
-								<option value="general">
-									General Inquiry
-								</option>
-
-								<option value="services">
-									Lab Services
-								</option>
-
-								<option value="support">
-									Physician Support
-								</option>
-
-                                <option value="support">
-									Submission Forms
-								</option>
-
-								<option value="directions">
-									Collaboration
-								</option>
-
-								<option value="other">
-									Other
-								</option>
-							</select>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label for="message">
-								Message
-							</label>
-
-							<textarea
-								id="message"
-								name="message"
-								rows="6"
-								placeholder="Write your message here..."
-								required
-							></textarea>
-
-						</div>
-
-
-						<button
-							type="submit"
-							class="button button-primary"
-						>
-							Submit Message
-						</button>
-
-					</form>
-
-
-					<aside class="response-card">
-
-						<div class="response-icon" aria-hidden="true">
-							◯
-						</div>
-
-						<h3>
-							We Respond Promptly
-						</h3>
-
-						<p>
-							Our team typically responds within one business day.
-						</p>
-
-						<p>
-							For urgent matters, please call our main line.
-						</p>
-
-					</aside>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-
-
-		<!-- ========================================
-		     02. CONTACT INFORMATION
-		========================================= -->
-
-		<section class="contact-information section">
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Contact Us
-					</h2>
-
-				</div>
-
-
-				<div class="contact-info-grid">
-
-					<article class="contact-info-card">
-
-						<div class="contact-info-icon" aria-hidden="true">
-							⌖
-						</div>
-
-						<h3>
-							Location
-						</h3>
-
-						<p>
-						6777 Engle Rd, Suite M
-						<br>
-						Middleburg Heights, OH 44130
-
-					</article>
-
-
-					<article class="contact-info-card">
-
-						<div class="contact-info-icon" aria-hidden="true">
-							☎
-						</div>
-
-						<h3>
-							Phone
-						</h3>
-
-						<p>
-						<a href="tel:+14403597115">
-							(440) 359-7115
-						</a>
-					</p>
-
-
-					</article>
-
-
-					<article class="contact-info-card">
-
-						<div class="contact-info-icon" aria-hidden="true">
-							✉
-						</div>
-
-						<h3>
-							Email
-						</h3>
-
-						<p>
-						<a href="mailto:info@benchmarkdiagnostics.com">
-							info@benchmarkdiagnostics.com
-						</a>
-					</p>
-
-
-					</article>
-
-
-					<article class="contact-info-card">
-
-						<div class="contact-info-icon" aria-hidden="true">
-							🔬
-						</div>
-
-						<h3>
-							Lab Services
-						</h3>
-
-						<p>
-							Lab Director, Dr. Usmani
-							<br>
-							<a href="tel:+14405523388">
-								(440) 552-3388
-							</a>
-						</p>
-
-					</article>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-		<!-- ========================================
-		     05. OFFICE HOURS
-		========================================= -->
-
-		<section class="office-hours section section-light">
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Office Hours
-					</h2>
-
-				</div>
-
-
-				<div class="office-hours-grid">
-
-					<article class="office-hours-card">
-
-						<h3>
-							Monday - Friday
-						</h3>
-
-						<p>
-							7:00 a.m. – 4:30 p.m.
-						</p>
-
-					</article>
-
-
-					<article class="office-hours-card">
-
-						<h3>
-							Saturday
-						</h3>
-
-						<p>
-							Closed
-						</p>
-
-					</article>
-
-
-					<article class="office-hours-card">
-
-						<h3>
-							Sunday
-						</h3>
-
-						<p>
-							Closed
-						</p>
-
-					</article>
-
-
-					<article class="office-hours-card">
-
-						<h3>
-							Holidays
-						</h3>
-
-					</article>
-
-				</div>
-
-			</div>
-
-		</section>
-
-        <!-- ========================================
-		     04. MAP & DIRECTIONS
-		========================================= -->
-
-		<section class="map-directions section">
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Map &amp; Directions
-					</h2>
-
-				</div>
-
-
-				<div class="map-directions-grid">
-
-					<div class="map-placeholder">
-
-						<img
-							src="../assets/images/contact/map-placeholder.jpg"
-							alt="Benchmark Diagnostics contact image"
-						>
-
-					</div>
-
-
-					<div class="directions-content">
-
-						<h3>
-							Find Us
-						</h3>
-
-						<p>
-							We are conveniently located with easy access
-							and parking.
-						</p>
-
-						<a
-							href="https://www.google.com/maps/dir/?api=1&amp;destination=6777+Engle+Rd,+Middleburg+Heights,+OH+44130"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="button button-outline"
-						>
-							Get Directions ↗
-						</a>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-		<!-- ========================================
-		     FINAL CTA
-		========================================= -->
-
-		<section class="contact-final-cta">
-
-			<div class="container contact-final-cta-inner">
-
-				<div class="contact-final-cta-content">
-
-					<div class="contact-final-cta-icon" aria-hidden="true">
-						☏
-					</div>
-
-					<div>
-
-						<h2>
-							Still Have Questions?
-						</h2>
-
-						<p>
-							Our team is here to help. Reach out anytime.
-						</p>
-
-					</div>
-
-				</div>
-
-
-				<a
-					href="#contact-form"
-					class="button button-primary"
-				>
-					Contact Our Laboratory
-				</a>
-
-			</div>
-
-		</section>
-
-	</main>
-
-
-
-	<!-- ========================================
-	     FOOTER
-	========================================= -->
-
-	<footer class="site-footer">
-
-		<div class="container footer-grid">
-
-			<div class="footer-brand">
-
-				<a href="../index.html" class="site-logo">
-
-					<img
-						src="../assets/images/branding/logo.jpg"
-						alt="Benchmark Diagnostics"
-						class="site-logo-image"
-					>
-
-				</a>
-
-				<p>
-					Specialized dermatopathology and podiatric pathology
-					diagnostic services.
-				</p>
-
-
-				<div class="social-links">
-
-					<a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">
-						in
-					</a>
-
-				</div>
-
-			</div>
-
-
-			<div class="footer-column">
-
-				<h3>
-					Quick Links
-				</h3>
-
-				<ul>
-
-					<li>
-						<a href="about.html">
-							About
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html">
-							Services
-						</a>
-					</li>
-
-					<li>
-						<a href="physician-resources.html">
-							Physician Resources
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Research
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-
-
-			<div class="footer-column">
-
-				<h3>
-					Services
-				</h3>
-
-				<ul>
-
-					<li>
-						<a href="services.html#dermatopathology">
-							Dermatopathology
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html#podiatric-pathology">
-							Podiatric Pathology
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html#additional-services">
-							Diagnostic Consultation
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-
-
-			<div class="footer-column footer-contact">
-
-				<h3>
-					Contact Us
-				</h3>
-
-				<p>
-					6777 Engle Rd, Suite M
-					<br>
-					Middleburg Heights, OH 44130
-				</p>
-
-				<p>
-					<a href="tel:+14403597115">
-						(440) 359-7115
-					</a>
-				</p>
-
-				<p>
-					<a href="mailto:info@benchmarkdiagnostics.com">
-						info@benchmarkdiagnostics.com
-					</a>
-				</p>
-
-			</div>
-
-		</div>
-
-
-		<div class="container footer-bottom">
-
-			<p>
-				&copy; 2026 Benchmark Diagnostics, LLC.
-				All Rights Reserved.
-			</p>
-
-
-			<div class="footer-legal">
-
-				<a href="privacy-policy.html">
-					Privacy Policy
-				</a>
-
-				<a href="terms-of-use.html">
-					Terms of Use
-				</a>
-
-				<a href="accessibility.html">
-					Accessibility
-				</a>
-
-			</div>
-
-		</div>
-
-	</footer>
-
-
-	<script src="../js/components/navigation.js"></script>
+<body class="page-inner page-contact">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="research.html" class="nav-link">Educational Resources</a></li>
+                <li class="mobile-only"><a href="contact.html" class="nav-link active" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2v2h1v5.2L4.4 18.6A2 2 0 0 0 6.1 22h11.8a2 2 0 0 0 1.7-3.4L14 9.2V4h1V2H9z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4 2.4-.8 1.3L11 13V7h2z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4zm16 0h-4a3 3 0 0 0-2 .8V20a2 2 0 0 1 2-2h4V4z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 10.2V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></symbol>
+</defs></svg>
+<main id="main">
+
+<section class="hero i-hero c-hero" aria-labelledby="c-title" data-hero>
+    <canvas class="a-canvas" aria-hidden="true"></canvas><div class="hero-fallback" aria-hidden="true"></div>
+    <div class="wrap i-hero-grid">
+        <div class="hero-content">
+            <p class="kicker">Contact</p>
+            <h1 id="c-title"><span class="line"><span>Contact Benchmark</span></span><span class="line"><span>Diagnostics.</span></span></h1>
+            <p class="hero-lead">Our team is here to help. Reach out anytime.</p>
+            <div class="hero-actions"><a href="#contact-form" class="pill pill-solid" data-magnetic><span>Send Us a Message</span></a><a href="tel:+14403597115" class="pill pill-ghost" data-magnetic><span>(440) 359-7115</span></a></div>
+        </div>
+        <ul class="orbs" aria-label="Quick contact" data-parallax>
+            <li style="--k:22;--s:1"><a href="tel:+14403597115" aria-label="Call (440) 359-7115"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>Call</span></a></li>
+            <li style="--k:-30;--s:.8"><a href="mailto:info@benchmarkdiagnostics.com" aria-label="Email info@benchmarkdiagnostics.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span>Email</span></a></li>
+            <li style="--k:40;--s:.9"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6777+Engle+Rd,+Middleburg+Heights,+OH+44130" target="_blank" rel="noopener noreferrer" aria-label="Get directions"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Visit</span></a></li>
+        </ul>
+    </div>
+    <p class="hero-hint" aria-hidden="true">Move your cursor to play with the orbs</p>
+</section>
+
+<section id="contact-form" class="cf" aria-labelledby="cf-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal><p class="kicker kicker-dark">Write to us</p><h2 id="cf-title">Send Us a Message</h2></div>
+        <div class="cf-grid">
+            <form class="contact-form" action="https://formspree.io/f/mqpkrlpw" method="post" data-form data-reveal>
+                <div class="progress" aria-hidden="true"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="bar" cx="18" cy="18" r="15.5" pathLength="100"/></svg><b data-pct>0%</b></div>
+                <div class="field"><input type="text" id="full-name" name="full-name" placeholder=" " required><label for="full-name">Full Name</label></div>
+                <div class="field"><input type="email" id="email" name="email" placeholder=" " required><label for="email">Email Address</label></div>
+                <div class="field"><input type="tel" id="phone" name="phone" placeholder=" "><label for="phone">Phone Number (Optional)</label></div>
+                <fieldset class="subjects"><legend>Subject</legend>
+                    <label><input type="radio" name="subject" value="general" required><span>General Inquiry</span></label>
+                    <label><input type="radio" name="subject" value="services"><span>Lab Services</span></label>
+                    <label><input type="radio" name="subject" value="support"><span>Physician Support</span></label>
+                    <label><input type="radio" name="subject" value="submission-forms"><span>Submission Forms</span></label>
+                    <label><input type="radio" name="subject" value="collaboration"><span>Collaboration</span></label>
+                    <label><input type="radio" name="subject" value="other"><span>Other</span></label>
+                </fieldset>
+                <div class="field"><textarea id="message" name="message" rows="6" placeholder=" " required></textarea><label for="message">Message</label></div>
+                <button type="submit" class="pill pill-dark" data-magnetic><span>Submit Message</span></button>
+                <p class="form-note" role="status" aria-live="polite"></p>
+                <div class="sent" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l8 8 14-16"/></svg><p>Message sent</p></div>
+            </form>
+            <aside class="response-card" data-tilt data-reveal style="--d:.12s">
+                <span class="pulse" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span>
+                <h3>We Respond Promptly</h3>
+                <p>Our team typically responds within one business day.</p>
+                <p>For urgent matters, please call our main line.</p>
+                <a href="tel:+14403597115" class="pill pill-solid" data-magnetic><span>(440) 359-7115</span></a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section class="ci" aria-labelledby="ci-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal><p class="kicker">Reach us</p><h2 id="ci-title">Contact Us</h2></div>
+        <div class="ci-grid">
+            <article class="ci-card" data-tilt data-reveal><span class="ci-ic"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span><h3>Location</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p></article>
+            <article class="ci-card" data-tilt data-reveal style="--d:.08s"><span class="ci-ic"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span><h3>Phone</h3><p><a href="tel:+14403597115">(440) 359-7115</a></p></article>
+            <article class="ci-card" data-tilt data-reveal style="--d:.16s"><span class="ci-ic"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></span><h3>Email</h3><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></article>
+            <article class="ci-card" data-tilt data-reveal style="--d:.24s"><span class="ci-ic"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span><h3>Lab Services</h3><p>Lab Director, Dr. Usmani<br><a href="tel:+14405523388">(440) 552-3388</a></p></article>
+        </div>
+    </div>
+</section>
+
+<section class="oh" aria-labelledby="oh-title" data-hours>
+    <div class="wrap">
+        <div class="section-head" data-reveal><p class="kicker kicker-dark">Hours</p><h2 id="oh-title">Office Hours</h2><p class="open-badge" data-open hidden><i></i><span></span></p></div>
+        <div class="oh-grid">
+            <article class="oh-card" data-days="1,2,3,4,5" data-reveal><h3>Monday - Friday</h3><p>7:00 a.m. – 4:30 p.m.</p><div class="oh-track" aria-hidden="true"><i></i></div></article>
+            <article class="oh-card" data-days="6" data-reveal style="--d:.1s"><h3>Saturday</h3><p>Closed</p><div class="oh-track off" aria-hidden="true"><i></i></div></article>
+            <article class="oh-card" data-days="0" data-reveal style="--d:.2s"><h3>Sunday</h3><p>Closed</p><div class="oh-track off" aria-hidden="true"><i></i></div></article>
+        </div>
+    </div>
+</section>
+
+<section class="map" aria-labelledby="map-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal><p class="kicker">Visit</p><h2 id="map-title">Map &amp; Directions</h2></div>
+        <div class="map-grid">
+            <div class="map-card" data-tilt data-reveal><img src="../assets/images/contact/map-placeholder.jpg" alt="Benchmark Diagnostics contact image" loading="lazy"><span class="map-pin" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span></div>
+            <div class="map-text" data-reveal style="--d:.1s"><h3>Find Us</h3><p>We are conveniently located with easy access and parking.</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=6777+Engle+Rd,+Middleburg+Heights,+OH+44130" target="_blank" rel="noopener noreferrer" class="pill pill-solid" data-magnetic><span>Get Directions ↗</span></a></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title" data-cta>
+    <div class="cta-glow" aria-hidden="true"></div><canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="wrap cta-inner"><p class="kicker">Contact Benchmark Diagnostics</p><h2 id="cta-title">Still Have Questions?</h2><p class="cta-lead">Our team is here to help. Reach out anytime.</p><a href="#contact-form" class="pill pill-solid pill-large" data-magnetic><span>Contact Our Laboratory</span></a></div>
+</section>
+</main>
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
+        </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
+</footer>
 
 </body>
-
 </html>
+<script src="../js/inner-pages.js" defer></script>
