@@ -1,39 +1,105 @@
-/* ========================================
-   LEGAL PAGES
-======================================== */
+/* Legal pages — extends home.css (+ optional inner-pages.css for shared utilities) */
 
-.legal-hero {
-    text-align: center;
+.page-legal .a-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.4s ease;
 }
 
-.legal-hero-inner {
-    max-width: 760px;
-    margin-inline: auto;
+.page-legal .gl > .a-canvas {
+    opacity: 1;
 }
 
-.legal-hero h1 {
-    margin-bottom: 1rem;
+.page-legal .kicker-dark {
+    color: var(--brand);
 }
 
-.legal-hero > .container > p,
-.legal-hero-inner > p:not(.eyebrow) {
-    color: var(--color-text-light);
+/* Compact legal hero */
+.l-hero {
+    min-height: clamp(22rem, 52vh, 34rem);
+    justify-content: flex-end;
+    padding-bottom: clamp(4.5rem, 9vw, 7rem);
+}
+
+.l-hero .hero-fallback {
+    background:
+        radial-gradient(50% 60% at 78% 28%, rgba(95, 208, 230, .22), transparent 62%),
+        radial-gradient(45% 55% at 18% 80%, rgba(23, 101, 163, .45), transparent 65%),
+        radial-gradient(40% 45% at 90% 85%, rgba(229, 143, 176, .16), transparent 70%),
+        var(--ink);
+}
+
+.l-hero.gl .hero-fallback {
+    opacity: .35;
+}
+
+.l-hero .hero-content {
+    margin: 0;
+    max-width: 46rem;
+}
+
+.l-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+}
+
+.l-hero .hero-lead {
+    max-width: 48ch;
 }
 
 .legal-effective-date {
-    margin-top: 1.25rem;
-    font-size: 0.85rem;
+    margin-top: 1.35rem;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: .02em;
+    color: var(--cyan);
 }
 
+.js .legal-effective-date {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.loaded .legal-effective-date {
+    opacity: 1;
+    transform: none;
+    transition: opacity .9s var(--ease), transform .9s var(--ease);
+    transition-delay: .55s;
+}
+
+.page-legal .pill-dark {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+}
+
+.page-legal .pill-dark:hover {
+    background: var(--brand);
+    border-color: var(--brand);
+}
+
+/* Content band */
+.legal-body {
+    position: relative;
+    z-index: 1;
+    margin-top: -2.5rem;
+    padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(4rem, 9vw, 8rem);
+    background: var(--paper);
+    border-radius: 40px 40px 0 0;
+    color: var(--text);
+}
 
 .legal-content-inner {
-    max-width: 900px;
-    margin-inline: auto;
+    max-width: 46rem;
 }
 
 .legal-section {
-    padding-block: 1.75rem;
-    border-bottom: 1px solid var(--color-border);
+    padding-block: 1.85rem;
+    border-bottom: 1px solid var(--line);
 }
 
 .legal-section:first-child {
@@ -42,41 +108,155 @@
 
 .legal-section:last-child {
     border-bottom: none;
+    padding-bottom: 0;
 }
 
 .legal-section h2 {
-    margin-bottom: 0.8rem;
-    font-size: 1.35rem;
+    margin-bottom: .85rem;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    color: var(--text);
 }
 
-.legal-section p {
+.legal-section p,
+.legal-section li {
     line-height: 1.75;
-    color: var(--color-text-light);
+    color: var(--muted);
+}
+
+.legal-section p + p,
+.legal-section p + ul,
+.legal-section ul + p {
+    margin-top: 1rem;
+}
+
+.legal-section ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.legal-section li + li {
+    margin-top: .45rem;
 }
 
 .legal-contact {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
+    padding: 1.5rem 1.6rem;
     font-style: normal;
     line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: 0 24px 50px -40px rgba(7, 27, 48, .45);
+}
+
+.legal-contact strong {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: 1.05rem;
 }
 
 .legal-contact a {
-    color: var(--color-primary);
+    color: var(--brand);
+    text-decoration: none;
+    background: linear-gradient(var(--brand), var(--brand)) 0 100% / 0 2px no-repeat;
+    transition: background-size .45s var(--ease), color .3s;
 }
 
+.legal-contact a:hover {
+    background-size: 100% 2px;
+    color: var(--navy);
+}
+
+/* 404 */
+.page-error .error-panel {
+    position: relative;
+    z-index: 1;
+    margin-top: -2.5rem;
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background: var(--paper);
+    border-radius: 40px 40px 0 0;
+    text-align: center;
+}
+
+.page-error .error-code {
+    margin: 0;
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 300;
+    letter-spacing: -.06em;
+    line-height: .9;
+    color: var(--brand);
+}
+
+.page-error .error-panel h2 {
+    margin: 1.25rem 0 .75rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    letter-spacing: -.03em;
+    color: var(--text);
+}
+
+.page-error .error-panel > .wrap > p {
+    max-width: 42ch;
+    margin-inline: auto;
+    color: var(--muted);
+}
+
+.page-error .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .85rem;
+    margin-top: 2rem;
+}
+
+.page-error .error-help {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+.page-error .error-help p {
+    margin-bottom: 1rem;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.page-error .error-help-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem 1.25rem;
+}
+
+.page-error .error-help-links a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 600;
+    background: linear-gradient(var(--brand), var(--brand)) 0 100% / 0 2px no-repeat;
+    transition: background-size .45s var(--ease);
+}
+
+.page-error .error-help-links a:hover {
+    background-size: 100% 2px;
+}
 
 @media (max-width: 750px) {
-
-    .legal-hero {
-        text-align: left;
+    .l-hero {
+        min-height: auto;
+        padding-top: calc(var(--header-h) + 3rem);
+        padding-bottom: 5rem;
     }
 
-    .legal-content-inner {
-        max-width: none;
+    .legal-body {
+        border-radius: 28px 28px 0 0;
+        margin-top: -1.75rem;
     }
 
-    .legal-section h2 {
-        font-size: 1.2rem;
+    .page-error .error-panel {
+        border-radius: 28px 28px 0 0;
+        margin-top: -1.75rem;
     }
-
 }

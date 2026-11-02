@@ -1,374 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Page Not Found | Benchmark Diagnostics</title>
-
-    <meta
-        name="description"
-        content="The page you are looking for could not be found. Return to Benchmark Diagnostics or explore our pathology services and physician resources."
-    >
-
+    <meta name="description" content="The page you are looking for could not be found. Return to Benchmark Diagnostics or explore our pathology services and physician resources.">
     <meta name="robots" content="noindex, follow">
-
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/legal.css">
 </head>
+<body class="page-inner page-legal page-error">
+<a class="skip-link" href="#main">Skip to content</a>
 
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="pages/about.html" class="nav-link">About</a></li>
+                <li><a href="pages/services.html" class="nav-link">Services</a></li>
+                <li><a href="pages/research.html" class="nav-link">Educational Resources</a></li>
+                <li class="mobile-only"><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="pages/contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
 
-<body>
+<main id="main">
 
-    <!-- ========================================
-         HEADER
-    ========================================= -->
-
-    <header class="site-header">
-
-        <div class="container header-container">
-
-            <a
-                href="index.html"
-                class="site-logo"
-                aria-label="Benchmark Diagnostics Home"
-            >
-                <img
-                    src="assets/images/branding/logo.jpg"
-                    alt="Benchmark Diagnostics"
-                    class="site-logo-image"
-                >
-            </a>
-
-
-            <button
-                class="menu-toggle"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="main-navigation"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-
-            <nav
-                class="main-nav"
-                id="main-navigation"
-                aria-label="Main navigation"
-            >
-
-                <ul class="nav-list">
-
-                    <li>
-                        <a href="index.html" class="nav-link">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/about.html" class="nav-link">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html" class="nav-link">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/research.html" class="nav-link">
-                            Educational Resources
-                        </a>
-                    </li>
-
-                    <li class="mobile-contact-item">
-                        <a
-                            href="pages/contact.html"
-                            class="nav-link"
-                        >
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-
-            <a
-                href="pages/contact.html"
-                class="button button-outline header-contact"
-            >
-                Contact
-            </a>
-
+<section class="hero l-hero" aria-labelledby="error-title" data-hero>
+    <canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="wrap">
+        <div class="hero-content">
+            <p class="kicker">Page Not Found</p>
+            <h1 id="error-title">
+                <span class="line"><span>We Couldn't Find</span></span>
+                <span class="line"><span>That Page.</span></span>
+            </h1>
+            <p class="hero-lead">The page you are looking for may have been moved, removed, or the address may be incorrect.</p>
         </div>
-
-    </header>
-
-
-    <!-- ========================================
-         404 CONTENT
-    ========================================= -->
-
-    <main>
-
-        <section class="error-page">
-
-            <div class="container error-page-inner">
-
-                <p class="error-code" aria-hidden="true">
-                    404
-                </p>
-
-                <p class="eyebrow">
-                    Page Not Found
-                </p>
-
-                <h1>
-                    We Couldn't Find That Page.
-                </h1>
-
-                <p class="error-description">
-                    The page you are looking for may have been moved,
-                    removed, or the address may be incorrect.
-                </p>
-
-
-                <div class="error-actions">
-
-                    <a
-                        href="index.html"
-                        class="button button-primary"
-                    >
-                        Return Home
-                    </a>
-
-                    <a
-                        href="pages/contact.html"
-                        class="button button-outline"
-                    >
-                        Contact Us
-                    </a>
-
-                </div>
-
-
-                <div class="error-help">
-
-                    <p>
-                        You may also be looking for:
-                    </p>
-
-                    <div class="error-links">
-
-                        <a href="pages/services.html">
-                            Pathology Services
-                        </a>
-
-                        <a href="pages/physician-resources.html">
-                            Physician Resources
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-grid">
-
-
-            <!-- Brand -->
-
-            <div class="footer-brand">
-
-                <a
-                    href="index.html"
-                    class="site-logo"
-                    aria-label="Benchmark Diagnostics Home"
-                >
-                    <img
-                        src="assets/images/branding/logo.jpg"
-                        alt="Benchmark Diagnostics"
-                        class="site-logo-image"
-                    >
-                </a>
-
-                <p>
-                    Specialized dermatopathology and podiatric pathology
-                    diagnostic services.
-                </p>
-
-
-                <div class="social-links">
-
-                    <a
-                        href="https://www.linkedin.com/company/benchmark-diagnostics/"
-                        aria-label="Benchmark Diagnostics on LinkedIn"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        in
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Quick Links -->
-
-            <div class="footer-column">
-
-                <h3>Quick Links</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="pages/about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/physician-resources.html">
-                            Physician Resources
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/research.html">
-                            Research
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- Services -->
-
-            <div class="footer-column">
-
-                <h3>Services</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="pages/services.html#dermatopathology">
-                            Dermatopathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html#podiatric-pathology">
-                            Podiatric Pathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/services.html#additional-services">
-                            Consultations
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- Contact -->
-
-            <div class="footer-column footer-contact">
-
-                <h3>Contact Us</h3>
-
-                <p>
-                    6777 Engle Rd., Suite M
-                    <br>
-                    Middleburg Heights, OH 44130
-                </p>
-
-                <p>
-                    <a href="tel:+14403597115">
-                        (440) 359-7115
-                    </a>
-                </p>
-
-                <p>
-                    <a href="mailto:info@benchmarkdiagnostics.com">
-                        info@benchmarkdiagnostics.com
-                    </a>
-                </p>
-
-            </div>
-
+    </div>
+</section>
+
+<section class="error-panel" aria-label="Helpful next steps">
+    <div class="wrap">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h2>Let's get you back on track</h2>
+        <p>Return home or contact our team — we're happy to help you find what you need.</p>
+        <div class="error-actions">
+            <a href="index.html" class="pill pill-dark" data-magnetic><span>Return Home</span></a>
+            <a href="pages/contact.html" class="pill" data-magnetic><span>Contact Us</span></a>
         </div>
-
-
-        <!-- Footer Bottom -->
-
-        <div class="container footer-bottom">
-
-            <p>
-                &copy; 2026 Benchmark Diagnostics, LLC.
-                All Rights Reserved.
-            </p>
-
-
-            <div class="footer-legal">
-
-                <a href="pages/privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="pages/terms-of-use.html">
-                    Terms of Use
-                </a>
-
-                <a href="pages/accessibility.html">
-                    Accessibility
-                </a>
-
+        <div class="error-help">
+            <p>You may also be looking for:</p>
+            <div class="error-help-links">
+                <a href="pages/services.html">Pathology Services</a>
+                <a href="pages/physician-resources.html">Physician Resources</a>
             </div>
-
         </div>
+    </div>
+</section>
 
-    </footer>
+</main>
 
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
+        </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="pages/about.html">About Us</a></li><li><a href="pages/services.html">Our Services</a></li><li><a href="pages/physician-resources.html">Physician Resources</a></li><li><a href="pages/research.html">Research &amp; Publications</a></li><li><a href="pages/contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="pages/services.html#dermatopathology">Dermatopathology</a></li><li><a href="pages/services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="pages/services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="pages/physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="pages/privacy-policy.html">Privacy Policy</a><a href="pages/terms-of-use.html">Terms of Use</a><a href="pages/accessibility.html">Accessibility</a></div></div>
+</footer>
 
-    <!-- Navigation JS -->
-
-    <script src="js/components/navigation.js"></script>
-
+<script src="js/inner-pages.js" defer></script>
 </body>
-
 </html>

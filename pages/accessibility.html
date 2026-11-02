@@ -1,542 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Accessibility | Benchmark Diagnostics</title>
-
-    <meta
-        name="description"
-        content="Learn about Benchmark Diagnostics' commitment to website accessibility and how to request assistance accessing website content."
-    >
-
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/components.css">
+    <meta name="description" content="Learn about Benchmark Diagnostics' commitment to website accessibility and how to request assistance accessing website content.">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/legal.css">
-    <link rel="stylesheet" href="../css/responsive.css">
 </head>
+<body class="page-inner page-legal">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<body>
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="research.html" class="nav-link">Educational Resources</a></li>
+                <li class="mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
 
-    <!-- ========================================
-         HEADER
-    ========================================= -->
+<main id="main">
 
-    <header class="site-header">
-
-        <div class="container header-container">
-
-            <a
-                href="../index.html"
-                class="site-logo"
-                aria-label="Benchmark Diagnostics Home"
-            >
-                <img
-                    src="../assets/images/branding/logo.jpg"
-                    alt="Benchmark Diagnostics"
-                    class="site-logo-image"
-                >
-            </a>
-
-            <button
-                class="menu-toggle"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="main-navigation"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav
-                class="main-nav"
-                id="main-navigation"
-                aria-label="Main navigation"
-            >
-
-                <ul class="nav-list">
-
-                    <li>
-                        <a href="../index.html" class="nav-link">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="about.html" class="nav-link">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="services.html" class="nav-link">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="research.html" class="nav-link">
-                            Educational Resources
-                        </a>
-                    </li>
-
-                    <li class="mobile-contact-item">
-                        <a href="contact.html" class="nav-link">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <a
-                href="contact.html"
-                class="button button-outline header-contact"
-            >
-                Contact
-            </a>
-
+<section class="hero l-hero" aria-labelledby="a11y-title" data-hero>
+    <canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="wrap">
+        <div class="hero-content">
+            <p class="kicker">Accessibility</p>
+            <h1 id="a11y-title">
+                <span class="line"><span>Accessibility</span></span>
+                <span class="line"><span>Statement</span></span>
+            </h1>
+            <p class="hero-lead">Benchmark Diagnostics is committed to providing an accessible and usable website experience for all visitors.</p>
+            <p class="legal-effective-date">Last Updated: September 3, 2026</p>
         </div>
+    </div>
+</section>
 
-    </header>
+<section class="legal-body" aria-label="Accessibility Statement details">
+    <div class="wrap legal-content-inner">
 
-
-    <main>
-
-        <!-- ========================================
-             LEGAL HERO
-        ========================================= -->
-
-        <section class="legal-hero section section-light">
-
-            <div class="container legal-hero-inner">
-
-                <p class="eyebrow">
-                    Accessibility
-                </p>
-
-                <h1>
-                    Accessibility Statement
-                </h1>
-
-                <p>
-                    Benchmark Diagnostics is committed to providing
-                    an accessible and usable website experience for all visitors.
-                </p>
-
-                <p class="legal-effective-date">
-                    Last Updated: September 3, 2026
-                </p>
-
-            </div>
-
+        <section class="legal-section" data-reveal>
+            <h2>1. Our Commitment</h2>
+            <p>Benchmark Diagnostics is committed to making its website accessible to as many people as possible, including individuals who use assistive technologies or have visual, auditory, motor, or cognitive disabilities.</p>
+            <p>We aim to provide website content and functionality in a clear, understandable, and accessible manner.</p>
         </section>
 
-
-        <!-- ========================================
-             ACCESSIBILITY CONTENT
-        ========================================= -->
-
-        <section class="legal-content section">
-
-            <div class="container legal-content-inner">
-
-
-                <section class="legal-section">
-
-                    <h2>1. Our Commitment</h2>
-
-                    <p>
-                        Benchmark Diagnostics is committed to making its website
-                        accessible to as many people as possible, including
-                        individuals who use assistive technologies or have
-                        visual, auditory, motor, or cognitive disabilities.
-                    </p>
-
-                    <p>
-                        We aim to provide website content and functionality in
-                        a clear, understandable, and accessible manner.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>2. Accessibility Features</h2>
-
-                    <p>
-                        Accessibility considerations incorporated into this
-                        website may include:
-                    </p>
-
-                    <ul>
-                        <li>Semantic HTML structure</li>
-                        <li>Descriptive alternative text for meaningful images</li>
-                        <li>Keyboard-accessible navigation and controls</li>
-                        <li>Visible keyboard focus indicators</li>
-                        <li>Clear heading structure</li>
-                        <li>Readable text sizing and spacing</li>
-                        <li>Sufficient color contrast</li>
-                        <li>Responsive layouts for different screen sizes</li>
-                        <li>Descriptive link and button labels</li>
-                        <li>Form labels associated with form fields</li>
-                    </ul>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>3. Assistive Technology</h2>
-
-                    <p>
-                        This website is designed to support commonly used
-                        browsers and assistive technologies, including screen
-                        readers, keyboard navigation, browser zoom, and other
-                        accessibility tools.
-                    </p>
-
-                    <p>
-                        Website accessibility may vary depending on the browser,
-                        device, operating system, or assistive technology being
-                        used.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>4. Keyboard Navigation</h2>
-
-                    <p>
-                        Visitors should be able to navigate key areas of the
-                        website using a keyboard without requiring a mouse.
-                    </p>
-
-                    <p>
-                        Interactive elements such as navigation links, buttons,
-                        forms, and expandable content are intended to be
-                        accessible through standard keyboard controls.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>5. Images and Visual Content</h2>
-
-                    <p>
-                        Meaningful website images are provided with descriptive
-                        alternative text where appropriate. Decorative images
-                        may use empty alternative text so that they do not
-                        unnecessarily interrupt screen-reader navigation.
-                    </p>
-
-                    <p>
-                        Pathology imagery and PathArt content may contain highly
-                        visual scientific information. Where possible,
-                        accompanying titles, descriptions, and educational
-                        information are provided to give additional context.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>6. Forms</h2>
-
-                    <p>
-                        Website forms are designed with visible labels and
-                        accessible field structures to support keyboard and
-                        assistive-technology users.
-                    </p>
-
-                    <p>
-                        If you encounter difficulty completing or submitting
-                        a form, you may contact Benchmark Diagnostics directly
-                        using the phone number or email address listed below.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>7. Documents and Downloads</h2>
-
-                    <p>
-                        Benchmark Diagnostics may provide downloadable forms,
-                        guides, reports, presentations, or other documents
-                        through this website.
-                    </p>
-
-                    <p>
-                        Some third-party or legacy documents may not be fully
-                        accessible. If you experience difficulty accessing a
-                        document, please contact Benchmark Diagnostics to
-                        request assistance or an alternative format when
-                        available.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>8. Third-Party Content</h2>
-
-                    <p>
-                        This website may link to external websites, maps,
-                        social media platforms, publications, or other
-                        third-party services.
-                    </p>
-
-                    <p>
-                        Benchmark Diagnostics does not control the accessibility
-                        of third-party websites or services and cannot guarantee
-                        that those resources meet the same accessibility
-                        standards as this website.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>9. Ongoing Improvements</h2>
-
-                    <p>
-                        Website accessibility is an ongoing effort. Benchmark
-                        Diagnostics may periodically review and improve website
-                        content, navigation, structure, and functionality as the
-                        website evolves.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>10. Accessibility Assistance</h2>
-
-                    <p>
-                        If you experience difficulty accessing any part of this
-                        website, encounter an accessibility barrier, or need
-                        information in another format, please contact us.
-                    </p>
-
-                    <p>
-                        When contacting us, it may be helpful to identify the
-                        page or content you were attempting to access and
-                        describe the accessibility issue you encountered.
-                    </p>
-
-                </section>
-
-
-                <section class="legal-section">
-
-                    <h2>11. Contact Us</h2>
-
-                    <p>
-                        For accessibility questions, feedback, or assistance,
-                        please contact:
-                    </p>
-
-                    <address class="legal-contact">
-
-                        <strong>Benchmark Diagnostics</strong><br>
-
-                        6777 Engle Rd., Suite M<br>
-
-                        Middleburg Heights, OH 44130<br><br>
-
-                        <a href="tel:+14403597115">
-                            (440) 359-7115
-                        </a><br>
-
-                        <a href="mailto:info@benchmarkdiagnostics.com">
-                            info@benchmarkdiagnostics.com
-                        </a>
-
-                    </address>
-
-                </section>
-
-            </div>
-
+        <section class="legal-section" data-reveal>
+            <h2>2. Accessibility Features</h2>
+            <p>Accessibility considerations incorporated into this website may include:</p>
+            <ul>
+                <li>Semantic HTML structure</li>
+                <li>Descriptive alternative text for meaningful images</li>
+                <li>Keyboard-accessible navigation and controls</li>
+                <li>Visible keyboard focus indicators</li>
+                <li>Clear heading structure</li>
+                <li>Readable text sizing and spacing</li>
+                <li>Sufficient color contrast</li>
+                <li>Responsive layouts for different screen sizes</li>
+                <li>Descriptive link and button labels</li>
+                <li>Form labels associated with form fields</li>
+            </ul>
         </section>
 
-    </main>
+        <section class="legal-section" data-reveal>
+            <h2>3. Assistive Technology</h2>
+            <p>This website is designed to support commonly used browsers and assistive technologies, including screen readers, keyboard navigation, browser zoom, and other accessibility tools.</p>
+            <p>Website accessibility may vary depending on the browser, device, operating system, or assistive technology being used.</p>
+        </section>
 
+        <section class="legal-section" data-reveal>
+            <h2>4. Keyboard Navigation</h2>
+            <p>Visitors should be able to navigate key areas of the website using a keyboard without requiring a mouse.</p>
+            <p>Interactive elements such as navigation links, buttons, forms, and expandable content are intended to be accessible through standard keyboard controls.</p>
+        </section>
 
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
+        <section class="legal-section" data-reveal>
+            <h2>5. Images and Visual Content</h2>
+            <p>Meaningful website images are provided with descriptive alternative text where appropriate. Decorative images may use empty alternative text so that they do not unnecessarily interrupt screen-reader navigation.</p>
+            <p>Pathology imagery and PathArt content may contain highly visual scientific information. Where possible, accompanying titles, descriptions, and educational information are provided to give additional context.</p>
+        </section>
 
-    <footer class="site-footer">
+        <section class="legal-section" data-reveal>
+            <h2>6. Forms</h2>
+            <p>Website forms are designed with visible labels and accessible field structures to support keyboard and assistive-technology users.</p>
+            <p>If you encounter difficulty completing or submitting a form, you may contact Benchmark Diagnostics directly using the phone number or email address listed below.</p>
+        </section>
 
-        <div class="container footer-grid">
+        <section class="legal-section" data-reveal>
+            <h2>7. Documents and Downloads</h2>
+            <p>Benchmark Diagnostics may provide downloadable forms, guides, reports, presentations, or other documents through this website.</p>
+            <p>Some third-party or legacy documents may not be fully accessible. If you experience difficulty accessing a document, please contact Benchmark Diagnostics to request assistance or an alternative format when available.</p>
+        </section>
 
-            <div class="footer-brand">
+        <section class="legal-section" data-reveal>
+            <h2>8. Third-Party Content</h2>
+            <p>This website may link to external websites, maps, social media platforms, publications, or other third-party services.</p>
+            <p>Benchmark Diagnostics does not control the accessibility of third-party websites or services and cannot guarantee that those resources meet the same accessibility standards as this website.</p>
+        </section>
 
-                <a href="../index.html" class="site-logo">
+        <section class="legal-section" data-reveal>
+            <h2>9. Ongoing Improvements</h2>
+            <p>Website accessibility is an ongoing effort. Benchmark Diagnostics may periodically review and improve website content, navigation, structure, and functionality as the website evolves.</p>
+        </section>
 
-                    <img
-                        src="../assets/images/branding/logo.jpg"
-                        alt="Benchmark Diagnostics"
-                        class="site-logo-image"
-                    >
+        <section class="legal-section" data-reveal>
+            <h2>10. Accessibility Assistance</h2>
+            <p>If you experience difficulty accessing any part of this website, encounter an accessibility barrier, or need information in another format, please contact us.</p>
+            <p>When contacting us, it may be helpful to identify the page or content you were attempting to access and describe the accessibility issue you encountered.</p>
+        </section>
 
-                </a>
+        <section class="legal-section" data-reveal>
+            <h2>11. Contact Us</h2>
+            <p>For accessibility questions, feedback, or assistance, please contact:</p>
+            <address class="legal-contact">
+                <strong>Benchmark Diagnostics</strong>
+                6777 Engle Rd., Suite M<br>
+                Middleburg Heights, OH 44130<br><br>
+                <a href="tel:+14403597115">(440) 359-7115</a><br>
+                <a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a>
+            </address>
+        </section>
 
-                <p>
-                    Specialized dermatopathology and podiatric pathology
-                    diagnostic services.
-                </p>
+    </div>
+</section>
 
-                <div class="social-links">
+<section class="cta" aria-labelledby="cta-title" data-cta>
+    <div class="cta-glow" aria-hidden="true"></div>
+    <canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="wrap cta-inner">
+        <p class="kicker">Need help?</p>
+        <h2 id="cta-title">Accessibility Assistance</h2>
+        <p class="cta-lead">If you encounter a barrier or need content in another format, we are here to help.</p>
+        <a href="contact.html" class="pill pill-solid pill-large" data-magnetic><span>Contact Us</span></a>
+    </div>
+</section>
 
-                    <a
-                        href="https://www.linkedin.com/company/benchmark-diagnostics/"
-                        aria-label="Benchmark Diagnostics on LinkedIn"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        in
-                    </a>
+</main>
 
-                </div>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>Quick Links</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-
-                    <li>
-                        <a href="physician-resources.html">
-                            Physician Resources
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="research.html">Research</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>Services</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="services.html#dermatopathology">
-                            Dermatopathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="services.html#podiatric-pathology">
-                            Podiatric Pathology
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="services.html#additional-services">
-                            Consultations
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column footer-contact">
-
-                <h3>Contact Us</h3>
-
-                <p>
-                    6777 Engle Rd., Suite M
-                    <br>
-                    Middleburg Heights, OH 44130
-                </p>
-
-                <p>
-                    <a href="tel:+14403597115">
-                        (440) 359-7115
-                    </a>
-                </p>
-
-                <p>
-                    <a href="mailto:info@benchmarkdiagnostics.com">
-                        info@benchmarkdiagnostics.com
-                    </a>
-                </p>
-
-            </div>
-
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
         </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html" aria-current="page">Accessibility</a></div></div>
+</footer>
 
-
-        <div class="container footer-bottom">
-
-            <p>
-                &copy; 2026 Benchmark Diagnostics, LLC.
-                All Rights Reserved.
-            </p>
-
-            <div class="footer-legal">
-
-                <a href="privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="terms-of-use.html">
-                    Terms of Use
-                </a>
-
-                <a href="accessibility.html">
-                    Accessibility
-                </a>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <script src="../js/components/navigation.js"></script>
-
+<script src="../js/inner-pages.js" defer></script>
 </body>
-
 </html>
