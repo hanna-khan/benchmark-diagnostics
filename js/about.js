@@ -29,7 +29,7 @@
 
     /* Tilt + light on panels/cards (pointer only; content is always visible, so touch/keyboard lose nothing) */
     if (fine && !reduce) $$("[data-tilt]").forEach(el => {
-        const k = el.classList.contains("mv-panel") ? 5 : 7;
+        const k = el.classList.contains("mv-panel") ? 5 : el.hasAttribute("data-lead-card") ? 4 : 7;
         el.addEventListener("pointermove", e => {
             const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
             el.style.setProperty("--ry", ((x - .5) * k).toFixed(2)); el.style.setProperty("--rx", ((.5 - y) * k).toFixed(2));
@@ -37,6 +37,33 @@
         });
         el.addEventListener("pointerleave", () => { el.style.setProperty("--rx", 0); el.style.setProperty("--ry", 0); });
     });
+
+    /* Soft leadership hover tone (Web Audio; skipped for reduced motion / coarse pointers) */
+    if (fine && !reduce && typeof AudioContext !== "undefined") {
+        let ctx;
+        const chime = () => {
+            try {
+                ctx = ctx || new AudioContext();
+                if (ctx.state === "suspended") ctx.resume();
+                const t0 = ctx.currentTime;
+                const o = ctx.createOscillator();
+                const g = ctx.createGain();
+                o.type = "sine";
+                o.frequency.setValueAtTime(660, t0);
+                o.frequency.exponentialRampToValueAtTime(880, t0 + .08);
+                g.gain.setValueAtTime(0.0001, t0);
+                g.gain.exponentialRampToValueAtTime(0.028, t0 + .02);
+                g.gain.exponentialRampToValueAtTime(0.0001, t0 + .22);
+                o.connect(g); g.connect(ctx.destination);
+                o.start(t0); o.stop(t0 + .24);
+            } catch (_) { /* ignore blocked audio */ }
+        };
+        $$("[data-lead-card]").forEach(el => {
+            let armed = true;
+            el.addEventListener("pointerenter", () => { if (armed) { armed = false; chime(); } });
+            el.addEventListener("pointerleave", () => { armed = true; });
+        });
+    }
 
     /* Research orbit follows cursor across the section */
     const orbit = $("[data-orbit]");
