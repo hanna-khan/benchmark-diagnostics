@@ -194,8 +194,8 @@ vec3 vor(vec2 p,float t){vec2 g=floor(p),f=fract(p);float d1=8.,d2=8.;vec2 id=ve
 void main(){
  vec2 uv=gl_FragCoord.xy/uR;float asp=uR.x/uR.y;
  vec2 p=(uv-.5)*vec2(asp,1.),m=(uM-.5)*vec2(asp,1.);
- float R=.24;float dl=length(p-m);
- float lens=smoothstep(R,R-.03,dl);
+ float R=.155;float dl=length(p-m);
+ float lens=smoothstep(R,R-.022,dl);
  vec2 q=mix(p,m+(p-m)*.6,lens);
  float sc=8.;
  vec3 v=vor(q*sc,uT*.22);
