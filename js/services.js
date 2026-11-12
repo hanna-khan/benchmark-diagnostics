@@ -72,12 +72,13 @@
         if (fine && !reduce) { stage.addEventListener("pointermove", e => { const r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; stage.style.setProperty("--ry", ((x - .5) * 7).toFixed(2)); stage.style.setProperty("--rx", ((.5 - y) * 7).toFixed(2)); stage.style.setProperty("--mx", x * 100 + "%"); stage.style.setProperty("--my", y * 100 + "%"); }); stage.addEventListener("pointerleave", () => { stage.style.setProperty("--rx", 0); stage.style.setProperty("--ry", 0); }); }
     }
 
-    /* FAQ: one open at a time */
-    $$("[data-faq] details").forEach(d => d.addEventListener("toggle", () => { if (d.open) $$("[data-faq] details").forEach(o => o !== d && (o.open = false)); }));
-
-    /* FAQ orbs drift against the cursor */
-    const fl = $("[data-float]");
-    if (fl && fine && !reduce) $(".faq").addEventListener("pointermove", e => { fl.style.setProperty("--fx", ((e.clientX / innerWidth - .5) * 2).toFixed(2)); fl.style.setProperty("--fy", ((e.clientY / innerHeight - .5) * 2).toFixed(2)); });
+    /* FAQ (optional — removed from page, keep guards if reintroduced) */
+    const faqHost = $(".faq");
+    if (faqHost) {
+        $$("[data-faq] details").forEach(d => d.addEventListener("toggle", () => { if (d.open) $$("[data-faq] details").forEach(o => o !== d && (o.open = false)); }));
+        const fl = $("[data-float]");
+        if (fl && fine && !reduce) faqHost.addEventListener("pointermove", e => { fl.style.setProperty("--fx", ((e.clientX / innerWidth - .5) * 2).toFixed(2)); fl.style.setProperty("--fy", ((e.clientY / innerHeight - .5) * 2).toFixed(2)); });
+    }
 
     /* Cell field (hero + CTA): canvas 2D, paused offscreen */
     function field(host, n) {

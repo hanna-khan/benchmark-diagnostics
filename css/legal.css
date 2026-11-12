@@ -28,8 +28,8 @@
 
 .l-hero .hero-fallback {
     background:
-        radial-gradient(50% 60% at 78% 28%, rgba(95, 208, 230, .22), transparent 62%),
-        radial-gradient(45% 55% at 18% 80%, rgba(23, 101, 163, .45), transparent 65%),
+        radial-gradient(50% 60% at 78% 28%, rgba(91, 134, 232, .22), transparent 62%),
+        radial-gradient(45% 55% at 18% 80%, rgba(16, 72, 192, .45), transparent 65%),
         radial-gradient(40% 45% at 90% 85%, rgba(229, 143, 176, .16), transparent 70%),
         var(--ink);
 }
@@ -44,7 +44,7 @@
 }
 
 .l-hero h1 {
-    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-size: clamp(1.75rem, 4vw, 3.35rem);
 }
 
 .l-hero .hero-lead {

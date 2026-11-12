@@ -18,7 +18,7 @@
 
 <header class="site-header" data-header>
     <div class="header-inner">
-        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/branding/logo.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
         <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
             <ul class="nav-list">
@@ -56,23 +56,42 @@
             <p class="hero-lead">Our commitment to research drives better diagnostics, advances knowledge, and improves patient care.</p>
             <div class="hero-actions"><a href="#featured-research" class="pill pill-solid" data-magnetic><span>Explore Our Research</span></a></div>
         </div>
-        <div class="cyl-wrap" data-cyl aria-label="Rotating gallery of research materials"><div class="cyl"><figure style="--i:0"><img src="../assets/images/research/research-hero.jpg" alt="Pathology research materials and medical publications"></figure><figure style="--i:1"><img src="../assets/images/research/featured-research.png" alt=""></figure><figure style="--i:2"><img src="../assets/images/research/laboratory-communications.png" alt=""></figure><figure style="--i:3"><img src="../assets/images/research/educational-presentation.png" alt=""></figure><figure style="--i:4"><img src="../assets/images/research/blogs-pathology.png" alt=""></figure><figure style="--i:5"><img src="../assets/images/research/featured-journal-article.png" alt=""></figure></div></div>
+        <div class="eg" data-eg aria-label="Educational resources gallery"></div>
     </div>
-    <p class="hero-hint" aria-hidden="true">Move your cursor to spin the gallery</p>
 </section>
 
 <section id="featured-research" class="fr" aria-labelledby="fr-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker kicker-dark">Spotlight</p><h2 id="fr-title">Featured Case &amp; Research</h2></div>
-        <div class="fr-grid">
-            <div class="fr-img" data-tilt data-reveal><img src="../assets/images/research/featured-research.png" alt="Featured Benchmark Diagnostics pathology research" loading="lazy"></div>
-            <div class="fr-body" data-reveal style="--d:.1s">
-                <span class="tag">Featured Dermatopathology Case</span>
-                <h3>Collision Lesion of Dermal Nevus and Pilar Leiomyoma</h3>
-                <p>An uncommon collision lesion demonstrating a dermal nevus and pilar leiomyoma, with histologic and immunohistochemical findings supporting both components.</p>
-                <p class="author">Arif Usmani, M.D.</p>
-                <button type="button" class="pill pill-dark case-modal-open" data-modal-target="featured-case-modal" data-magnetic><span>View Full Case</span></button>
-            </div>
+        <div class="section-head" data-reveal><p class="kicker kicker-dark">Spotlight</p><h2 id="fr-title">Featured Cases</h2><p class="section-sub">Three featured cases will be highlighted here. Additional cases will be added as they become available.</p></div>
+        <div class="fcases">
+            <article class="fcase" data-tilt data-reveal>
+                <div class="fcase-img"><img src="../assets/images/research/featured-research.png" alt="Featured Benchmark Diagnostics pathology case" loading="lazy"></div>
+                <div class="fcase-body">
+                    <span class="tag">Case 01</span>
+                    <h3>Collision Lesion of Dermal Nevus and Pilar Leiomyoma</h3>
+                    <p>An uncommon collision lesion demonstrating a dermal nevus and pilar leiomyoma, with histologic and immunohistochemical findings supporting both components.</p>
+                    <p class="author">Arif Usmani, M.D.</p>
+                    <button type="button" class="pill pill-dark case-modal-open" data-modal-target="featured-case-modal" data-magnetic><span>View Full Case</span></button>
+                </div>
+            </article>
+            <article class="fcase fcase-soon" data-tilt data-reveal style="--d:.1s">
+                <div class="fcase-img"><img src="../assets/images/research/educational-presentation.png" alt="" loading="lazy"></div>
+                <div class="fcase-body">
+                    <span class="tag">Case 02</span>
+                    <span class="soon-chip">Coming soon</span>
+                    <h3>Featured Case Two</h3>
+                    <p>A second featured case will be published here.</p>
+                </div>
+            </article>
+            <article class="fcase fcase-soon" data-tilt data-reveal style="--d:.2s">
+                <div class="fcase-img"><img src="../assets/images/research/blogs-pathology.png" alt="" loading="lazy"></div>
+                <div class="fcase-body">
+                    <span class="tag">Case 03</span>
+                    <span class="soon-chip">Coming soon</span>
+                    <h3>Featured Case Three</h3>
+                    <p>A third featured case will be published here.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -97,7 +116,7 @@
 
 <section class="er" aria-labelledby="er-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker kicker-dark">Keep learning</p><h2 id="er-title">Trusted Clinical &amp; Educational Resources</h2><p class="section-sub">Explore trusted pathology and dermatopathology resources for continuing education, clinical reference, and professional development.</p></div>
+        <div class="section-head" data-reveal><p class="kicker kicker-dark">Keep learning</p><h2 id="er-title">Trusted Clinical &amp; Educational Resources</h2><p class="section-sub">Explore trusted pathology and dermatopathology resources for continuing education, clinical reference, and professional development. Additional resources will be added here over time.</p></div>
         <div class="er-grid">
             <article class="er-card er-big" data-tilt data-reveal><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><p class="src">DermNet</p><h3>Dermatopathology CME</h3><p class="desc">Review dermatopathology fundamentals, specimen preparation, special stains, inflammatory disorders, infections, and cutaneous tumors.</p><a href="https://dermnetnz.org/cme/dermatopathology" class="go" target="_blank" rel="noopener noreferrer" aria-label="Explore Dermatopathology CME course from DermNet">Explore Course ↗</a></article>
             <article class="er-card" data-tilt data-reveal style="--d:.08s"><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span><p class="src">College of American Pathologists</p><h3>Protocols &amp; Guidelines</h3><p class="desc">Access evidence-based pathology guidelines, cancer reporting protocols, and laboratory reference standards.</p><a href="https://www.cap.org/protocols-and-guidelines/" class="go" target="_blank" rel="noopener noreferrer" aria-label="View College of American Pathologists protocols and guidelines">View CAP Resources ↗</a></article>
@@ -135,12 +154,12 @@
 <footer class="site-footer">
     <div class="wrap footer-grid">
         <div class="footer-brand">
-            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/home/logo-light.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/branding/logo.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
             <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
-            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" class="social-linkedin" aria-label="Follow Benchmark Diagnostics on LinkedIn" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span><span class="social-label">Follow us on LinkedIn</span></a></div>
         </div>
         <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="physician-resources.html">Laboratory TC/PC Services</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="technical-laboratory-services.html">Technical Laboratory Services</a></li></ul></div>
         <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
     </div>
     <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
@@ -150,4 +169,5 @@
 </html>
 <script src="../js/components/modal.js"></script>
 <script src="../js/components/lab-reports.js"></script>
+<script src="../js/components/edu-gallery.js"></script>
 <script src="../js/inner-pages.js" defer></script>

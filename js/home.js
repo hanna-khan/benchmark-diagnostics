@@ -176,7 +176,7 @@ void main(){float a=smoothstep(.5,.05,length(gl_PointCoord-.5))*vC.a;gl_FragColo
         addEventListener("pagehide", () => { cancelAnimationFrame(raf); const x = g.getExtension("WEBGL_lose_context"); x && x.loseContext(); });
     })();
 
-    /* ---------- Hero: microscope-lens tissue shader (raw WebGL, ~4 KB) ---------- */
+    /* ---------- Hero: microscope-lens tissue shader (logo-blue tinted) ---------- */
     const hero = document.querySelector(".hero");
     const canvas = hero.querySelector(".hero-canvas");
     const gl = canvas.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
@@ -194,24 +194,24 @@ vec3 vor(vec2 p,float t){vec2 g=floor(p),f=fract(p);float d1=8.,d2=8.;vec2 id=ve
 void main(){
  vec2 uv=gl_FragCoord.xy/uR;float asp=uR.x/uR.y;
  vec2 p=(uv-.5)*vec2(asp,1.),m=(uM-.5)*vec2(asp,1.);
- float R=.27;float dl=length(p-m);
- float lens=smoothstep(R,R-.035,dl);
- vec2 q=mix(p,m+(p-m)*.6,lens);            // magnify inside the lens
+ float R=.24;float dl=length(p-m);
+ float lens=smoothstep(R,R-.03,dl);
+ vec2 q=mix(p,m+(p-m)*.6,lens);
  float sc=8.;
  vec3 v=vor(q*sc,uT*.22);
- float edge=smoothstep(.0,.07,v.y-v.x);    // 0 on cell membranes
- float nuc=smoothstep(.30,.24,v.x);        // nucleus
- vec3 navy=vec3(.016,.063,.118);
- vec3 col=navy+vec3(.03,.10,.16)*(1.-edge)+vec3(.015,.04,.08)*nuc;
- vec3 eos=mix(vec3(.50,.17,.34),vec3(.92,.52,.68),v.z);   // eosin
- vec3 hem=vec3(.17,.13,.40);                               // hematoxylin
+ float edge=smoothstep(.0,.07,v.y-v.x);
+ float nuc=smoothstep(.30,.24,v.x);
+ vec3 navy=vec3(.027,.078,.20);                 // logo-family ink
+ vec3 col=navy+vec3(.04,.10,.22)*(1.-edge)+vec3(.02,.05,.12)*nuc;
+ vec3 eos=mix(vec3(.50,.17,.34),vec3(.92,.52,.68),v.z);
+ vec3 hem=vec3(.12,.18,.48);
  vec3 tis=eos*(.30+.7*edge);
  tis=mix(tis,hem,nuc*.9);
- tis+=vec3(.28,.78,.90)*(1.-edge)*.22;
+ tis+=vec3(.20,.40,.82)*(1.-edge)*.24;          // brand blue sheen
  tis+=vec3(.9,.8,1.)*smoothstep(.12,.0,v.x)*nuc*.12;
  col=mix(col,tis,lens);
- col+=vec3(.37,.82,.90)*smoothstep(.007,.0,abs(dl-R))*.7;   // lens rim
- col*=mix(.45,1.,smoothstep(.15,.85,uv.x));                 // keep headline area calm
+ col+=vec3(.36,.53,.91)*smoothstep(.007,.0,abs(dl-R))*.85; // lens rim
+ col*=mix(.45,1.,smoothstep(.15,.85,uv.x));
  col*=1.-.55*dot(uv-.5,uv-.5);
  gl_FragColor=vec4(col,1.);}`;
 
@@ -236,7 +236,7 @@ void main(){
 
     const small = innerWidth < 760;
     const dprCap = small ? 1 : 1.5;
-    let W = 1, H = 1, scale = 1; // scale drops automatically on slow devices
+    let W = 1, H = 1, scale = 1;
     const resize = () => {
         const dpr = Math.min(devicePixelRatio || 1, dprCap) * scale;
         W = Math.max(1, Math.round(hero.clientWidth * dpr));
@@ -248,7 +248,6 @@ void main(){
     resize();
     new ResizeObserver(() => { resize(); draw(); }).observe(hero);
 
-    // lens target (0..1, origin bottom-left). Idle path drifts on the right; pointer takes over.
     let mx = 0.78, my = 0.55, tx = mx, ty = my, lastPointer = -1e9, t0 = performance.now();
     if (finePointer) hero.addEventListener("pointermove", e => {
         const r = hero.getBoundingClientRect();
@@ -266,14 +265,12 @@ void main(){
     }
     draw();
     hero.classList.add("gl");
-    if (reduce) return; // single static frame
+    if (reduce) return;
 
-    // Render only while the hero is visible and the tab is active
     let running = false, visible = true, raf = 0;
     let last = 0, ema = 16, frames = 0;
     const loop = now => {
         draw(now);
-        // adaptive quality: if frames are slow, render at lower resolution (canvas is CSS-scaled)
         if (last) ema = ema * 0.9 + Math.min(now - last, 200) * 0.1;
         last = now;
         if (++frames % 20 === 0 && ema > 30 && scale > 0.4) { scale = Math.max(0.4, scale * 0.75); resize(); }
