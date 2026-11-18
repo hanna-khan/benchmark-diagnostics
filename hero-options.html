@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Diagnostics | Hero 3D Animation Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1048c0; --brand-2:#2f67d6; --soft:#5b86e8; --ink:#071433; --navy:#0a1f55;
+  --eosin:#e58fb0; --paper:#f3f6fc; --white:#fff; --on-dark:rgba(232,239,255,.82);
+  --font:"Manrope","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  --gutter:clamp(1.25rem,5vw,4rem);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:#0d1b3a;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* demo header (stand-in for the real site header) */
+.demo-header{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem var(--gutter);color:var(--white)}
+.demo-logo{font-weight:800;letter-spacing:.01em;font-size:1.05rem}
+.demo-logo b{color:var(--soft)}
+.demo-nav{display:flex;gap:1.6rem;font-size:.9rem;font-weight:600;color:var(--on-dark)}
+@media(max-width:760px){.demo-nav{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:calc(5rem + 3rem) var(--gutter) clamp(6.5rem,13vh,9rem);isolation:isolate;overflow:hidden;color:#fff;
+  background:radial-gradient(60% 70% at 72% 45%,#12306f 0%,var(--ink) 70%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-2;transition:opacity .45s ease}
+.hero canvas.swap{opacity:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(7,20,51,.92) 12%,rgba(7,20,51,.55) 42%,rgba(7,20,51,0) 68%)}
+@media(max-width:760px){.hero::after{background:linear-gradient(0deg,rgba(7,20,51,.95) 22%,rgba(7,20,51,.35) 60%,rgba(7,20,51,0) 80%)}}
+.hero-content{width:min(100%,1240px);margin-inline:auto}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:1.1rem}
+.hero h1{font-size:clamp(2.15rem,4.5vw,4.4rem);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.hero h1 span{display:block}
+.hero-lead{max-width:46ch;margin-top:1.6rem;color:var(--on-dark);font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.6}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.pill{display:inline-block;padding:.95rem 1.7rem;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .25s,background .25s}
+.pill:hover{transform:translateY(-2px)}
+.pill-solid{background:var(--brand);color:#fff;box-shadow:0 8px 30px rgba(16,72,192,.5)}
+.pill-solid:hover{background:var(--brand-2)}
+.pill-ghost{border:1px solid rgba(232,239,255,.35);color:#fff}
+.pill-ghost:hover{background:rgba(232,239,255,.1)}
+
+/* option switcher */
+.switcher{position:absolute;z-index:6;top:5.2rem;right:var(--gutter);display:flex;gap:.5rem;padding:.4rem;border-radius:999px;
+  background:rgba(7,20,51,.55);border:1px solid rgba(232,239,255,.18);backdrop-filter:blur(10px)}
+.switcher button{font:inherit;font-weight:700;font-size:.85rem;color:var(--on-dark);background:none;border:0;border-radius:999px;
+  padding:.6rem 1.05rem;cursor:pointer;transition:background .25s,color .25s}
+.switcher button:hover{color:#fff}
+.switcher button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.switcher button:focus-visible{outline:2px solid var(--soft);outline-offset:2px}
+@media(max-width:760px){.switcher{top:4.4rem;left:var(--gutter);right:var(--gutter);justify-content:space-between}.switcher button{padding:.55rem .7rem;font-size:.78rem}}
+
+.option-note{position:absolute;z-index:4;right:var(--gutter);bottom:2.2rem;max-width:340px;text-align:right;font-size:.85rem;line-height:1.5;color:var(--on-dark)}
+.option-note strong{display:block;color:#fff;font-size:.95rem;margin-bottom:.15rem}
+@media(max-width:980px){.option-note{display:none}}
+
+/* ---------- Compare section ---------- */
+.compare{padding:5rem var(--gutter)}
+.wrap{width:min(100%,1200px);margin-inline:auto}
+.compare h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.01em;max-width:24ch}
+.compare .sub{margin-top:.8rem;color:#5a6b86;max-width:62ch;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2.5rem}
+.card{background:#fff;border:1px solid rgba(16,72,192,.14);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;
+  transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(16,72,192,.12)}
+.card .num{font-size:.75rem;font-weight:800;letter-spacing:.14em;color:var(--brand)}
+.card h3{font-size:1.2rem;font-weight:800}
+.card p{font-size:.93rem;line-height:1.6;color:#44546f}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .8rem;font-size:.84rem;margin-top:.3rem;padding-top:.8rem;border-top:1px solid rgba(16,72,192,.1)}
+.card dt{font-weight:800;color:var(--brand)}
+.card dd{color:#44546f}
+.card button{margin-top:auto;font:inherit;font-weight:700;color:var(--brand);background:#eaf0fc;border:0;border-radius:999px;padding:.7rem 1.1rem;cursor:pointer}
+.card button:hover{background:#dde7fb}
+.how{margin-top:3rem;padding:1.6rem;border-radius:16px;background:var(--ink);color:var(--on-dark);font-size:.92rem;line-height:1.7}
+.how b{color:#fff}
+.how code{background:rgba(232,239,255,.1);padding:.1em .45em;border-radius:5px;font-size:.88em}
+</style>
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="demo-logo" href="#">Benchmark <b>Diagnostics</b></a>
+  <nav class="demo-nav" aria-label="Demo navigation"><span>About</span><span>Services</span><span>Physician Resources</span><span>Research</span><span>Contact</span></nav>
+</header>
+
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <canvas id="cv" aria-hidden="true"></canvas>
+
+  <div class="switcher" role="group" aria-label="Hero animation options">
+    <button type="button" data-i="0" aria-pressed="true">1 · Tissue Section</button>
+    <button type="button" data-i="1" aria-pressed="false">2 · Microscope Lens</button>
+    <button type="button" data-i="2" aria-pressed="false">3 · Slide Network</button>
+  </div>
+
+  <div class="hero-content">
+    <p class="kicker">Diagnostic pathology expertise</p>
+    <h1 id="hero-title"><span>Precision Diagnostics.</span><span>Personalized Service.</span></h1>
+    <p class="hero-lead">Specialized pathology services providing physicians with timely, reliable, and clinically meaningful diagnoses to support confident decisions and better patient care.</p>
+    <div class="hero-actions">
+      <a href="#" class="pill pill-solid">Explore Our Services</a>
+      <a href="#" class="pill pill-ghost">Educational Resources</a>
+    </div>
+  </div>
+
+  <p class="option-note" id="note" aria-live="polite"></p>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <h2>Three directions, one idea each</h2>
+    <p class="sub">Every option is raw WebGL-free Canvas 3D (no libraries), uses only the Benchmark blue / eosin pink palette, reacts to the cursor, pauses off-screen and respects reduced-motion.</p>
+    <div class="cards" id="cards"></div>
+
+    <div class="how">
+      <b>Adding your pick to the site:</b> copy that option's scene function into <code>js/home.js</code> in place of the current hero shader block,
+      keep the existing <code>&lt;canvas class="hero-canvas"&gt;</code> and the CSS photo fallback, and call <code>scene.draw(ctx, t, W, H, mouse, layout)</code> from the same visibility-aware loop.
+      Tell me which option you like and I will wire it into <code>index.html</code>, <code>home.css</code> and <code>home.js</code> directly.
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+"use strict";
+const TAU = Math.PI * 2;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const rng = seed => { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; };
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* tiny 3D rig: rotate Y then X, then perspective */
+function rig(cx, cy, S, ax, ay, f = 3.4) {
+  const ca = Math.cos(ay), sa = Math.sin(ay), cb = Math.cos(ax), sb = Math.sin(ax);
+  return (x, y, z, o) => {
+    const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+    const y1 = y * cb - z1 * sb, z2 = y * sb + z1 * cb;
+    const k = f / (f - z2);
+    o.x = cx + x1 * k * S; o.y = cy - y1 * k * S; o.z = z2; o.k = k;
+    return o;
+  };
+}
+const glow = (ctx, x, y, r, c0, c1 = "rgba(0,0,0,0)") => {
+  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+  g.addColorStop(0, c0); g.addColorStop(1, c1);
+  ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
+};
+
+/* =========================================================
+   OPTION 1 — TISSUE SECTION
+   A floating 3D block of skin (epidermis / dermis / subcutis)
+   built from thousands of stained cells. A scanning plane
+   sweeps through it like a microtome / digital slide scan and
+   lights up the cells it passes.
+   ========================================================= */
+const tissue = (() => {
+  const R = rng(11), SX = 1.7, SZ = 0.95, YB = -0.85, YT = 0.9;
+  const yb = (x, z) => 0.40 + 0.07 * Math.sin(x * 4.2 + z * 1.3) + 0.05 * Math.cos(z * 3.1 - x * 1.7);
+  const pts = [], fibers = [], fat = [];
+  const add = (x, y, z, c, s, a) => pts.push({ x, y, z, col: `rgb(${c[0] | 0},${c[1] | 0},${c[2] | 0})`, s, a });
+  for (let i = 0; i < 2800; i++) {
+    const x = (R() * 2 - 1) * SX, z = (R() * 2 - 1) * SZ, h = R(), y = yb(x, z) + h * 0.27;
+    const nuc = R() < 0.38;
+    add(x, y, z, nuc ? [132 + h * 40, 120 + h * 30, 255] : [205 + h * 30, 115 + h * 55, 190 + h * 20], nuc ? 2.5 : 1.8, nuc ? .85 : .5);
+  }
+  for (let i = 0; i < 520; i++) { const x = (R() * 2 - 1) * SX, z = (R() * 2 - 1) * SZ; add(x, yb(x, z) + 0.3 + R() * 0.05, z, [232, 239, 255], 1.6, .38); }
+  for (let i = 0; i < 240; i++) { const x = (R() * 2 - 1) * SX, z = (R() * 2 - 1) * SZ; add(x, -0.15 + R() * (yb(x, z) - 0.2), z, [120, 150, 255], 2.3, .8); }
+  for (let i = 0; i < 90; i++) {
+    const z0 = (R() * 2 - 1) * SZ, y0 = -0.12 + R() * 0.45, ph = R() * TAU, line = [];
+    for (let k = 0; k <= 22; k++) {
+      const x = -SX + (k / 22) * 2 * SX, z = z0 + 0.05 * Math.cos(k * 0.4 + ph);
+      line.push([x, Math.min(y0 + 0.05 * Math.sin(k * 0.5 + ph), yb(x, z) - 0.05), z]);
+    }
+    fibers.push(line);
+  }
+  for (let i = 0; i < 120; i++) fat.push({ x: (R() * 2 - 1) * (SX - .15), y: -0.8 + R() * 0.6, z: (R() * 2 - 1) * (SZ - .1), r: 0.07 + R() * 0.07 });
+  const corners = [[-SX, YB, -SZ], [SX, YB, -SZ], [SX, YB, SZ], [-SX, YB, SZ], [-SX, YT, -SZ], [SX, YT, -SZ], [SX, YT, SZ], [-SX, YT, SZ]];
+  const edges = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+  const o = {}, o2 = {}, o3 = {}, o4 = {};
+
+  return {
+    name: "Tissue Section",
+    draw(ctx, t, W, H, m, L) {
+      const ay = -0.2 + 0.12 * Math.sin(t * .21) + m.x * .3, ax = 0.4 + m.y * .16 + 0.04 * Math.sin(t * .17);
+      const P = rig(L.cx - L.s * .1, L.cy, L.s * .72, ax, ay);
+      L = { ...L, s: L.s * .72 };
+      const sx = SX * Math.sin(t * 0.35);
+      glow(ctx, L.cx, L.cy, L.s * 2.6, "rgba(91,134,232,.28)");
+      ctx.globalCompositeOperation = "lighter";
+      ctx.lineWidth = 1; ctx.strokeStyle = "rgba(160,190,255,.28)";
+      ctx.beginPath();
+      for (const [a, b] of edges) { const A = corners[a], B = corners[b]; P(A[0], A[1], A[2], o); P(B[0], B[1], B[2], o2); ctx.moveTo(o.x, o.y); ctx.lineTo(o2.x, o2.y); }
+      ctx.stroke();
+      ctx.strokeStyle = "rgba(229,143,176,.30)"; ctx.fillStyle = "rgba(232,239,255,.03)";
+      for (const f of fat) { P(f.x, f.y, f.z, o); ctx.beginPath(); ctx.arc(o.x, o.y, f.r * L.s * o.k, 0, TAU); ctx.fill(); ctx.stroke(); }
+      ctx.strokeStyle = "rgba(229,143,176,.16)";
+      for (const line of fibers) {
+        ctx.beginPath();
+        line.forEach((p, i) => { P(p[0], p[1], p[2], o); i ? ctx.lineTo(o.x, o.y) : ctx.moveTo(o.x, o.y); });
+        ctx.stroke();
+      }
+      for (const p of pts) {
+        P(p.x, p.y, p.z, o);
+        const d = p.x - sx, boost = Math.exp(-d * d * 55);
+        const depth = .6 + .4 * clamp((o.z + 1.2) / 2.4, 0, 1);
+        const s = p.s * o.k * (1 + boost * .9);
+        ctx.globalAlpha = Math.min(1, (p.a + boost * .7) * depth);
+        ctx.fillStyle = boost > .35 ? "#cfe0ff" : p.col;
+        ctx.fillRect(o.x - s / 2, o.y - s / 2, s, s);
+      }
+      ctx.globalAlpha = 1;
+      // scanning plane
+      const q = [[sx, YB, -SZ], [sx, YT + .08, -SZ], [sx, YT + .08, SZ], [sx, YB, SZ]];
+      ctx.beginPath();
+      q.forEach((c, i) => { P(c[0], c[1], c[2], o); i ? ctx.lineTo(o.x, o.y) : ctx.moveTo(o.x, o.y); });
+      ctx.closePath();
+      ctx.fillStyle = "rgba(91,134,232,.16)"; ctx.fill();
+      ctx.strokeStyle = "rgba(190,215,255,.85)"; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.globalCompositeOperation = "source-over";
+    }
+  };
+})();
+
+/* =========================================================
+   OPTION 2 — MICROSCOPE LENS
+   A 3D field of cells at many depths with real depth-of-field
+   (rack focus). A glass microscope lens follows the cursor and
+   magnifies everything beneath it into sharp, detailed focus.
+   ========================================================= */
+const lens = (() => {
+  const R = rng(21), cells = [];
+  for (let i = 0; i < 70; i++) cells.push({
+    x: R(), y: R(), z: R(), r: .035 + R() * .05, ph: R() * TAU, sp: .12 + R() * .22,
+    pink: R() > .58, nx: (R() - .5) * .35, ny: (R() - .5) * .35, nr: .42 + R() * .16
+  });
+  const BR = [91, 134, 232], PK = [229, 143, 176];
+  let lx = 0, ly = 0, init = false;
+
+  function cell(ctx, px, py, r, blur, c, k, fade) {
+    const a = fade * (1 - blur * .55);
+    // halo
+    glow(ctx, px, py, r * (1.5 + blur * 1.8), `rgba(${c[0]},${c[1]},${c[2]},${.22 * a})`);
+    // body
+    const g = ctx.createRadialGradient(px, py, r * .1, px, py, r * (1 + blur * .5));
+    g.addColorStop(0, `rgba(${c[0]},${c[1]},${c[2]},${.55 * a})`);
+    g.addColorStop(.75, `rgba(${c[0]},${c[1]},${c[2]},${.28 * a})`);
+    g.addColorStop(1, `rgba(${c[0]},${c[1]},${c[2]},0)`);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, r * (1 + blur * .5), 0, TAU); ctx.fill();
+    if (blur < .55) {
+      const sharp = 1 - blur / .55;
+      ctx.strokeStyle = `rgba(225,236,255,${.7 * sharp * fade})`; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(px, py, r, 0, TAU); ctx.stroke();
+      const nx = px + k.nx * r * 2, ny = py + k.ny * r * 2, nr = r * k.nr;
+      ctx.fillStyle = `rgba(70,60,200,${.85 * sharp * fade})`; ctx.beginPath(); ctx.arc(nx, ny, nr, 0, TAU); ctx.fill();
+      ctx.fillStyle = `rgba(232,239,255,${.9 * sharp * fade})`; ctx.beginPath(); ctx.arc(nx - nr * .25, ny - nr * .25, nr * .22, 0, TAU); ctx.fill();
+    }
+  }
+
+  return {
+    name: "Microscope Lens",
+    draw(ctx, t, W, H, m, L, mouseActive) {
+      const ref = Math.min(W, H);
+      if (!init) { lx = L.cx; ly = L.cy; init = true; }
+      const tx = mouseActive ? L.px : L.cx + Math.sin(t * .27) * L.s * .6;
+      const ty = mouseActive ? L.py : L.cy + Math.cos(t * .21) * L.s * .35;
+      lx += (tx - lx) * .07; ly += (ty - ly) * .07;
+      const LR = clamp(L.s * 0.95, 90, 230);
+      const fz = .5 + .32 * Math.sin(t * .23);
+      const pos = c => {
+        const sc = 1.3 - .75 * c.z;
+        const x = (c.x + .018 * Math.sin(t * c.sp + c.ph)) * W - m.x * 55 * (1 - c.z);
+        const y = (c.y + .02 * Math.cos(t * c.sp * .8 + c.ph)) * H - m.y * 40 * (1 - c.z);
+        return { x, y, r: c.r * ref * sc * 1.1, sc };
+      };
+      const order = cells.slice().sort((a, b) => b.z - a.z); // far first
+      ctx.globalCompositeOperation = "lighter";
+      for (const c of order) {
+        const p = pos(c);
+        const fade = .25 + .75 * smooth(.12, .6, p.x / W);
+        cell(ctx, p.x, p.y, p.r, clamp(Math.abs(c.z - fz) * 1.7, 0, 1), c.pink ? PK : BR, c, fade);
+      }
+      ctx.globalCompositeOperation = "source-over";
+
+      // lens interior (magnified, in focus)
+      ctx.save();
+      ctx.beginPath(); ctx.arc(lx, ly, LR, 0, TAU); ctx.clip();
+      glow(ctx, lx, ly, LR * 1.1, "rgba(18,48,111,.92)", "rgba(7,20,51,.97)");
+      ctx.globalCompositeOperation = "lighter";
+      const MAG = 1.75; let best = null, bd = 1e9;
+      for (const c of order) {
+        const p = pos(c);
+        const x = lx + (p.x - lx) * MAG, y = ly + (p.y - ly) * MAG;
+        const d = Math.hypot(x - lx, y - ly);
+        if (d < LR + p.r * MAG * 2) {
+          if (d < bd && d < LR * .7) { bd = d; best = { x, y, r: p.r * MAG }; }
+          cell(ctx, x, y, p.r * MAG, clamp(Math.abs(c.z - fz) * .35, 0, 1), c.pink ? PK : BR, c, .5);
+        }
+      }
+      ctx.restore();
+
+      // glass ring, ticks, highlight
+      ctx.lineWidth = 2; ctx.strokeStyle = "rgba(232,239,255,.8)";
+      ctx.beginPath(); ctx.arc(lx, ly, LR, 0, TAU); ctx.stroke();
+      ctx.lineWidth = 6; ctx.strokeStyle = "rgba(91,134,232,.25)";
+      ctx.beginPath(); ctx.arc(lx, ly, LR + 6, 0, TAU); ctx.stroke();
+      ctx.lineWidth = 1.2; ctx.strokeStyle = "rgba(190,215,255,.65)";
+      for (let i = 0; i < 72; i++) {
+        const a = i / 72 * TAU + t * .05, l = i % 6 === 0 ? 14 : 6;
+        ctx.beginPath(); ctx.moveTo(lx + Math.cos(a) * (LR + 12), ly + Math.sin(a) * (LR + 12));
+        ctx.lineTo(lx + Math.cos(a) * (LR + 12 + l), ly + Math.sin(a) * (LR + 12 + l)); ctx.stroke();
+      }
+      ctx.strokeStyle = "rgba(255,255,255,.32)"; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(lx, ly, LR - 8, Math.PI * 1.1, Math.PI * 1.45); ctx.stroke();
+      ctx.strokeStyle = "rgba(190,215,255,.3)"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(lx - 12, ly); ctx.lineTo(lx + 12, ly); ctx.moveTo(lx, ly - 12); ctx.lineTo(lx, ly + 12); ctx.stroke();
+
+      // annotation on the sharpest cell
+      if (best) {
+        const ex = lx + LR * .72, ey = ly - LR * .72, lw = 150;
+        ctx.strokeStyle = "rgba(190,215,255,.7)"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(best.x, best.y); ctx.lineTo(ex, ey); ctx.lineTo(ex + 26, ey); ctx.stroke();
+        ctx.fillStyle = "rgba(7,20,51,.75)"; ctx.strokeStyle = "rgba(190,215,255,.5)";
+        ctx.beginPath(); ctx.roundRect(ex + 26, ey - 14, lw, 28, 14); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = "#e8efff"; ctx.font = "700 11px Manrope,Segoe UI,sans-serif"; ctx.textBaseline = "middle";
+        ctx.fillText("40× · morphology reviewed", ex + 40, ey + .5);
+      }
+      // scale bar
+      ctx.strokeStyle = "rgba(232,239,255,.8)"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(lx - 40, ly + LR + 44); ctx.lineTo(lx + 40, ly + LR + 44); ctx.stroke();
+      ctx.fillStyle = "rgba(232,239,255,.85)"; ctx.font = "700 11px Manrope,Segoe UI,sans-serif"; ctx.textAlign = "center";
+      ctx.fillText("20 µm", lx, ly + LR + 60); ctx.textAlign = "start";
+    }
+  };
+})();
+
+/* =========================================================
+   OPTION 3 — SLIDE NETWORK
+   A glass pathology slide with a stained tissue section floats
+   in 3D at the centre. Referring practices orbit around it;
+   specimens flow in and finished reports flow back out — the
+   "direct physician-to-pathologist" promise made visible.
+   ========================================================= */
+const network = (() => {
+  const R = rng(5), HW = 1.15, HH = 0.4;
+  const tp = [];
+  for (let i = 0; i < 2600; i++) {
+    const a = R() * TAU, rr = Math.sqrt(R()), edge = 0.5 + 0.12 * Math.sin(3 * a + 1) + 0.08 * Math.sin(5 * a);
+    const x = 0.28 + Math.cos(a) * edge * rr * 1.05, y = Math.sin(a) * edge * rr * 0.62;
+    const nuc = R() < .3, h = R();
+    tp.push({ x, y, z: (R() - .5) * .03, nuc, h });
+  }
+  const nodes = [];
+  for (let i = 0; i < 14; i++) nodes.push({ a: i / 14 * TAU, ph: R(), w: .4 * Math.sin(i * 1.7), rad: 1.85 + .25 * R() });
+  const o = {}, o2 = {};
+  const NP = (P, n, t) => {
+    const a = n.a + t * .12;
+    return P(Math.cos(a) * n.rad, n.w * .5 + .35 * Math.sin(a * 2 + n.ph * 6), Math.sin(a) * n.rad, {});
+  };
+  const curve = (P, S, n, t, u, out) => {
+    const A = NP(P, n, t);
+    // blend between node (3D screen space) and slide centre with an arc
+    out.x = A.x + (S.x - A.x) * u; out.y = A.y + (S.y - A.y) * u - Math.sin(u * Math.PI) * 38; out.k = A.k + (1 - A.k) * u;
+    return out;
+  };
+
+  return {
+    name: "Slide Network",
+    draw(ctx, t, W, H, m, L) {
+      const PN = rig(L.cx, L.cy, L.s, .32 + m.y * .1, m.x * .2);
+      const PS = rig(L.cx, L.cy, L.s * 1.12, -.1 + m.y * .22 + .06 * Math.sin(t * .4), -.28 + .35 * Math.sin(t * .3) + m.x * .4);
+      const S = PN(0, 0, 0, {});
+      glow(ctx, L.cx, L.cy, L.s * 2.8, "rgba(91,134,232,.30)");
+      glow(ctx, L.cx, L.cy, L.s * 1.2, "rgba(229,143,176,.12)");
+
+      const arr = nodes.map(n => ({ n, p: NP(PN, n, t) }));
+      const drawNodes = front => {
+        for (const { n, p } of arr) {
+          if ((p.z >= 0) !== front) continue;
+          const d = (.5 + .5 * clamp((p.z + 2.2) / 4.4, 0, 1)) * smooth(W * .3, W * .5, p.x), r = 5 * p.k;
+          ctx.globalCompositeOperation = "lighter";
+          glow(ctx, p.x, p.y, r * 4, `rgba(91,134,232,${.35 * d})`);
+          ctx.fillStyle = `rgba(232,239,255,${.95 * d})`; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.fill();
+          ctx.strokeStyle = `rgba(190,215,255,${.5 * d})`; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.arc(p.x, p.y, r * 2.1, 0, TAU); ctx.stroke();
+          ctx.globalCompositeOperation = "source-over";
+        }
+      };
+      // links + pulses
+      ctx.globalCompositeOperation = "lighter";
+      ctx.lineWidth = 1;
+      for (const { n } of arr) {
+        ctx.strokeStyle = "rgba(91,134,232,.16)"; ctx.beginPath();
+        for (let k = 0; k <= 20; k++) { curve(PN, S, n, t, k / 20, o); k ? ctx.lineTo(o.x, o.y) : ctx.moveTo(o.x, o.y); }
+        ctx.stroke();
+      }
+      drawNodes(false);
+      ctx.globalCompositeOperation = "source-over";
+
+      // slide
+      const pr = (x, y, z) => PS(x, y, z, o2);
+      const quad = (z, x0, x1) => { ctx.beginPath(); [[x0, -HH], [x1, -HH], [x1, HH], [x0, HH]].forEach((c, i) => { pr(c[0], c[1], z); i ? ctx.lineTo(o2.x, o2.y) : ctx.moveTo(o2.x, o2.y); }); ctx.closePath(); };
+      ctx.lineJoin = "round";
+      quad(-.03, -HW, HW); ctx.fillStyle = "rgba(60,100,200,.20)"; ctx.fill();
+      ctx.strokeStyle = "rgba(190,215,255,.45)"; ctx.lineWidth = 1.2; ctx.stroke();
+      // frosted label end
+      quad(.0, -HW, -.7); ctx.fillStyle = "rgba(232,239,255,.20)"; ctx.fill();
+      ctx.strokeStyle = "rgba(232,239,255,.55)"; ctx.lineWidth = 1;
+      for (let i = 0; i < 3; i++) { pr(-HW + .08, -.22 + i * .2, .0); const ax_ = o2.x, ay_ = o2.y; pr(-.78 - i * .05, -.22 + i * .2, .0); ctx.beginPath(); ctx.moveTo(ax_, ay_); ctx.lineTo(o2.x, o2.y); ctx.stroke(); }
+      // tissue
+      const sx = -.5 + 1.5 * (.5 + .5 * Math.sin(t * .6));
+      ctx.globalCompositeOperation = "lighter";
+      for (const p of tp) {
+        pr(p.x, p.y, p.z);
+        const boost = Math.exp(-(p.x - sx) * (p.x - sx) * 70), s = (p.nuc ? 2.4 : 1.8) * o2.k * (1 + boost * .8);
+        ctx.globalAlpha = Math.min(1, (p.nuc ? .85 : .55) + boost * .5);
+        ctx.fillStyle = boost > .4 ? "#e8efff" : p.nuc ? `rgb(${130 + p.h * 40},${120 + p.h * 30},255)` : `rgb(${215 + p.h * 25},${120 + p.h * 40},${170 + p.h * 20})`;
+        ctx.fillRect(o2.x - s / 2, o2.y - s / 2, s, s);
+      }
+      ctx.globalAlpha = 1;
+      // scan line
+      pr(sx, -HH, .02); const l0x = o2.x, l0y = o2.y; pr(sx, HH, .02);
+      ctx.strokeStyle = "rgba(190,215,255,.9)"; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(l0x, l0y); ctx.lineTo(o2.x, o2.y); ctx.stroke();
+      ctx.globalCompositeOperation = "source-over";
+      // cover glass
+      quad(.03, -.66, HW - .04); ctx.fillStyle = "rgba(232,239,255,.08)"; ctx.fill();
+      ctx.strokeStyle = "rgba(232,239,255,.6)"; ctx.lineWidth = 1.2; ctx.stroke();
+
+      // pulses: specimen in (blue), report out (eosin pink)
+      ctx.globalCompositeOperation = "lighter";
+      for (const { n } of arr) {
+        for (let dir = 0; dir < 2; dir++) {
+          const u = ((t * .2 + n.ph + dir * .5) % 1 + 1) % 1, uu = dir ? 1 - u : u;
+          const col = dir ? "229,143,176" : "130,170,255";
+          for (let k = 0; k < 5; k++) {
+            const tu = clamp(uu + (dir ? 1 : -1) * k * .012, 0, 1);
+            curve(PN, S, n, t, tu, o);
+            ctx.fillStyle = `rgba(${col},${.9 - k * .17})`;
+            ctx.beginPath(); ctx.arc(o.x, o.y, (3.4 - k * .4) * o.k, 0, TAU); ctx.fill();
+          }
+          if (u > .94 && !dir) glow(ctx, S.x, S.y, 46, "rgba(130,170,255,.35)");
+        }
+      }
+      ctx.globalCompositeOperation = "source-over";
+      drawNodes(true);
+    }
+  };
+})();
+
+/* =========================================================
+   Engine: sizing, pointer, loop, switcher
+   ========================================================= */
+const scenes = [
+  { s: tissue, title: "Tissue Section", why: "A living 3D block of skin, scanned layer by layer, mirrors how dermatopathology actually works." },
+  { s: lens, title: "Microscope Lens", why: "Rack-focus depth of field plus a cursor-driven lens = visible precision and an interaction people want to play with." },
+  { s: network, title: "Slide Network", why: "A glass slide at the centre of a physician network shows the personalized, two-way service at a glance." }
+];
+const hero = document.getElementById("hero"), cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const note = document.getElementById("note");
+let W = 1, H = 1, dpr = 1, L = {}, cur = 0, vis = true;
+let tx = 0, ty = 0, mx = 0, my = 0, lastMove = -1e9, px = 0, py = 0;
+
+function resize() {
+  dpr = Math.min(devicePixelRatio || 1, innerWidth < 760 ? 1.25 : 1.5);
+  W = hero.clientWidth; H = hero.clientHeight;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  const narrow = W < 760;
+  L = narrow
+    ? { cx: W * .5, cy: H * .245, s: Math.min(W * .15, H * .12) }
+    : { cx: W * .7, cy: H * .46, s: Math.min(H * .28, W * .15) };
+  draw(performance.now());
+}
+addEventListener("resize", resize);
+new ResizeObserver(resize).observe(hero);
+
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  hero.addEventListener("pointermove", e => {
+    const r = hero.getBoundingClientRect();
+    px = e.clientX - r.left; py = e.clientY - r.top;
+    tx = (px / r.width) * 2 - 1; ty = (py / r.height) * 2 - 1;
+    lastMove = performance.now();
+  });
+}
+const t0 = performance.now();
+function draw(now) {
+  const t = reduce ? 4 : (now - t0) / 1000;
+  const active = now - lastMove < 2500;
+  if (!active) { tx = .15 * Math.sin(t * .25); ty = .1 * Math.sin(t * .2 + 1); }
+  mx += (tx - mx) * .06; my += (ty - my) * .06;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  scenes[cur].s.draw(ctx, t, W, H, { x: mx, y: my }, { ...L, px, py }, active);
+}
+let raf = 0, running = false;
+const loop = now => { draw(now); raf = requestAnimationFrame(loop); };
+const sync = () => {
+  const want = vis && !document.hidden && !reduce;
+  if (want && !running) { running = true; raf = requestAnimationFrame(loop); }
+  else if (!want && running) { running = false; cancelAnimationFrame(raf); }
+};
+new IntersectionObserver(([e]) => { vis = e.isIntersecting; sync(); }).observe(hero);
+document.addEventListener("visibilitychange", sync);
+
+function select(i) {
+  if (i === cur) return;
+  cv.classList.add("swap");
+  setTimeout(() => { cur = i; update(); draw(performance.now()); cv.classList.remove("swap"); }, 220);
+  document.querySelectorAll(".switcher button").forEach((b, k) => b.setAttribute("aria-pressed", k === i));
+}
+function update() { note.innerHTML = `<strong>Option ${cur + 1} — ${scenes[cur].title}</strong>${scenes[cur].why}`; }
+document.querySelectorAll(".switcher button").forEach(b => b.addEventListener("click", () => select(+b.dataset.i)));
+
+/* comparison cards */
+const meta = [
+  { fit: "Dermatopathology & surgical pathology", feel: "Calm, scientific, premium", inter: "Tilts with cursor; scan plane lights up cells", perf: "~4k points, light" },
+  { fit: "“Precision Diagnostics” headline", feel: "Playful, high-tech, memorable", inter: "Lens follows cursor, magnifies cells", perf: "~70 cells, light" },
+  { fit: "“Personalized Service”, courier, overflow support", feel: "Connected, trustworthy, modern", inter: "Slide tilts; specimens in, reports out", perf: "~2.6k points + 14 nodes" }
+];
+const cards = document.getElementById("cards");
+scenes.forEach((s, i) => {
+  const el = document.createElement("article"); el.className = "card";
+  el.innerHTML = `<span class="num">OPTION ${i + 1}</span><h3>${s.title}</h3><p>${s.why}</p>
+    <dl><dt>Best for</dt><dd>${meta[i].fit}</dd><dt>Feel</dt><dd>${meta[i].feel}</dd><dt>Interaction</dt><dd>${meta[i].inter}</dd><dt>Weight</dt><dd>${meta[i].perf}</dd></dl>
+    <button type="button">Preview in hero ↑</button>`;
+  el.querySelector("button").addEventListener("click", () => { scrollTo({ top: 0, behavior: "smooth" }); select(i); });
+  cards.appendChild(el);
+});
+
+update(); resize(); sync();
+})();
+</script>
+</body>
+</html>

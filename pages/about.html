@@ -25,7 +25,8 @@
                 <li><a href="../index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="research.html" class="nav-link">Educational Resources</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="pathart-gallery.html" class="nav-link">PathArt</a></li>
                 <li class="mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
@@ -47,7 +48,6 @@
             <p class="hero-lead">Benchmark Diagnostics provides specialized dermatopathology, podiatric pathology, and surgical pathology services with a commitment to diagnostic accuracy, physician collaboration, and responsive support. Our team works closely with healthcare providers to deliver timely, clinically meaningful pathology services tailored to the needs of each practice.</p>
             <div class="hero-actions"><a href="contact.html" class="pill pill-solid" data-magnetic><span>Partner With Us</span></a></div>
         </div>
-        <p class="hero-hint" aria-hidden="true">Move your cursor to bring the cells into focus</p>
     </section>
 
     <!-- OUR STORY: sticky image unmasks, words light up as you read -->
@@ -67,20 +67,17 @@
     </section>
 
     <!-- MISSION & VISION: two lit glass panels -->
-    <section class="mv" aria-labelledby="mv-title">
+    <section class="mv" aria-label="Mission and Vision">
         <div class="wrap">
-            <div class="section-head" data-reveal><p class="kicker">Our Purpose</p><h2 id="mv-title">Our Mission &amp; Vision</h2></div>
             <div class="mv-grid">
                 <article class="mv-panel" data-tilt data-reveal>
                     <span class="mv-orb" aria-hidden="true"></span>
-                    <span class="mv-num" aria-hidden="true">01</span>
-                    <h3>Our Mission</h3>
+                    <h3>Mission</h3>
                     <p>To provide physicians with accurate, timely, and clinically meaningful pathology services while maintaining a personalized and collaborative approach to patient care.</p>
                 </article>
                 <article class="mv-panel mv-vision" data-tilt data-reveal style="--d:.12s">
                     <span class="mv-orb" aria-hidden="true"></span>
-                    <span class="mv-num" aria-hidden="true">02</span>
-                    <h3>Our Vision</h3>
+                    <h3>Vision</h3>
                     <p>To remain a trusted pathology partner through diagnostic excellence, physician collaboration, research, education, and continued innovation.</p>
                 </article>
             </div>
@@ -99,7 +96,6 @@
                 <article class="lead-profile" id="arif-usmani" data-reveal data-tilt data-lead-card style="--d:.0s">
                     <div class="lead-photo"><img src="../assets/images/leadership/processed/arif-usmani.jpg" width="900" height="1125" alt="Arif Usmani, M.D., Lab Director and Dermatopathologist" loading="lazy"></div>
                     <div class="lead-copy">
-                        <p class="lead-index" aria-hidden="true">01</p>
                         <h3>Arif Usmani, M.D.</h3>
                         <p class="lead-role">Lab Director and Dermatopathologist</p>
                         <div class="lead-bio" data-bio>
@@ -110,7 +106,6 @@
                 <article class="lead-profile" id="carolyn-sok" data-reveal data-tilt data-lead-card style="--d:.08s">
                     <div class="lead-photo"><img src="../assets/images/leadership/processed/carolyn-sok.jpg" width="900" height="1125" alt="Carolyn Sok, M.D., Dermatopathologist" loading="lazy"></div>
                     <div class="lead-copy">
-                        <p class="lead-index" aria-hidden="true">02</p>
                         <h3>Carolyn Sok, M.D.</h3>
                         <p class="lead-role">Dermatopathologist</p>
                         <div class="lead-bio" data-bio>
@@ -121,7 +116,6 @@
                 <article class="lead-profile" id="karen-turgeon" data-reveal data-tilt data-lead-card style="--d:.16s">
                     <div class="lead-photo"><img src="../assets/images/leadership/processed/karen-turgeon.jpg" width="900" height="1125" alt="Karen Turgeon, M.D., Clinical Consultant, Dermatologist, and Dermatopathologist" loading="lazy"></div>
                     <div class="lead-copy">
-                        <p class="lead-index" aria-hidden="true">03</p>
                         <h3>Karen Turgeon, M.D.</h3>
                         <p class="lead-role">Clinical Consultant, Dermatologist, and Dermatopathologist</p>
                         <div class="lead-bio" data-bio>
@@ -132,7 +126,6 @@
                 <article class="lead-profile" id="colleen-caputa" data-reveal data-tilt data-lead-card style="--d:.24s">
                     <div class="lead-photo"><img src="../assets/images/leadership/processed/colleen-caputa.jpg" width="900" height="1125" alt="Colleen Caputa, H.T., Lab Supervisor and Practice Manager" loading="lazy"></div>
                     <div class="lead-copy">
-                        <p class="lead-index" aria-hidden="true">04</p>
                         <h3>Colleen Caputa, H.T.</h3>
                         <p class="lead-role">Lab Supervisor and Practice Manager</p>
                         <div class="lead-bio" data-bio>
@@ -148,15 +141,18 @@
     <section class="rx" aria-labelledby="rx-title">
         <div class="wrap rx-grid">
             <div class="rx-visual" aria-hidden="true" data-orbit>
-                <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
-                <img src="../assets/images/icons/research-education.png" alt="" width="160" height="160" loading="lazy">
+                <canvas class="rx-canvas"></canvas>
+                <span class="rx-tag">Research</span>
+                <span class="rx-tag">Publications</span>
+                <span class="rx-tag">Presentations</span>
+                <span class="rx-tag">Education</span>
             </div>
             <div data-reveal>
                 <p class="kicker">Research &amp; Education</p>
                 <h2 id="rx-title">Advancing Pathology Beyond the Laboratory</h2>
                 <p class="rx-p">Benchmark Diagnostics supports continued research and education as part of our commitment to advancing the field of pathology.</p>
                 <p class="rx-p">Our research, publications, presentations, and educational activities contribute to ongoing learning and the exchange of knowledge throughout the medical community.</p>
-                <a href="research.html" class="pill pill-ghost" data-magnetic><span>View Research &amp; Publications</span></a>
+                <a href="research.html" class="pill pill-ghost" data-magnetic><span>View Educational Resources</span></a>
             </div>
         </div>
     </section>
@@ -195,7 +191,7 @@
             <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
             <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" class="social-linkedin" aria-label="Follow Benchmark Diagnostics on LinkedIn" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span><span class="social-label">Follow us on LinkedIn</span></a></div>
         </div>
-        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Educational Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="pathart-gallery.html">PathArt</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
         <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="technical-laboratory-services.html">Technical Laboratory Services</a></li></ul></div>
         <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
     </div>

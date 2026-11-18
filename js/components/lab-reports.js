@@ -1,5 +1,8 @@
 /* Monthly Lab Reports — 3D cover-flow. Data unchanged. */
 const labReports = [
+    { month: 'November', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report November 2026.pdf' },
+    { month: 'October', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report October 2026.pdf' },
+    { month: 'September', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report September 2026.pdf' },
     { month: 'August', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report August 2026.pdf' },
     { month: 'July', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report July 2026.pdf' },
     { month: 'June', year: 2026, title: 'The Lab Report', file: '../downloads/lab-reports/The Lab Report_ June 2026.pdf' },

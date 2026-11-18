@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Diagnostics | Hero 3D Options v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1048c0; --brand-2:#2f67d6; --brand-soft:#5b86e8; --ink:#071433; --navy:#0a1f55;
+  --cyan:#5b86e8; --eosin:#e58fb0; --paper:#f3f6fc; --white:#fff; --text:#0d1b3a; --muted:#5a6b86;
+  --on-dark:rgba(232,239,255,.82); --line:rgba(16,72,192,.14); --line-dark:rgba(232,239,255,.16);
+  --font:"Manrope","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1); --gutter:clamp(1.25rem,4vw,3rem); --header-h:84px;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--font);background:var(--ink);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* light header, like the real site */
+.demo-header{position:absolute;inset:0 0 auto 0;z-index:8;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--gutter);background:rgba(255,255,255,.92);backdrop-filter:blur(12px)}
+.demo-logo{font-weight:800;font-size:1.1rem;color:var(--brand);letter-spacing:-.01em}
+.demo-logo span{color:var(--text);font-weight:600}
+.demo-nav{display:flex;gap:1.8rem;font-size:.92rem;font-weight:600;color:var(--text)}
+@media(max-width:860px){.demo-nav{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:calc(var(--header-h) + 3rem) var(--gutter) clamp(5rem,11vh,8rem);background:var(--ink);overflow:hidden;isolation:isolate;color:#fff}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:-2;transition:opacity .5s var(--ease)}
+#gl.swap{opacity:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(7,20,51,.9) 10%,rgba(7,20,51,.5) 38%,rgba(7,20,51,0) 62%)}
+@media(max-width:760px){.hero::after{background:linear-gradient(0deg,rgba(7,20,51,.96) 30%,rgba(7,20,51,.4) 58%,rgba(7,20,51,0) 75%)}}
+.hero-content{width:min(100%,1240px);margin-inline:auto;position:relative}
+.kicker{display:flex;align-items:center;gap:.7rem;margin-bottom:1.25rem;font-size:.92rem;font-weight:600;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase}
+.kicker::before{content:"";width:1.35rem;height:2px;border-radius:2px;background:currentColor}
+.hero h1{font-size:clamp(2.15rem,4.5vw,4.4rem);font-weight:300;letter-spacing:-.04em;line-height:1.02}
+.hero h1 span{display:block}
+.hero-lead{max-width:46ch;margin-top:1.75rem;color:var(--on-dark);font-size:clamp(1.05rem,1.5vw,1.25rem)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.25rem}
+.pill{display:inline-flex;align-items:center;min-height:48px;padding:.75rem 1.5rem;border-radius:999px;font-size:.95rem;font-weight:600;
+  border:1px solid var(--line-dark);color:#fff;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.pill-solid{background:#fff;color:var(--brand);border-color:#fff}
+.pill-solid:hover{background:var(--brand-soft);border-color:var(--brand-soft);color:#fff}
+.pill-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+
+/* switcher */
+.switcher{position:absolute;z-index:7;top:calc(var(--header-h) + 1.2rem);right:var(--gutter);display:flex;gap:.35rem;padding:.35rem;border-radius:999px;
+  background:rgba(7,20,51,.6);border:1px solid var(--line-dark);backdrop-filter:blur(10px)}
+.switcher button{font:inherit;font-weight:600;font-size:.86rem;color:var(--on-dark);background:none;border:0;border-radius:999px;padding:.6rem 1.1rem;cursor:pointer;transition:background .3s var(--ease),color .3s}
+.switcher button:hover{color:#fff}
+.switcher button[aria-pressed="true"]{background:#fff;color:var(--brand)}
+.switcher button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+@media(max-width:760px){.switcher{left:var(--gutter);justify-content:space-between}.switcher button{padding:.5rem .6rem;font-size:.76rem}}
+
+/* 3D labels (option 3) */
+.tags{position:absolute;inset:0;pointer-events:none;z-index:3}
+.tag{position:absolute;left:0;top:0;display:flex;align-items:center;gap:.55rem;opacity:0;transition:opacity .4s var(--ease);white-space:nowrap}
+.tag i{width:46px;height:1px;background:linear-gradient(90deg,rgba(232,239,255,.9),rgba(232,239,255,.25))}
+.tag i::before{content:"";display:block;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:#fff;box-shadow:0 0 12px var(--cyan)}
+.tag span{font-size:.8rem;font-weight:700;letter-spacing:.04em;padding:.4rem .8rem;border-radius:999px;background:rgba(7,20,51,.7);border:1px solid var(--line-dark);color:#fff;backdrop-filter:blur(6px)}
+.tag small{display:block;font-weight:500;font-size:.7rem;color:var(--on-dark);letter-spacing:0}
+@media(max-width:760px){.tag i{width:22px}.tag span{font-size:.68rem;padding:.3rem .6rem}.tag small{display:none}}
+
+.option-note{position:absolute;z-index:4;right:var(--gutter);bottom:2.2rem;max-width:330px;text-align:right;font-size:.84rem;line-height:1.5;color:var(--on-dark)}
+.option-note strong{display:block;color:#fff;font-size:.95rem;margin-bottom:.15rem}
+@media(max-width:1020px){.option-note{display:none}}
+.gl-fail{position:absolute;right:var(--gutter);top:50%;color:var(--on-dark);font-size:.9rem}
+
+/* compare */
+.compare{background:var(--paper);padding:5.5rem var(--gutter)}
+.wrap{width:min(100%,1240px);margin-inline:auto}
+.compare .kicker{color:var(--brand)}
+.compare h2{font-size:clamp(1.7rem,3.7vw,3.2rem);font-weight:300;letter-spacing:-.04em;line-height:1.05;max-width:18ch}
+.compare .sub{margin-top:1rem;color:var(--muted);max-width:62ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.25rem;margin-top:3rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:1.9rem;display:flex;flex-direction:column;gap:.75rem;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(16,72,192,.45)}
+.card .num{font-size:.78rem;font-weight:700;letter-spacing:.12em;color:var(--brand)}
+.card .rec{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--brand);padding:.25rem .7rem;border-radius:999px}
+.card h3{font-size:1.25rem;font-weight:600;letter-spacing:-.01em}
+.card p{font-size:.95rem;color:#44546f}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem .9rem;font-size:.86rem;margin-top:.3rem;padding-top:.9rem;border-top:1px solid var(--line)}
+.card dt{font-weight:700;color:var(--brand)}
+.card dd{margin:0;color:#44546f}
+.card button{margin-top:auto;font:inherit;font-weight:600;color:var(--brand);background:#eaf0fc;border:0;border-radius:999px;padding:.75rem 1.2rem;cursor:pointer;transition:background .3s}
+.card button:hover{background:#dde7fb}
+.how{margin-top:2.5rem;padding:1.6rem 1.8rem;border-radius:20px;background:var(--ink);color:var(--on-dark);font-size:.93rem}
+.how b{color:#fff}
+.how code{background:rgba(232,239,255,.1);padding:.1em .45em;border-radius:6px;font-size:.88em}
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+
+<header class="demo-header">
+  <a class="demo-logo" href="#">Benchmark <span>Diagnostics</span></a>
+  <nav class="demo-nav" aria-label="Demo navigation"><span>About</span><span>Services</span><span>Physician Resources</span><span>Research</span><span>Contact</span></nav>
+</header>
+
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="tags" id="tags" aria-hidden="true">
+    <div class="tag"><i></i><span>Epidermis<small>Surface &amp; keratinocytes</small></span></div>
+    <div class="tag"><i></i><span>Dermis<small>Collagen, vessels, follicles</small></span></div>
+    <div class="tag"><i></i><span>Subcutis<small>Adipose lobules</small></span></div>
+  </div>
+
+  <div class="switcher" role="group" aria-label="Hero animation options">
+    <button type="button" data-i="0" aria-pressed="true">1 · Glass Slides</button>
+    <button type="button" data-i="1" aria-pressed="false">2 · Living Cell</button>
+    <button type="button" data-i="2" aria-pressed="false">3 · Skin Layers</button>
+  </div>
+
+  <div class="hero-content">
+    <p class="kicker">Diagnostic pathology expertise</p>
+    <h1 id="hero-title"><span>Precision Diagnostics.</span><span>Personalized Service.</span></h1>
+    <p class="hero-lead">Specialized pathology services providing physicians with timely, reliable, and clinically meaningful diagnoses to support confident decisions and better patient care.</p>
+    <div class="hero-actions">
+      <a href="#" class="pill pill-solid">Explore Our Services</a>
+      <a href="#" class="pill pill-ghost">Educational Resources</a>
+    </div>
+  </div>
+  <p class="option-note" id="note" aria-live="polite"></p>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <p class="kicker">Hero direction v2</p>
+    <h2>Real 3D, built from your own brand.</h2>
+    <p class="sub">All three use real-time WebGL lighting, the Benchmark navy / logo blue palette with H&amp;E pink as the only accent, follow the cursor, pause when off-screen and show a still frame for reduced-motion users.</p>
+    <div class="cards" id="cards"></div>
+    <div class="how">
+      <b>Integration note:</b> these use <code>three.js</code> (about 150 KB gzipped, loaded as an ES module). Your current site has zero dependencies, so if you pick one I'll add it as a lazy-loaded module in <code>js/home.js</code>, keep the existing CSS photo fallback for devices without WebGL, and reduce quality automatically on slow phones.
+    </div>
+  </div>
+</section>
+
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+
+const TAU = Math.PI * 2;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const rng = seed => { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; };
+const hero = document.getElementById("hero"), canvas = document.getElementById("gl");
+
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" }); }
+catch (e) { hero.insertAdjacentHTML("beforeend", '<p class="gl-fail">WebGL unavailable: the site keeps its photo fallback here.</p>'); throw e; }
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = .9;
+
+const canvasTex = (w, h, draw) => {
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  draw(c.getContext("2d"), w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+};
+const sprite = canvasTex(64, 64, (g) => { const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, "rgba(255,255,255,1)"); r.addColorStop(.4, "rgba(255,255,255,.35)"); r.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); });
+const background = canvasTex(1024, 640, (g, w, h) => {
+  g.fillStyle = "#071433"; g.fillRect(0, 0, w, h);
+  let r = g.createRadialGradient(w * .7, h * .45, 0, w * .7, h * .45, w * .55);
+  r.addColorStop(0, "#163a86"); r.addColorStop(.45, "#0c2563"); r.addColorStop(1, "rgba(7,20,51,0)");
+  g.fillStyle = r; g.fillRect(0, 0, w, h);
+  r = g.createRadialGradient(w * .82, h * .8, 0, w * .82, h * .8, w * .3);
+  r.addColorStop(0, "rgba(229,143,176,.10)"); r.addColorStop(1, "rgba(229,143,176,0)");
+  g.fillStyle = r; g.fillRect(0, 0, w, h);
+});
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envMap = pmrem.fromScene(new RoomEnvironment(), .04).texture;
+const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+
+const dust = (n, spread, size, color, opacity) => {
+  const R = rng(n * 7), pos = new Float32Array(n * 3);
+  for (let i = 0; i < n * 3; i += 3) { pos[i] = (R() - .5) * spread[0]; pos[i + 1] = (R() - .5) * spread[1]; pos[i + 2] = (R() - .5) * spread[2]; }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  return new THREE.Points(geo, new THREE.PointsMaterial({ size, map: sprite, color, transparent: true, opacity, depthWrite: false, blending: THREE.AdditiveBlending }));
+};
+const baseScene = () => { const s = new THREE.Scene(); s.background = background; s.environment = envMap; return s; };
+
+/* ---------- H&E stained tissue texture (procedural) ---------- */
+function tissueTexture(seed) {
+  return canvasTex(1024, 340, (g, w, h) => {
+    const R = rng(seed), cx = w * .5, cy = h * .52, rx = w * .42, ry = h * .36, ph = [R() * 6, R() * 6, R() * 6];
+    const path = () => { g.beginPath(); for (let i = 0; i <= 96; i++) { const a = i / 96 * TAU, r = 1 + .12 * Math.sin(3 * a + ph[0]) + .07 * Math.sin(5 * a + ph[1]) + .04 * Math.sin(9 * a + ph[2]); const x = cx + Math.cos(a) * rx * r, y = cy + Math.sin(a) * ry * r; i ? g.lineTo(x, y) : g.moveTo(x, y); } g.closePath(); };
+    g.save(); path(); g.clip();
+    const gr = g.createLinearGradient(0, cy - ry, 0, cy + ry);
+    gr.addColorStop(0, "#c46aa9"); gr.addColorStop(.28, "#e597c3"); gr.addColorStop(1, "#f3c6dc");
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(255,225,240,.55)"; g.lineWidth = 1.4;
+    for (let i = 0; i < 170; i++) { const y0 = cy - ry * .35 + R() * ry * 1.5, x0 = R() * w, f = .02 + R() * .03, a = 2 + R() * 4; g.beginPath(); for (let x = 0; x < 140; x += 6) g.lineTo(x0 + x, y0 + Math.sin((x0 + x) * f) * a); g.stroke(); }
+    for (let i = 0; i < 4200; i++) {
+      const x = R() * w, y = R() * h, top = cy - ry * .55 + 14 * Math.sin(x * .035), epi = y < top;
+      if (!epi && R() > .3) continue;
+      g.fillStyle = epi ? "rgba(84,48,150,.92)" : "rgba(112,70,172,.78)";
+      const r = epi ? 1.7 + R() * 1.2 : 1.2 + R() * 1.1;
+      g.beginPath(); g.ellipse(x, y, r * 1.3, r, R() * 3, 0, TAU); g.fill();
+    }
+    for (let i = 0; i < 16; i++) { const x = cx + (R() - .5) * rx * 1.4, y = cy + R() * ry * .8; g.fillStyle = "rgba(255,240,248,.9)"; g.strokeStyle = "rgba(180,70,130,.7)"; g.lineWidth = 2; g.beginPath(); g.ellipse(x, y, 6 + R() * 12, 4 + R() * 7, R() * 3, 0, TAU); g.fill(); g.stroke(); }
+    g.restore();
+    g.strokeStyle = "rgba(150,60,130,.45)"; g.lineWidth = 2; path(); g.stroke();
+  });
+}
+function labelTexture(id) {
+  return canvasTex(256, 384, (g, w, h) => {
+    const R = rng(id); g.fillStyle = "rgba(242,246,253,.95)"; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 2500; i++) { g.fillStyle = `rgba(16,72,192,${R() * .05})`; g.fillRect(R() * w, R() * h, 2, 2); }
+    g.save(); g.translate(w / 2, h / 2); g.rotate(-Math.PI / 2); g.fillStyle = "#0a1f55"; g.textAlign = "center";
+    g.font = "800 34px Manrope, Arial"; g.fillText("BENCHMARK", 0, -50);
+    g.font = "600 26px Manrope, Arial"; g.fillText("S26-" + (1100 + id), 0, -10);
+    g.fillStyle = "#1048c0"; g.font = "700 24px Manrope, Arial"; g.fillText("H&E · 40×", 0, 28);
+    g.restore();
+    g.fillStyle = "#0a1f55";
+    for (let i = 0; i < 9; i++) for (let j = 0; j < 9; j++) if (R() > .45) g.fillRect(w / 2 - 40 + i * 9, h - 110 + j * 9, 8, 8);
+  });
+}
+
+/* =========================================================
+   OPTION 1 — GLASS SLIDES
+   Three real glass microscope slides with H&E stained tissue
+   float in a fan. A scanning beam reads the top slide, like a
+   digital pathology scanner. Calm, premium, product-shot feel.
+   ========================================================= */
+function makeSlides() {
+  const scene = baseScene(), root = new THREE.Group(); scene.add(root);
+  scene.add(new THREE.HemisphereLight(0xc9d8ff, 0x0a1f55, .7));
+  const key = new THREE.DirectionalLight(0xffffff, .7); key.position.set(3, 5, 4); scene.add(key);
+  const rim = new THREE.PointLight(0xe58fb0, 12, 12); rim.position.set(-3, -1, -2); scene.add(rim);
+
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0xcfe0ff, roughness: .08, metalness: 0, clearcoat: .6, clearcoatRoughness: .1, transparent: true, opacity: .14, envMapIntensity: .35, side: THREE.DoubleSide, depthWrite: false });
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0xa9c6ff, transparent: true, opacity: .75 });
+  const slides = [];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Group();
+    const slideGeo = new THREE.BoxGeometry(3, .035, 1);
+    s.add(new THREE.Mesh(slideGeo, glass));
+    s.add(new THREE.LineSegments(new THREE.EdgesGeometry(slideGeo), edgeMat));
+    const tex = tissueTexture(17 + i * 31);
+    const tissue = new THREE.Mesh(new THREE.PlaneGeometry(2.05, .68), new THREE.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: 0xffffff, emissiveIntensity: .45, transparent: true, roughness: .7, envMapIntensity: .2 }));
+    tissue.rotation.x = -Math.PI / 2; tissue.position.set(.38, .019, 0); s.add(tissue);
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(.62, .96), new THREE.MeshStandardMaterial({ map: labelTexture(i), roughness: .95, transparent: true, opacity: .9, envMapIntensity: .2 }));
+    label.rotation.x = -Math.PI / 2; label.position.set(-1.16, .019, 0); s.add(label);
+    const coverGeo = new THREE.BoxGeometry(2.2, .006, .92), cover = new THREE.Mesh(coverGeo, glass);
+    cover.position.set(.38, .024, 0); s.add(cover);
+    const ce = new THREE.LineSegments(new THREE.EdgesGeometry(coverGeo), edgeMat); ce.position.copy(cover.position); s.add(ce);
+    s.position.set((i - 1) * .22, (i - 1) * .46, (i - 1) * -.32);
+    s.rotation.set(0, (i - 1) * -.16, (i - 1) * .05);
+    root.add(s); slides.push(s);
+  }
+  // scanning beam on the top slide
+  const beamTex = canvasTex(8, 128, (g, w, h) => { const l = g.createLinearGradient(0, 0, 0, h); l.addColorStop(0, "rgba(140,180,255,0)"); l.addColorStop(1, "rgba(140,180,255,1)"); g.fillStyle = l; g.fillRect(0, 0, w, h); });
+  const beam = new THREE.Mesh(new THREE.PlaneGeometry(.95, .55), new THREE.MeshBasicMaterial({ map: beamTex, transparent: true, opacity: .55, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+  beam.rotation.y = Math.PI / 2;
+  const line = new THREE.Mesh(new THREE.BoxGeometry(.012, .004, .95), new THREE.MeshBasicMaterial({ color: 0xdfe9ff }));
+  const scanner = new THREE.Group(); scanner.add(beam, line); beam.position.y = .3; line.position.y = .03;
+  slides[2].add(scanner);
+  const motes = dust(380, [9, 5, 5], .035, 0x9fbcff, .55); scene.add(motes);
+
+  return {
+    scene, dist: 10.5, bloom: [.35, .5, .92],
+    update(t, m) {
+      root.rotation.set(.62 + m.y * .12 + .03 * Math.sin(t * .3), -.55 + m.x * .35 + .1 * Math.sin(t * .18), 0);
+      slides.forEach((s, i) => { s.position.y = (i - 1) * .46 + .05 * Math.sin(t * .8 + i * 1.3); s.rotation.z = (i - 1) * .05 + .02 * Math.sin(t * .6 + i); });
+      scanner.position.x = -.55 + 1.9 * (.5 - .5 * Math.cos(t * .55));
+      motes.rotation.y = t * .02;
+    }
+  };
+}
+
+/* =========================================================
+   OPTION 2 — LIVING CELL
+   One large translucent cell with a breathing membrane,
+   a nucleus, mitochondria and ER drifting inside. The
+   membrane gently reaches toward the cursor. Iconic, calm.
+   ========================================================= */
+const NOISE = `vec3 mod289(vec3 x){return x-floor(x*(1./289.))*289.;}vec4 mod289(vec4 x){return x-floor(x*(1./289.))*289.;}
+vec4 permute(vec4 x){return mod289(((x*34.)+1.)*x);}vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-.85373472095314*r;}
+float snoise(vec3 v){const vec2 C=vec2(1./6.,1./3.);const vec4 D=vec4(0.,.5,1.,2.);
+vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);
+vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);
+vec4 p=permute(permute(permute(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));
+float n_=.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.*x_);
+vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);
+vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
+vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);
+vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;
+vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m=m*m;
+return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}`;
+
+function membrane(radius, detail, c1, c2, c3, amp, alpha) {
+  const mat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: { uT: { value: 0 }, uM: { value: new THREE.Vector3() }, uPull: { value: 0 }, uAmp: { value: amp }, uA: { value: alpha },
+      uC1: { value: new THREE.Color(c1) }, uC2: { value: new THREE.Color(c2) }, uC3: { value: new THREE.Color(c3) } },
+    vertexShader: `${NOISE}
+uniform float uT,uPull,uAmp;uniform vec3 uM;varying vec3 vN;varying vec3 vV;varying float vD;
+void main(){vec3 n=normalize(normal);
+float d=snoise(n*1.5+uT*.22)*uAmp+snoise(n*4.2-uT*.35)*uAmp*.28;
+float pull=pow(max(dot(n,normalize(uM+1e-4)),0.),7.)*uPull;
+vec3 p=position+n*(d+pull);vD=d+pull*.6;
+vec4 mv=modelViewMatrix*vec4(p,1.);vN=normalize(normalMatrix*n);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}`,
+    fragmentShader: `uniform vec3 uC1,uC2,uC3;uniform float uA,uAmp;varying vec3 vN;varying vec3 vV;varying float vD;
+void main(){float f=pow(1.-abs(dot(vN,vV)),2.6);
+vec3 c=mix(uC1,uC2,f);c+=uC3*smoothstep(uAmp*.35,uAmp,vD)*.35;
+float a=(f*.95+.05)*uA;gl_FragColor=vec4(c*a,a);}`
+  });
+  return new THREE.Mesh(new THREE.IcosahedronGeometry(radius, detail), mat);
+}
+
+function makeCell() {
+  const scene = baseScene(), root = new THREE.Group(); scene.add(root);
+  scene.add(new THREE.AmbientLight(0x8fa8ff, .5));
+  const pl = new THREE.PointLight(0x9fbcff, 30, 10); pl.position.set(2, 2, 3); scene.add(pl);
+  const pk = new THREE.PointLight(0xe58fb0, 18, 8); pk.position.set(-2, -1, 1); scene.add(pk);
+
+  const mem = membrane(1.35, 48, 0x2f67d6, 0xcfdcff, 0xe58fb0, .12, .7); root.add(mem);
+  const inner = membrane(1.22, 24, 0x0c2a73, 0x5b86e8, 0x5b86e8, .08, .35); root.add(inner);
+  const nuc = membrane(.5, 24, 0x6a4fd6, 0xf2b3cf, 0xffffff, .07, 1.2); root.add(nuc);
+  const nucleolus = new THREE.Mesh(new THREE.SphereGeometry(.13, 24, 16), new THREE.MeshStandardMaterial({ color: 0xb79cff, emissive: 0x8a5ae0, emissiveIntensity: 1.4 }));
+  nucleolus.position.set(.12, .08, .1); root.add(nucleolus);
+
+  const R = rng(9), N = 34;
+  const mito = new THREE.InstancedMesh(new THREE.CapsuleGeometry(.035, .14, 4, 10), new THREE.MeshStandardMaterial({ color: 0x8fb0ff, emissive: 0x2f67d6, emissiveIntensity: .5, roughness: .35 }), N);
+  const mp = []; for (let i = 0; i < N; i++) mp.push({ r: .68 + R() * .45, a: R() * TAU, b: (R() - .5) * 2.2, sp: .08 + R() * .12, ro: R() * TAU });
+  root.add(mito);
+  const er = new THREE.Group();
+  for (let i = 0; i < 6; i++) {
+    const tor = new THREE.Mesh(new THREE.TorusGeometry(.62 + i * .05, .007, 6, 80, Math.PI * (1 + R() * .5)), new THREE.MeshBasicMaterial({ color: 0xf0a8c9, transparent: true, opacity: .55, blending: THREE.AdditiveBlending, depthWrite: false }));
+    tor.rotation.set(R() * TAU, R() * TAU, R() * TAU); er.add(tor);
+  }
+  root.add(er);
+  // ribosomes / granules inside the cell
+  const gp = new Float32Array(900 * 3);
+  for (let i = 0; i < gp.length; i += 3) { const u = R() * 2 - 1, a = R() * TAU, r = .55 + Math.cbrt(R()) * .6, s = Math.sqrt(1 - u * u); gp[i] = Math.cos(a) * s * r; gp[i + 1] = u * r; gp[i + 2] = Math.sin(a) * s * r; }
+  const gg = new THREE.BufferGeometry(); gg.setAttribute("position", new THREE.BufferAttribute(gp, 3));
+  const gran = new THREE.Points(gg, new THREE.PointsMaterial({ size: .03, map: sprite, color: 0xc9d8ff, transparent: true, opacity: .75, depthWrite: false, blending: THREE.AdditiveBlending }));
+  root.add(gran);
+  // neighbouring cells for depth
+  const far = [];
+  for (let i = 0; i < 7; i++) {
+    const c = membrane(.4 + R() * .35, 16, 0x1d4fb8, 0x9fbcff, 0xe58fb0, .08, .45);
+    c.position.set(-.5 + R() * 6, -2.4 + R() * 4.8, -3 - R() * 5); far.push({ c, ph: R() * TAU }); scene.add(c);
+  }
+  const motes = dust(300, [10, 6, 6], .03, 0x9fbcff, .45); scene.add(motes);
+  const dummy = new THREE.Object3D(), world = new THREE.Vector3();
+
+  return {
+    scene, dist: 9, bloom: [.6, .6, .2],
+    update(t, m, active) {
+      root.rotation.set(m.y * .25 + .1 * Math.sin(t * .2), t * .08 + m.x * .5, 0);
+      root.position.y = .06 * Math.sin(t * .5);
+      const s = 1 + .02 * Math.sin(t * .9); mem.scale.setScalar(s);
+      [mem, inner, nuc, ...far.map(f => f.c)].forEach(o => o.material.uniforms.uT.value = t);
+      world.set(m.x * 2.2, -m.y * 1.6, 2.2); mem.worldToLocal(world);
+      mem.material.uniforms.uM.value.copy(world);
+      const pu = mem.material.uniforms.uPull; pu.value += ((active ? .22 : .08) - pu.value) * .05;
+      mp.forEach((p, i) => {
+        const a = p.a + t * p.sp; dummy.position.set(Math.cos(a) * p.r, p.b * .45 + .05 * Math.sin(t + i), Math.sin(a) * p.r);
+        dummy.rotation.set(p.ro + t * .3, a, p.ro); dummy.updateMatrix(); mito.setMatrixAt(i, dummy.matrix);
+      });
+      mito.instanceMatrix.needsUpdate = true;
+      er.rotation.y = -t * .05; gran.rotation.y = t * .03;
+      far.forEach(({ c, ph }) => { c.position.y += Math.sin(t * .3 + ph) * .0015; c.rotation.y = t * .1 + ph; });
+      motes.rotation.y = -t * .015;
+    }
+  };
+}
+
+/* =========================================================
+   OPTION 3 — SKIN LAYERS
+   A real 3D skin block (epidermis, dermis, subcutis) with
+   H&E cross-section faces. Layers separate and come back
+   together with labels; a scan plane sweeps through it.
+   The most literal story for dermatopathology.
+   ========================================================= */
+function makeSkin() {
+  const scene = baseScene(), root = new THREE.Group(); scene.add(root);
+  scene.add(new THREE.HemisphereLight(0xdfe9ff, 0x0a1f55, .9));
+  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3, 6, 4); scene.add(key);
+  const rim = new THREE.PointLight(0x5b86e8, 25, 12); rim.position.set(-3, 1, -3); scene.add(rim);
+  const W = 3, D = 1.8, R = rng(3);
+  const tex = (w, h, f) => canvasTex(w, h, f);
+
+  const epiFront = tex(1024, 96, (g, w, h) => {
+    g.fillStyle = "#cf86bc"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(248,200,226,.95)"; g.lineWidth = 2;
+    for (let k = 0; k < 4; k++) { g.beginPath(); for (let x = 0; x <= w; x += 8) g.lineTo(x, 4 + k * 4 + 2 * Math.sin(x * .05 + k)); g.stroke(); }
+    for (let i = 0; i < 2600; i++) { const x = R() * w, y = 20 + R() * (h - 20); g.fillStyle = `rgba(${70 + y * .3},45,${140 + y * .2},.9)`; g.beginPath(); g.ellipse(x, y, 2.6, 1.8, 0, 0, TAU); g.fill(); }
+    g.fillStyle = "#6a46ac"; g.beginPath(); g.moveTo(0, h);
+    for (let x = 0; x <= w; x += 6) g.lineTo(x, h - 14 - 9 * Math.sin(x * .045)); g.lineTo(w, h); g.fill();
+  });
+  const epiTop = tex(1024, 614, (g, w, h) => {
+    g.fillStyle = "#e9b4d3"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(196,110,165,.35)"; g.lineWidth = 1.5;
+    for (let i = 0; i < 1400; i++) { g.beginPath(); g.arc(R() * w, R() * h, 7 + R() * 9, 0, TAU); g.stroke(); }
+    g.strokeStyle = "rgba(170,90,150,.4)"; g.lineWidth = 2;
+    for (let i = 0; i < 40; i++) { g.beginPath(); const y = R() * h; for (let x = 0; x <= w; x += 20) g.lineTo(x, y + 10 * Math.sin(x * .01 + i)); g.stroke(); }
+  });
+  const dermFront = tex(1024, 240, (g, w, h) => {
+    g.fillStyle = "#eba5c9"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(255,226,240,.6)"; g.lineWidth = 1.6;
+    for (let i = 0; i < 260; i++) { const y0 = R() * h, x0 = R() * w, f = .02 + R() * .03; g.beginPath(); for (let x = 0; x < 160; x += 6) g.lineTo(x0 + x, y0 + Math.sin((x0 + x) * f) * 4); g.stroke(); }
+    for (let i = 0; i < 500; i++) { g.fillStyle = "rgba(110,66,170,.75)"; g.beginPath(); g.ellipse(R() * w, R() * h, 2.4, 1.3, R() * 3, 0, TAU); g.fill(); }
+    for (let i = 0; i < 4; i++) { const x = 120 + i * 250 + R() * 60; g.strokeStyle = "rgba(100,60,160,.85)"; g.lineWidth = 4; g.fillStyle = "rgba(205,150,215,.55)"; g.beginPath(); g.ellipse(x, h * .45, 18, h * .4, 0, 0, TAU); g.fill(); g.stroke(); g.fillStyle = "rgba(70,40,110,.9)"; g.fillRect(x - 4, 0, 8, h * .5); }
+    for (let i = 0; i < 12; i++) { const x = R() * w, y = 30 + R() * (h - 60), r = 7 + R() * 9; g.fillStyle = "rgba(255,236,246,.95)"; g.strokeStyle = "rgba(185,60,110,.85)"; g.lineWidth = 2.5; g.beginPath(); g.arc(x, y, r, 0, TAU); g.fill(); g.stroke(); g.fillStyle = "rgba(200,40,80,.85)"; for (let k = 0; k < 4; k++) { g.beginPath(); g.arc(x + (R() - .5) * r, y + (R() - .5) * r, 1.8, 0, TAU); g.fill(); } }
+  });
+  const dermTop = tex(1024, 614, (g, w, h) => {
+    g.fillStyle = "#eba5c9"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "rgba(255,226,240,.55)"; g.lineWidth = 2;
+    for (let i = 0; i < 380; i++) { const y0 = R() * h, x0 = R() * w; g.beginPath(); for (let x = 0; x < 180; x += 6) g.lineTo(x0 + x, y0 + Math.sin((x0 + x) * .03) * 5); g.stroke(); }
+    for (let i = 0; i < 7; i++) { g.strokeStyle = "rgba(100,60,160,.8)"; g.lineWidth = 4; g.beginPath(); g.arc(R() * w, R() * h, 14 + R() * 8, 0, TAU); g.stroke(); }
+  });
+  const fat = (w, h) => tex(w, h, (g) => {
+    g.fillStyle = "#e7a9c8"; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < (w * h) / 900; i++) { const x = R() * w, y = R() * h, r = 12 + R() * 16; g.fillStyle = "#fbf1f6"; g.strokeStyle = "rgba(210,130,175,.95)"; g.lineWidth = 2; g.beginPath(); g.ellipse(x, y, r, r * (.8 + R() * .3), R() * 3, 0, TAU); g.fill(); g.stroke(); }
+    g.strokeStyle = "rgba(200,105,160,.8)"; g.lineWidth = 5;
+    for (let i = 0; i < 5; i++) { g.beginPath(); let x = R() * w; for (let y = 0; y <= h; y += 20) { x += (R() - .5) * 30; g.lineTo(x, y); } g.stroke(); }
+  });
+  const hypoFront = fat(1024, 188), hypoTop = fat(1024, 614);
+  const bottomMat = new THREE.MeshStandardMaterial({ color: 0x2a1d4a, roughness: .9 });
+  const mat = t => new THREE.MeshPhysicalMaterial({ map: t, emissiveMap: t, emissive: 0xffffff, emissiveIntensity: .12, roughness: .7, clearcoat: .2, clearcoatRoughness: .5, envMapIntensity: .35 });
+  const defs = [
+    { h: .24, front: epiFront, top: epiTop },
+    { h: .74, front: dermFront, top: dermTop },
+    { h: .58, front: hypoFront, top: hypoTop }
+  ];
+  const layers = []; let y = 0;
+  const total = defs.reduce((s, d) => s + d.h, 0);
+  defs.forEach((d, i) => {
+    const fm = mat(d.front), tm = mat(d.top);
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(W, d.h, D), [fm, fm, tm, bottomMat, fm, fm]);
+    const yc = total / 2 - y - d.h / 2; y += d.h;
+    const grp = new THREE.Group(); grp.add(mesh);
+    const edges = new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry), new THREE.LineBasicMaterial({ color: 0xdfe9ff, transparent: true, opacity: .35 }));
+    grp.add(edges);
+    root.add(grp); layers.push({ grp, base: yc, h: d.h });
+  });
+  // hair shafts on the epidermis
+  const hairMat = new THREE.MeshStandardMaterial({ color: 0x7a63b8, roughness: .5 });
+  for (let i = 0; i < 9; i++) {
+    const x = (R() - .5) * (W - .4), z = (R() - .5) * (D - .3), lean = (R() - .5) * .5, top = .5 + R() * .4;
+    const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(x, 0, z), new THREE.Vector3(x + lean * .3, top * .5, z + .05), new THREE.Vector3(x + lean, top, z + .12)]);
+    const hair = new THREE.Mesh(new THREE.TubeGeometry(curve, 16, .011, 6), hairMat);
+    hair.position.y = layers[0].h / 2; layers[0].grp.add(hair);
+  }
+  // scan plane
+  const scanTex = canvasTex(256, 8, (g, w, h) => { const l = g.createLinearGradient(0, 0, w, 0); l.addColorStop(0, "rgba(120,165,255,0)"); l.addColorStop(.5, "rgba(170,200,255,1)"); l.addColorStop(1, "rgba(120,165,255,0)"); g.fillStyle = l; g.fillRect(0, 0, w, h); });
+  const scan = new THREE.Mesh(new THREE.PlaneGeometry(.5, 3.4), new THREE.MeshBasicMaterial({ map: scanTex, transparent: true, opacity: .35, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+  const scanLine = new THREE.Mesh(new THREE.PlaneGeometry(.012, 3.4), new THREE.MeshBasicMaterial({ color: 0xdfe9ff, transparent: true, opacity: .8, side: THREE.DoubleSide, depthWrite: false }));
+  const scanner = new THREE.Group(); scanner.add(scan, scanLine);
+  scan.geometry = new THREE.PlaneGeometry(D + .2, 3.4); scan.rotation.y = Math.PI / 2;
+  scanLine.geometry = new THREE.EdgesGeometry(new THREE.PlaneGeometry(D + .1, 2.6)); scanner.remove(scanLine);
+  const frame = new THREE.LineSegments(scanLine.geometry, new THREE.LineBasicMaterial({ color: 0xcfe0ff, transparent: true, opacity: .7 }));
+  frame.rotation.y = Math.PI / 2; scanner.add(frame);
+  root.add(scanner);
+  const motes = dust(260, [10, 6, 6], .03, 0x9fbcff, .45); scene.add(motes);
+
+  const tags = [...document.querySelectorAll(".tag")], v = new THREE.Vector3();
+  let sep = 0;
+  return {
+    scene, dist: 11, bloom: [.25, .5, .95], tags,
+    update(t, m, active, size) {
+      root.position.x = -.45; root.rotation.set(.5 + m.y * .12, -.62 + m.x * .4 + .12 * Math.sin(t * .2), 0);
+      const cycle = .5 - .5 * Math.cos(t * .45), target = Math.min(1, Math.pow(cycle, 1.5) * 1.1 + (active ? .25 : 0));
+      sep += (target - sep) * .05;
+      layers.forEach((l, i) => { l.grp.position.y = l.base + (1 - i) * sep * .5; });
+      scanner.position.x = -W / 2 + W * (.5 - .5 * Math.cos(t * .6));
+      scan.material.opacity = .25 + .1 * Math.sin(t * 2);
+      motes.rotation.y = t * .015;
+      // labels follow the layers' front-right corner
+      layers.forEach((l, i) => {
+        let x = -1e9, y = 0;
+        for (const [cx, cz] of [[1, 1], [1, -1], [-1, 1], [-1, -1]]) {
+          v.set(cx * W / 2, l.grp.position.y, cz * D / 2); root.localToWorld(v); v.project(camera);
+          const sx = (v.x * .5 + .5) * size.w; if (sx > x) { x = sx + 8; y = (-v.y * .5 + .5) * size.h; }
+        }
+        tags[i].style.transform = `translate(${Math.min(x, size.w - 230)}px, ${y - 14}px)`;
+        tags[i].style.opacity = Math.min(1, Math.max(0, (sep - .25) * 2.2));
+      });
+    }
+  };
+}
+
+/* ---------- engine ---------- */
+const composer = new EffectComposer(renderer);
+const renderPass = new RenderPass(new THREE.Scene(), camera);
+const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), .5, .6, .85);
+composer.addPass(renderPass); composer.addPass(bloom); composer.addPass(new OutputPass());
+
+const scenes = [makeSlides(), makeCell(), makeSkin()];
+const info = [
+  { title: "Glass Slides", why: "Real glass slides with stained tissue and a scanner beam: the exact object Benchmark works with every day, shown like a premium product." },
+  { title: "Living Cell", why: "One breathing, translucent cell that reaches toward the cursor. Simple, iconic and the calmest of the three." },
+  { title: "Skin Layers", why: "A 3D skin block that opens into labelled layers. The clearest visual story for dermatopathology." }
+];
+const meta = [
+  { fit: "Whole brand: lab, slides, digital reporting", feel: "Premium, clinical, trustworthy", inter: "Fan tilts with cursor, scan beam reads the slide", rec: true },
+  { fit: "“Precision Diagnostics”, research & education", feel: "Calm, scientific, memorable", inter: "Membrane bulges toward the cursor", rec: false },
+  { fit: "Dermatopathology focus, physician audience", feel: "Educational, confident", inter: "Layers separate on hover, labels follow", rec: false }
+];
+let cur = 0, size = { w: 1, h: 1 }, narrow = false;
+
+function resize() {
+  const w = hero.clientWidth, h = hero.clientHeight; size = { w, h }; narrow = w < 760;
+  const dpr = Math.min(devicePixelRatio || 1, narrow ? 1.25 : 1.5);
+  renderer.setPixelRatio(dpr); renderer.setSize(w, h, false); composer.setPixelRatio(dpr); composer.setSize(w, h);
+  camera.aspect = w / h;
+  if (narrow) camera.setViewOffset(w, h, 0, h * .17, w, h); else camera.setViewOffset(w, h, -w * .19, 0, w, h);
+  camera.updateProjectionMatrix();
+  if (typeof showNote === "function") showNote();
+  render(performance.now());
+}
+let tx = 0, ty = 0, mx = 0, my = 0, lastMove = -1e9;
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) hero.addEventListener("pointermove", e => {
+  const r = hero.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width) * 2 - 1; ty = ((e.clientY - r.top) / r.height) * 2 - 1; lastMove = performance.now();
+});
+const t0 = performance.now();
+function render(now) {
+  const t = reduce ? 3.2 : (now - t0) / 1000, active = now - lastMove < 2500;
+  if (!active) { tx = .15 * Math.sin(t * .25); ty = .1 * Math.sin(t * .2 + 1); }
+  mx += (tx - mx) * .05; my += (ty - my) * .05;
+  const s = scenes[cur];
+  camera.position.set(0, 0, s.dist * (narrow ? 2.1 : 1)); camera.lookAt(0, 0, 0);
+  s.update(t, { x: mx, y: my }, active, size);
+  renderPass.scene = s.scene;
+  [bloom.strength, bloom.radius, bloom.threshold] = s.bloom;
+  composer.render();
+}
+let raf = 0, running = false, visible = true;
+const loop = now => { render(now); raf = requestAnimationFrame(loop); };
+const sync = () => {
+  const want = visible && !document.hidden && !reduce;
+  if (want && !running) { running = true; raf = requestAnimationFrame(loop); }
+  else if (!want && running) { running = false; cancelAnimationFrame(raf); }
+};
+new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }).observe(hero);
+document.addEventListener("visibilitychange", sync);
+new ResizeObserver(resize).observe(hero);
+
+const note = document.getElementById("note"), tagsEl = document.getElementById("tags");
+const buttons = [...document.querySelectorAll(".switcher button")];
+function showNote() { note.innerHTML = `<strong>Option ${cur + 1}: ${info[cur].title}</strong>${info[cur].why}`; tagsEl.style.display = cur === 2 && !narrow ? "" : "none"; }
+function select(i) {
+  if (i === cur) return;
+  buttons.forEach((b, k) => b.setAttribute("aria-pressed", k === i));
+  canvas.classList.add("swap"); tagsEl.style.opacity = 0;
+  setTimeout(() => { cur = i; showNote(); render(performance.now()); canvas.classList.remove("swap"); tagsEl.style.opacity = 1; }, 260);
+}
+buttons.forEach(b => b.addEventListener("click", () => select(+b.dataset.i)));
+
+const cards = document.getElementById("cards");
+info.forEach((s, i) => {
+  const el = document.createElement("article"); el.className = "card";
+  el.innerHTML = `<span class="num">OPTION ${i + 1}</span>${meta[i].rec ? '<span class="rec">Recommended</span>' : ""}<h3>${s.title}</h3><p>${s.why}</p>
+    <dl><dt>Best for</dt><dd>${meta[i].fit}</dd><dt>Feel</dt><dd>${meta[i].feel}</dd><dt>Interaction</dt><dd>${meta[i].inter}</dd></dl>
+    <button type="button">Preview in hero ↑</button>`;
+  el.querySelector("button").addEventListener("click", () => { scrollTo({ top: 0, behavior: "smooth" }); select(i); });
+  cards.appendChild(el);
+});
+showNote(); resize(); sync();
+addEventListener("pagehide", () => { cancelAnimationFrame(raf); renderer.dispose(); });
+</script>
+</body>
+</html>

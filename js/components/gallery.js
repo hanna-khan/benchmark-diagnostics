@@ -245,26 +245,32 @@ const pathartCases = [
 
 document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.querySelector('.gallery-grid');
-    const loadMoreButton = document.querySelector('.section-action .button');
+    const loadMoreButton = document.querySelector('.section-action .button, .section-action .pill');
     const categorySelect = document.querySelector('.gallery-controls select[aria-label="Filter gallery by category"]');
     const stainSelect = document.querySelector('.gallery-controls select[aria-label="Filter gallery by stain"]');
     const magnificationSelect = document.querySelector('.gallery-controls select[aria-label="Filter gallery by magnification"]');
     const searchInput = document.querySelector('.gallery-search input');
     const featuredImage = document.querySelector('.pathart-featured-image img');
     const featuredTitle = document.querySelector('.pathart-featured-content h2');
-    const featuredDescription = document.querySelector('.pathart-featured-content p');
+    const featuredDescription = document.querySelector('.pathart-featured-content > p:not(.kicker)');
     const featuredMetaList = document.querySelectorAll('.pathart-meta-list li');
     const featuredDotsContainer = document.querySelector('.gallery-dots');
     const featuredPrevButton = document.querySelector('.gallery-arrow-left');
     const featuredNextButton = document.querySelector('.gallery-arrow-right');
-    const featuredDetailsButton = document.querySelector('.pathart-featured-content .button');
+    const featuredDetailsButton = document.querySelector('.pathart-featured-content .button, .pathart-featured-content .pill');
     const detailMainImage = document.querySelector('.pathart-detail-main img');
-    const detailTitle = document.querySelector('.pathart-details-content h2');
+    const detailTitle = document.querySelector('.pathart-details-content > h2');
     const detailTextFields = document.querySelectorAll('.pathart-detail-list dd');
     const detailThumbnailContainer = document.querySelector('.pathart-thumbnails');
     const detailActions = document.querySelectorAll('.pathart-detail-actions a');
     const educationText = document.querySelector('.pathart-education-text p');
     const learningPointsList = document.querySelector('.learning-points ul');
+    const setButtonLabel = (button, label) => {
+        if (!button) return;
+        const span = button.querySelector('span');
+        if (span) span.textContent = label;
+        else button.textContent = label;
+    };
     const placeholder = 'Not specified';
     const state = {
         filteredItems: [...pathartCases],
@@ -370,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!galleryGrid) return;
         if (!state.filteredItems.length) {
             galleryGrid.innerHTML = '<p class="gallery-empty-state">No matching images found.</p>';
-            loadMoreButton.style.display = 'none';
+            if (loadMoreButton) loadMoreButton.style.display = 'none';
             return;
         }
 
@@ -397,9 +403,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const hasHiddenItems = state.filteredItems.length > state.visibleCount;
-        loadMoreButton.style.display = hasHiddenItems ? 'inline-flex' : 'none';
-        loadMoreButton.textContent = state.isGalleryExpanded ? 'Show Less' : 'View Full Gallery';
-        loadMoreButton.setAttribute('aria-expanded', String(state.isGalleryExpanded));
+        if (loadMoreButton) {
+            loadMoreButton.style.display = hasHiddenItems ? 'inline-flex' : 'none';
+            setButtonLabel(loadMoreButton, state.isGalleryExpanded ? 'Show Less' : 'View Full Gallery');
+            loadMoreButton.setAttribute('aria-expanded', String(state.isGalleryExpanded));
+        }
     };
 
     const populateFilterOptions = () => {
@@ -428,35 +436,36 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGallery();
     };
 
-    categorySelect.addEventListener('change', applyFilters);
-    stainSelect.addEventListener('change', applyFilters);
-    magnificationSelect.addEventListener('change', applyFilters);
-    searchInput.addEventListener('input', applyFilters);
-
-    loadMoreButton.addEventListener('click', () => {
+    loadMoreButton?.addEventListener('click', () => {
         state.isGalleryExpanded = !state.isGalleryExpanded;
         renderGallery();
         if (!state.isGalleryExpanded) document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    featuredDetailsButton.addEventListener('click', () => {
+    featuredDetailsButton?.addEventListener('click', () => {
         const item = pathartCases.find(entry => entry.id === featuredDetailsButton.dataset.featuredId);
         if (item) updateSelectedCase(item);
     });
 
-    featuredPrevButton.addEventListener('click', () => {
+    featuredPrevButton?.addEventListener('click', () => {
         const featuredItems = getFeaturedItems();
         state.featuredIndex = (state.featuredIndex - 1 + featuredItems.length) % featuredItems.length;
         updateFeaturedCarousel();
     });
 
-    featuredNextButton.addEventListener('click', () => {
+    featuredNextButton?.addEventListener('click', () => {
         const featuredItems = getFeaturedItems();
         state.featuredIndex = (state.featuredIndex + 1) % featuredItems.length;
         updateFeaturedCarousel();
     });
 
-    populateFilterOptions();
+    if (categorySelect && stainSelect && magnificationSelect && searchInput) {
+        populateFilterOptions();
+        categorySelect.addEventListener('change', applyFilters);
+        stainSelect.addEventListener('change', applyFilters);
+        magnificationSelect.addEventListener('change', applyFilters);
+        searchInput.addEventListener('input', applyFilters);
+    }
     updateFeaturedCarousel();
     updateDetailView(pathartCases[0]);
     renderGallery();

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/inner-pages.css">
+    <link rel="stylesheet" href="../css/blog-page.css">
+    <link rel="stylesheet" href="../css/publications.css">
 </head>
 <body class="page-inner page-research">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -25,7 +27,8 @@
                 <li><a href="../index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="research.html" class="nav-link active" aria-current="page">Educational Resources</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="pathart-gallery.html" class="nav-link">PathArt</a></li>
                 <li class="mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
@@ -62,12 +65,12 @@
 
 <section id="featured-research" class="fr" aria-labelledby="fr-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker kicker-dark">Spotlight</p><h2 id="fr-title">Featured Cases</h2><p class="section-sub">Three featured cases will be highlighted here. Additional cases will be added as they become available.</p></div>
+        <div class="section-head" data-reveal><p class="kicker kicker-dark">Spotlight</p><h2 id="fr-title">Featured Cases</h2><p class="section-sub">Selected dermatopathology cases highlighting uncommon patterns and diagnostic considerations. Additional cases will be added as they become available.</p></div>
         <div class="fcases">
             <article class="fcase" data-tilt data-reveal>
-                <div class="fcase-img"><img src="../assets/images/research/featured-research.png" alt="Featured Benchmark Diagnostics pathology case" loading="lazy"></div>
+                <div class="fcase-img"><img src="../assets/images/research/featured-case-1.jpg" alt="Histopathology image for featured collision lesion case" loading="lazy"></div>
                 <div class="fcase-body">
-                    <span class="tag">Case 01</span>
+                    <span class="tag">Featured Case</span>
                     <h3>Collision Lesion of Dermal Nevus and Pilar Leiomyoma</h3>
                     <p>An uncommon collision lesion demonstrating a dermal nevus and pilar leiomyoma, with histologic and immunohistochemical findings supporting both components.</p>
                     <p class="author">Arif Usmani, M.D.</p>
@@ -75,18 +78,16 @@
                 </div>
             </article>
             <article class="fcase fcase-soon" data-tilt data-reveal style="--d:.1s">
-                <div class="fcase-img"><img src="../assets/images/research/educational-presentation.png" alt="" loading="lazy"></div>
+                <div class="fcase-img"><img src="../assets/images/research/featured-case-2.jpg" alt="Histopathology image reserved for upcoming featured case" loading="lazy"></div>
                 <div class="fcase-body">
-                    <span class="tag">Case 02</span>
                     <span class="soon-chip">Coming soon</span>
                     <h3>Featured Case Two</h3>
                     <p>A second featured case will be published here.</p>
                 </div>
             </article>
             <article class="fcase fcase-soon" data-tilt data-reveal style="--d:.2s">
-                <div class="fcase-img"><img src="../assets/images/research/blogs-pathology.png" alt="" loading="lazy"></div>
+                <div class="fcase-img"><img src="../assets/images/research/featured-case-3.jpg" alt="Histopathology image reserved for upcoming featured case" loading="lazy"></div>
                 <div class="fcase-body">
-                    <span class="tag">Case 03</span>
                     <span class="soon-chip">Coming soon</span>
                     <h3>Featured Case Three</h3>
                     <p>A third featured case will be published here.</p>
@@ -98,31 +99,119 @@
 
 <section id="laboratory-communications" class="monthly-reports mr" aria-labelledby="mr-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker">Archive</p><h2 id="mr-title">Monthly Lab Reports</h2></div>
+        <div class="section-head" data-reveal>
+            <p class="kicker">Archive</p>
+            <h2 id="mr-title">Monthly Lab Reports</h2>
+            <p class="section-sub mr-sub">Practical diagnostic insights and interesting clinical cases shared through The Lab Report.</p>
+        </div>
         <div class="rf" data-rf></div>
+
+        <div class="lc-comms" id="clinical-communications">
+            <div class="section-head" data-reveal>
+                <p class="kicker">Practice resources</p>
+                <h2 id="lc-comms-title">Laboratory Communications</h2>
+                <p class="section-sub mr-sub">Clinical flow charts, diagnostic commentaries, and clinicopathologic case correlations for referring physicians.</p>
+            </div>
+            <div class="lc-grid">
+                <article class="lc-card" data-tilt data-reveal>
+                    <div class="lc-card-media">
+                        <img src="../assets/images/lab-communications/onychomycosis-flow-chart.jpg" width="1200" height="750" alt="Onychomycosis diagnostic flow chart preview" loading="lazy">
+                    </div>
+                    <div class="lc-card-body">
+                        <p class="lc-type">Diagnostic Flow Chart</p>
+                        <h3>Onychomycosis?: Flow Chart</h3>
+                        <p>A practical visual pathway for evaluating suspected onychomycosis—and a clear reminder of non-fungal differentials such as psoriasis, lichen planus, and eczema when studies are negative.</p>
+                        <a class="pill pill-ghost" href="../downloads/lab-communications/Onychomycosis_Flow_Chart.pdf" target="_blank" rel="noopener noreferrer"><span>View PDF</span></a>
+                    </div>
+                </article>
+
+                <article class="lc-card" data-tilt data-reveal style="--d:.1s">
+                    <div class="lc-card-media">
+                        <img src="../assets/images/lab-communications/nail-pcr-conundrum.jpg" width="1200" height="750" alt="Nail PCR Conundrum commentary preview" loading="lazy">
+                    </div>
+                    <div class="lc-card-body">
+                        <p class="lc-type">Clinical Commentary</p>
+                        <h3>Nail PCR Conundrum: Top Dog or White Elephant</h3>
+                        <p>A clinician-focused look at when nail PCR adds value—and when history, exam, and PAS/GMS already answer the first question that matters: is fungus present in the nail plate?</p>
+                        <a class="pill pill-ghost" href="../downloads/lab-communications/Nail_PCR_Conundrum.pdf" target="_blank" rel="noopener noreferrer"><span>View PDF</span></a>
+                    </div>
+                </article>
+
+                <article class="lc-card" data-tilt data-reveal style="--d:.2s">
+                    <div class="lc-card-media">
+                        <img src="../assets/images/lab-communications/clinical-pathologic-correlation.jpg" width="1200" height="750" alt="Clinical Pathologic Correlation 2026 first issue preview" loading="lazy">
+                    </div>
+                    <div class="lc-card-body">
+                        <p class="lc-type">Case Correlations · 2026 · 1st Issue</p>
+                        <h3>Clinical Pathologic Correlation</h3>
+                        <p>Benchmark referral cases with clinicopathologic correlation—including collision melanocytic nevus and leiomyoma, caterpillar dermatitis, and focal cutaneous mucinosis.</p>
+                        <a class="pill pill-ghost" href="../downloads/lab-communications/Clinical_Pathologic_Correlation_2026_1st_Issue.pdf" target="_blank" rel="noopener noreferrer"><span>View PDF</span></a>
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="fc" aria-labelledby="fc-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker kicker-dark">Research &amp; Education</p><h2 id="fc-title">Publications, Insights &amp; Perspectives</h2><p class="section-sub">These resources are being prepared. Content will be added here as it becomes available.</p></div>
+        <div class="section-head" data-reveal>
+            <p class="kicker kicker-dark">Research &amp; Education</p>
+            <h2 id="fc-title">Publications, Insights &amp; Perspectives</h2>
+            <p class="section-sub">Peer-reviewed work, original observations, and pathology perspectives from Arif Usmani, M.D., and the Benchmark Diagnostics team.</p>
+        </div>
         <div class="fc-grid">
-            <article id="publications" class="fc-card" data-tilt data-reveal><img src="../assets/images/research/featured-journal-article.png" alt="" loading="lazy"><div class="fc-body"><span class="soon-chip">Coming soon</span><h3>Scientific Publications</h3><p>Peer-reviewed research and scholarly articles contributing to the understanding of dermatopathology and related disciplines.</p></div></article>
-            <article id="original-insights" class="fc-card" data-tilt data-reveal style="--d:.1s"><img src="../assets/images/research/educational-presentation.png" alt="" loading="lazy"><div class="fc-body"><span class="soon-chip">Coming soon</span><h3>Original Insights in Dermatopathology</h3><p>Original observations and investigations exploring histopathologic patterns, disease mechanisms, and diagnostic concepts.</p></div></article>
-            <article id="blogs" class="fc-card" data-tilt data-reveal style="--d:.2s"><img src="../assets/images/research/blogs-pathology.png" alt="" loading="lazy"><div class="fc-body"><span class="soon-chip">Coming soon</span><h3>Pathology Perspectives</h3><p>Commentaries and reflections on pathology, laboratory medicine, and evolving diagnostic practices.</p></div></article>
+            <article id="publications" class="fc-card" data-tilt data-reveal>
+                <div class="fc-art" data-art="melanocytic" aria-hidden="true"></div>
+                <div class="fc-body">
+                    <h3>Scientific Publications</h3>
+                    <p>Peer-reviewed research and scholarly articles contributing to the understanding of dermatopathology and related disciplines.</p>
+                    <ul class="fc-stats"><li><b>50</b>publications</li><li><b>27</b>journal</li><li><b>1999–2026</b></li></ul>
+                    <a href="#publications-list" class="pill pill-dark" data-magnetic data-pub-type="all"><span>Browse Publications</span></a>
+                </div>
+            </article>
+            <article id="original-insights" class="fc-card" data-tilt data-reveal style="--d:.1s">
+                <div class="fc-art" data-art="epithelial" aria-hidden="true"></div>
+                <div class="fc-body">
+                    <h3>Original Insights in Dermatopathology</h3>
+                    <p>Original observations and investigations exploring histopathologic patterns, disease mechanisms, and diagnostic concepts.</p>
+                    <ul class="fc-stats"><li><b>23</b>conference presentations</li><li><b>ASDP</b>annual meetings</li></ul>
+                    <a href="#publications-list" class="pill pill-dark" data-magnetic data-pub-type="Conference Presentation"><span>Explore Insights</span></a>
+                </div>
+            </article>
+            <article id="blogs" class="fc-card" data-tilt data-reveal style="--d:.2s">
+                <img src="../assets/images/blog/totem-poles.jpg" alt="" loading="lazy">
+                <div class="fc-body">
+                    <h3>Pathology Perspectives</h3>
+                    <p>Commentaries and reflections on pathology, laboratory medicine, and evolving diagnostic practices.</p>
+                    <ul class="fc-stats"><li><b>4</b>articles</li><li>PathArt · Ethics · Lab</li></ul>
+                    <a href="blog.html" class="pill pill-dark" data-magnetic><span>Explore Blogs</span></a>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<section class="er" aria-labelledby="er-title">
+<section id="publications-list" class="pbl" aria-labelledby="pubs-title">
     <div class="wrap">
-        <div class="section-head" data-reveal><p class="kicker kicker-dark">Keep learning</p><h2 id="er-title">Trusted Clinical &amp; Educational Resources</h2><p class="section-sub">Explore trusted pathology and dermatopathology resources for continuing education, clinical reference, and professional development. Additional resources will be added here over time.</p></div>
-        <div class="er-grid">
-            <article class="er-card er-big" data-tilt data-reveal><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><p class="src">DermNet</p><h3>Dermatopathology CME</h3><p class="desc">Review dermatopathology fundamentals, specimen preparation, special stains, inflammatory disorders, infections, and cutaneous tumors.</p><a href="https://dermnetnz.org/cme/dermatopathology" class="go" target="_blank" rel="noopener noreferrer" aria-label="Explore Dermatopathology CME course from DermNet">Explore Course ↗</a></article>
-            <article class="er-card" data-tilt data-reveal style="--d:.08s"><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span><p class="src">College of American Pathologists</p><h3>Protocols &amp; Guidelines</h3><p class="desc">Access evidence-based pathology guidelines, cancer reporting protocols, and laboratory reference standards.</p><a href="https://www.cap.org/protocols-and-guidelines/" class="go" target="_blank" rel="noopener noreferrer" aria-label="View College of American Pathologists protocols and guidelines">View CAP Resources ↗</a></article>
-            <article class="er-card" data-tilt data-reveal style="--d:.16s"><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg></span><p class="src">American Society of Dermatopathology</p><h3>Dermatopathology Education</h3><p class="desc">Explore dermatopathology education, board review resources, quality assurance programs, and professional learning opportunities.</p><a href="https://www.asdp.org/ASDP/ASDPWeb/Education/Education-Home.aspx" class="go" target="_blank" rel="noopener noreferrer" aria-label="Explore American Society of Dermatopathology education">Explore ASDP Education ↗</a></article>
-            <article class="er-card er-wide" data-tilt data-reveal style="--d:.24s"><span class="er-ic"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></span><p class="src">PubMed / National Library of Medicine</p><h3>Dermatopathology Research</h3><p class="desc">Search current peer-reviewed dermatopathology and pathology literature through the National Library of Medicine.</p><a href="https://pubmed.ncbi.nlm.nih.gov/?term=dermatopathology" class="go" target="_blank" rel="noopener noreferrer" aria-label="Search dermatopathology research on PubMed">Search Research ↗</a></article>
+        <div class="pbl-head" data-reveal>
+            <div>
+                <p class="kicker kicker-dark">Library</p>
+                <h2 id="pubs-title">Scientific Publications</h2>
+                <p class="section-sub">Fifty abstracts, journal articles and conference presentations by Arif Usmani, M.D., spanning 1999 to 2026. Open any title for the full abstract, structured summary and citation.</p>
+            </div>
+            <ul class="pbl-stats" aria-label="Publication overview"><li><b>50</b><span>Publications</span></li><li><b>27</b><span>Journal</span></li><li><b>23</b><span>Conference</span></li><li><b>9</b><span>Topics</span></li></ul>
         </div>
+        <div class="pbl-tools" data-reveal>
+            <label class="bl-search"><span class="visually-hidden" style="position:absolute;left:-9999px">Search publications</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pub-filter" type="search" placeholder="Search title, venue, topic or year" autocomplete="off"></label>
+            <div class="pbl-seg" data-pub-types role="group" aria-label="Filter by type"></div>
+            <label class="pbl-select"><span class="pbl-select-label">Topic</span><select id="pub-topic" aria-label="Filter by topic"></select></label>
+            <label class="pbl-select"><span class="pbl-select-label">Sort</span><select id="pub-sort" aria-label="Sort publications"><option value="new">Newest first</option><option value="old">Oldest first</option></select></label>
+        </div>
+        <p class="bl-count" data-pub-count aria-live="polite"></p>
+        <div class="pb-grid" id="pubs-root"></div>
+        <div class="pbl-more" data-pub-more hidden><button type="button" class="pill pill-ghost" data-magnetic><span>Show more publications</span></button></div>
+        <p class="pbl-note">Abstract text is shown as supplied by the author. For the published full text, figures and references, please refer to the venue listed on each publication or contact our laboratory.</p>
     </div>
 </section>
 
@@ -158,16 +247,19 @@
             <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
             <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" class="social-linkedin" aria-label="Follow Benchmark Diagnostics on LinkedIn" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span><span class="social-label">Follow us on LinkedIn</span></a></div>
         </div>
-        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Research &amp; Publications</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Educational Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="pathart-gallery.html">PathArt</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
         <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="technical-laboratory-services.html">Technical Laboratory Services</a></li></ul></div>
         <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
     </div>
     <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
 </footer>
 
-</body>
-</html>
 <script src="../js/components/modal.js"></script>
 <script src="../js/components/lab-reports.js"></script>
 <script src="../js/components/edu-gallery.js"></script>
+<script src="../js/publications-data.js"></script>
+<script src="../js/pub-art.js"></script>
+<script src="../js/publications-ui.js"></script>
 <script src="../js/inner-pages.js" defer></script>
+</body>
+</html>

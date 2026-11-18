@@ -187,6 +187,44 @@ button.pill { cursor: pointer; font-family: inherit; }
 .rf-count { font-size: .8rem; font-weight: 600; letter-spacing: .12em; color: var(--cyan); font-variant-numeric: tabular-nums; }
 .rf-name { font-size: 1.25rem; font-weight: 300; letter-spacing: -.02em; }
 
+/* Laboratory communications cards (within Lab Reports section) */
+.mr-sub { color: var(--on-dark); max-width: 52ch; }
+.lc-comms { margin-top: clamp(4rem, 8vw, 6.5rem); padding-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--line-dark); }
+.lc-comms h2 { color: var(--white); }
+.lc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+.lc-card {
+    display: flex; flex-direction: column; overflow: hidden;
+    border: 1px solid var(--line-dark); border-radius: var(--r-lg);
+    background: linear-gradient(165deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    transition: border-color .35s, transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.lc-card:hover {
+    border-color: rgba(91, 134, 232, .55);
+    box-shadow: 0 28px 50px -28px rgba(0, 0, 0, .65);
+    transform: translateY(-4px);
+}
+.lc-card-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--navy-2); }
+.lc-card-media img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top center;
+    transition: transform .9s var(--ease); filter: saturate(.92);
+}
+.lc-card:hover .lc-card-media img { transform: scale(1.04); filter: none; }
+.lc-card-body { display: flex; flex-direction: column; gap: .7rem; padding: 1.35rem 1.4rem 1.55rem; flex: 1; }
+.lc-type {
+    margin: 0; font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--cyan);
+}
+.lc-card h3 {
+    margin: 0; font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 300;
+    letter-spacing: -.02em; line-height: 1.25; color: var(--white);
+}
+.lc-card-body p:not(.lc-type) {
+    margin: 0; color: var(--on-dark); font-size: .95rem; line-height: 1.55; flex: 1;
+}
+.lc-card .pill { align-self: flex-start; margin-top: .35rem; }
+@media (max-width: 980px) { .lc-grid { grid-template-columns: 1fr; } }
+
 /* Educational resources bento */
 .er { padding-block: clamp(5rem, 10vw, 9rem); background: var(--paper); }
 .er-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(15rem, auto); gap: 1rem; }
@@ -254,3 +292,33 @@ body.modal-open { overflow: hidden; }
 .soon-chip { display: inline-block; padding: .3rem .8rem; border-radius: 999px; background: var(--navy); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .mr { scroll-margin-top: 80px; }
 @media (max-width: 980px) { .fc-grid { grid-template-columns: 1fr; } }
+
+/* Publications list */
+.pubs { padding-block: clamp(4rem, 8vw, 7rem); background: var(--paper); scroll-margin-top: 90px; }
+.pubs h2 { color: var(--text); }
+.pubs-toolbar { margin: 0 0 1.5rem; }
+.pubs-toolbar input {
+    width: min(100%, 28rem); min-height: 48px; padding: .75rem 1.1rem;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--white);
+    font: inherit; color: var(--text);
+}
+.pubs-toolbar input:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.pubs-list { display: grid; gap: .85rem; }
+.pub-row {
+    display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1.1rem 1.25rem;
+    align-items: start; padding: 1rem 1.15rem; text-decoration: none; color: inherit;
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--r-md);
+    transition: border-color .3s, box-shadow .35s var(--ease), transform .35s var(--ease);
+}
+.pub-row:hover { border-color: rgba(16, 72, 192, .3); box-shadow: 0 22px 40px -30px rgba(7, 20, 51, .4); transform: translateY(-2px); }
+.pub-row img { width: 7.5rem; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--paper); }
+.pub-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0 0 .35rem; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--brand); }
+.pub-meta span { color: var(--muted); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.pub-row h3 { margin: 0 0 .4rem; font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.35; color: var(--text); }
+.pub-venue { margin: 0 0 .55rem; font-size: .9rem; color: var(--brand); font-weight: 600; }
+.pub-sum { margin: 0; color: var(--muted); font-size: .95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 640px) {
+    .pub-row { grid-template-columns: 1fr; }
+    .pub-row img { width: 100%; aspect-ratio: 16 / 10; }
+}

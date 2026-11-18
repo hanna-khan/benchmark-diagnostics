@@ -80,6 +80,32 @@
         });
     }
 
+    /* ---------- Blog stage: hover / focus a headline and the preview follows ---------- */
+    (() => {
+        const hb = document.querySelector("[data-hb]");
+        if (!hb) return;
+        const items = $$(".hb-item", hb), slides = $$(".hb-slide", hb);
+        let cur = 0, timer = 0, paused = false;
+        const show = i => {
+            cur = i;
+            items.forEach((el, k) => el.classList.toggle("is-active", k === i));
+            slides.forEach((el, k) => el.classList.toggle("is-active", k === i));
+        };
+        items.forEach((el, i) => {
+            el.addEventListener("pointerenter", () => { if (finePointer) show(i); });
+            el.addEventListener("focus", () => show(i));
+        });
+        if (reduce) return;
+        hb.addEventListener("pointerenter", () => paused = true);
+        hb.addEventListener("pointerleave", () => paused = false);
+        hb.addEventListener("focusin", () => paused = true);
+        hb.addEventListener("focusout", () => paused = false);
+        new IntersectionObserver(([e]) => {
+            clearInterval(timer);
+            if (e.isIntersecting) timer = setInterval(() => { if (!paused && !document.hidden) show((cur + 1) % items.length); }, 5200);
+        }).observe(hb);
+    })();
+
     /* ---------- Closing CTA: 3D double helix (raw WebGL points) ---------- */
     (() => {
         const cta = document.querySelector(".cta");

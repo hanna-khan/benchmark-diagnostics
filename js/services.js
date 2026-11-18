@@ -42,8 +42,13 @@
     /* Core services: the sticky stage follows whichever service is centred */
     const items = $$(".svc-item"), imgs = $$(".stage-img"), dots = $$(".stage-dots i"), num = $(".stage-num"), name = $(".stage-name");
     if (items.length && "IntersectionObserver" in window) {
-        const set = i => { items.forEach((s, j) => s.classList.toggle("on", j === i)); imgs.forEach((m, j) => m.classList.toggle("on", j === i)); dots.forEach((d, j) => d.classList.toggle("on", j === i));
-            num.textContent = "0" + (i + 1); name.textContent = $("h2", items[i]).textContent; };
+        const set = i => {
+            items.forEach((s, j) => s.classList.toggle("on", j === i));
+            imgs.forEach((m, j) => m.classList.toggle("on", j === i));
+            dots.forEach((d, j) => d.classList.toggle("on", j === i));
+            if (num) num.textContent = "0" + (i + 1);
+            if (name) name.textContent = $("h2", items[i]).textContent;
+        };
         set(0);
         const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) set(+en.target.dataset.i); }), { rootMargin: "-45% 0px -45% 0px" });
         items.forEach(s => io.observe(s));

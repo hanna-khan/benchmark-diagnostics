@@ -65,13 +65,108 @@
         });
     }
 
-    /* Research orbit follows cursor across the section */
-    const orbit = $("[data-orbit]");
-    if (orbit && fine && !reduce) orbit.closest(".rx").addEventListener("pointermove", e => {
-        const r = orbit.getBoundingClientRect();
-        orbit.style.setProperty("--ry", clamp((e.clientX - r.left - r.width / 2) / innerWidth, -.5, .5) * 40);
-        orbit.style.setProperty("--rx", clamp((e.clientY - r.top - r.height / 2) / innerHeight, -.5, .5) * -40);
-    });
+    /* Research & Education: living knowledge model (rotating DNA helix, tilted orbits, labelled satellites).
+       Canvas 2D with a tiny 3D rig, paused off-screen, one still frame for reduced motion. */
+    (() => {
+        const host = $("[data-orbit]"); if (!host) return;
+        const cv = $(".rx-canvas", host), ctx = cv.getContext("2d"), tags = $$(".rx-tag", host);
+        if (!ctx) return;
+        const section = host.closest(".rx"), TAU = Math.PI * 2;
+        const BLUE = "91,134,232", PINK = "229,143,176", CYAN = "95,208,230", ICE = "232,239,255";
+        let W = 1, H = 1, dpr = 1, vis = false, raf = 0, t = 0, tx = 0, ty = 0, mx = 0, my = 0;
+        // helix: two strands + base-pair rungs
+        const helix = [], N = 64, TURNS = 2.6, HR = .25, HH = .72;
+        for (let i = 0; i < N; i++) {
+            const k = i / (N - 1), y = -HH + 2 * HH * k, a = k * TURNS * TAU;
+            helix.push({ y, a, rung: i % 3 === 0 });
+        }
+        // orbits: radius, tilt X / tilt Z, speed, satellites (phase, colour, label index)
+        const orbits = [
+            { r: .98, tx: 1.18, tz: .25, sp: .22, sats: [{ p: 0, c: BLUE, tag: 0 }, { p: 3.4, c: PINK, tag: 3 }] },
+            { r: .80, tx: .62, tz: -.55, sp: -.3, sats: [{ p: 1.4, c: CYAN, tag: 1 }, { p: 4.6, c: BLUE, tag: -1 }] },
+            { r: .62, tx: 1.45, tz: -.1, sp: .42, sats: [{ p: 2.6, c: PINK, tag: 2 }] }
+        ];
+        const dust = Array.from({ length: 46 }, () => ({ x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random() * 2 - 1, s: .4 + Math.random() * 1.4, p: Math.random() * TAU }));
+        const size = () => {
+            dpr = Math.min(devicePixelRatio || 1, 1.75); W = host.clientWidth; H = host.clientHeight;
+            cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+        const out = { x: 0, y: 0, z: 0, k: 1 };
+        const rig = (ay, ax) => {
+            const ca = Math.cos(ay), sa = Math.sin(ay), cb = Math.cos(ax), sb = Math.sin(ax), S = Math.min(W, H) * .4;
+            return (x, y, z) => {
+                const x1 = x * ca + z * sa, z1 = -x * sa + z * ca, y1 = y * cb - z1 * sb, z2 = y * sb + z1 * cb, k = 3 / (3 - z2);
+                out.x = W / 2 + x1 * k * S; out.y = H / 2 - y1 * k * S; out.z = z2; out.k = k; return out;
+            };
+        };
+        const ringPt = (o, a) => {
+            let x = o.r * Math.cos(a), y = 0, z = o.r * Math.sin(a);
+            let y1 = y * Math.cos(o.tx) - z * Math.sin(o.tx), z1 = y * Math.sin(o.tx) + z * Math.cos(o.tx);
+            const x2 = x * Math.cos(o.tz) - y1 * Math.sin(o.tz), y2 = x * Math.sin(o.tz) + y1 * Math.cos(o.tz);
+            return [x2, y2, z1];
+        };
+        const depthA = z => .35 + .65 * Math.min(1, Math.max(0, (z + 1.2) / 2.4));
+        const frame = () => {
+            ctx.clearRect(0, 0, W, H);
+            const P = rig(t * .1 + mx * .7, .32 + my * .4);
+            // soft core glow
+            const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, W * .36);
+            g.addColorStop(0, `rgba(${BLUE},.34)`); g.addColorStop(.5, `rgba(${BLUE},.09)`); g.addColorStop(1, `rgba(${BLUE},0)`);
+            ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+            ctx.globalCompositeOperation = "lighter";
+            // orbit rings
+            orbits.forEach((o, i) => {
+                ctx.beginPath();
+                for (let s = 0; s <= 90; s++) { const p = ringPt(o, s / 90 * TAU); P(p[0], p[1], p[2]); s ? ctx.lineTo(out.x, out.y) : ctx.moveTo(out.x, out.y); }
+                ctx.strokeStyle = `rgba(${i === 1 ? PINK : BLUE},.3)`; ctx.lineWidth = 1; ctx.stroke();
+            });
+            // ambient dust
+            dust.forEach(d => {
+                P(d.x * 1.05, d.y * 1.05 + Math.sin(t * .4 + d.p) * .03, d.z * 1.05);
+                ctx.fillStyle = `rgba(${ICE},${.35 * depthA(out.z)})`; ctx.beginPath(); ctx.arc(out.x, out.y, d.s * out.k, 0, TAU); ctx.fill();
+            });
+            // helix (rotates faster than the scene)
+            const spin = t * .9;
+            const A = [], B = [];
+            helix.forEach(h => {
+                const a = h.a + spin;
+                P(Math.cos(a) * HR, h.y, Math.sin(a) * HR); A.push({ x: out.x, y: out.y, z: out.z, k: out.k });
+                P(-Math.cos(a) * HR, h.y, -Math.sin(a) * HR); B.push({ x: out.x, y: out.y, z: out.z, k: out.k });
+            });
+            helix.forEach((h, i) => {
+                if (h.rung) { ctx.strokeStyle = `rgba(${ICE},.22)`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(A[i].x, A[i].y); ctx.lineTo(B[i].x, B[i].y); ctx.stroke(); }
+            });
+            [[A, CYAN], [B, PINK]].forEach(([arr, c]) => arr.forEach(p => {
+                const al = depthA(p.z); const r = 3.4 * p.k;
+                const gg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 3); gg.addColorStop(0, `rgba(${c},${.9 * al})`); gg.addColorStop(1, `rgba(${c},0)`);
+                ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(p.x, p.y, r * 3, 0, TAU); ctx.fill();
+            }));
+            // satellites + labels
+            const cen = P(0, 0, 0), cx0 = cen.x, cy0 = cen.y;
+            const placed = [];
+            orbits.forEach(o => o.sats.forEach(s => {
+                const p = ringPt(o, s.p + t * o.sp); P(p[0], p[1], p[2]);
+                const al = depthA(out.z), x = out.x, y = out.y, r = 5.5 * out.k;
+                if (s.tag >= 0) { ctx.strokeStyle = `rgba(${s.c},${.28 * al})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx0, cy0); ctx.lineTo(x, y); ctx.stroke(); }
+                const gg = ctx.createRadialGradient(x, y, 0, x, y, r * 3.4); gg.addColorStop(0, `rgba(${s.c},${al})`); gg.addColorStop(1, `rgba(${s.c},0)`);
+                ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(x, y, r * 3.4, 0, TAU); ctx.fill();
+                ctx.fillStyle = `rgba(${ICE},${al})`; ctx.beginPath(); ctx.arc(x, y, r * .55, 0, TAU); ctx.fill();
+                if (s.tag >= 0 && tags[s.tag]) { const el = tags[s.tag]; const left = x < cx0, w = el.offsetWidth || 90, px = left ? x - w - 12 : x + 12; let py = y - 15;
+                    placed.forEach(q => { if (px < q.x + q.w && q.x < px + w && Math.abs(py - q.y) < 30) py = q.y + (py >= q.y ? 32 : -32); });
+                    placed.push({ x: px, y: py, w });
+                    el.style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`; el.style.opacity = (.25 + .75 * al).toFixed(2); }
+            }));
+            ctx.globalCompositeOperation = "source-over";
+        };
+        const loop = () => { t += .016; mx += (tx - mx) * .05; my += (ty - my) * .05; frame(); raf = vis ? requestAnimationFrame(loop) : 0; };
+        size(); t = 2.4; frame(); addEventListener("resize", () => { size(); frame(); });
+        if (reduce) return;
+        if (fine) section.addEventListener("pointermove", e => {
+            const r = host.getBoundingClientRect();
+            tx = clamp((e.clientX - r.left - r.width / 2) / innerWidth, -.5, .5) * 1.6; ty = clamp((e.clientY - r.top - r.height / 2) / innerHeight, -.5, .5) * 1.2;
+        });
+        new IntersectionObserver(([e]) => { vis = e.isIntersecting; if (vis && !raf) raf = requestAnimationFrame(loop); }).observe(host);
+    })();
 
     /* Story: split words (kept in DOM order for screen readers) */
     const story = $("[data-story]"), paras = $$("[data-words]");

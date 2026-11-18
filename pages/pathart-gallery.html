@@ -1,1041 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>PathArt Gallery | Benchmark Diagnostics</title>
-
-	<meta
-		name="description"
-		content="Explore the Benchmark Diagnostics PathArt Gallery featuring curated pathology images, educational notes, categories, and related cases."
-	>
-
-	<link rel="stylesheet" href="../css/variables.css">
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/layout.css">
-	<link rel="stylesheet" href="../css/components.css">
-	<link rel="stylesheet" href="../css/gallery.css">
-	<link rel="stylesheet" href="../css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathArt Gallery | Benchmark Diagnostics</title>
+    <meta name="description" content="Explore the Benchmark Diagnostics PathArt Gallery featuring curated pathology images, educational notes, categories, and related cases.">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/inner-pages.css">
+    <link rel="stylesheet" href="../css/pathart-page.css">
 </head>
-
-
-<body>
-
-	<!-- ========================================
-	     HEADER
-	========================================= -->
-
-	<header class="site-header">
-
-		<div class="container header-container">
-
-			<a
-				href="../index.html"
-				class="site-logo"
-				aria-label="Benchmark Diagnostics Home"
-			>
-				<img
-					src="../assets/images/branding/logo.jpg"
-					alt="Benchmark Diagnostics"
-					class="site-logo-image"
-				>
-			</a>
-
-
-			<button
-				class="menu-toggle"
-				type="button"
-				aria-label="Open navigation menu"
-				aria-expanded="false"
-				aria-controls="main-navigation"
-			>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
-
-
-			<nav
-				class="main-nav"
-				id="main-navigation"
-				aria-label="Main navigation"
-			>
-
-				<ul class="nav-list">
-
-					<li>
-						<a href="../index.html" class="nav-link">
-							Home
-						</a>
-					</li>
-
-					<li>
-						<a href="about.html" class="nav-link">
-							About
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html" class="nav-link">
-							Services
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html" class="nav-link">
-							Educational Resources
-						</a>
-					</li>
-
-					<li class="mobile-contact-item">
-						<a href="contact.html" class="nav-link">
-							Contact
-						</a>
-					</li>
-
-				</ul>
-
-			</nav>
-
-
-			<a
-				href="contact.html"
-				class="button button-outline header-contact"
-			>
-				Contact
-			</a>
-
-		</div>
-
-	</header>
-
-
-
-	<main>
-
-		<!-- ========================================
-		     01. HERO
-		========================================= -->
-
-		<section class="pathart-hero section">
-
-			<div class="container pathart-hero-grid">
-
-				<div class="pathart-hero-content">
-
-					<h1>
-						PathArt Gallery
-					</h1>
-
-					<h2>
-						The Art and Science of Pathology
-					</h2>
-
-					<p>
-						Explore curated pathology images that educate,
-						inspire, and highlight the beauty of microscopic
-						detail.
-					</p>
-
-					<a
-						href="#gallery"
-						class="button button-primary"
-					>
-						Explore the Gallery
-					</a>
-
-				</div>
-
-
-				<div class="pathart-hero-image">
-
-					<img
-						src="../assets/images/pathart/hero/pathart-hero.jpg"
-						alt="Microscopic pathology image from the Benchmark Diagnostics PathArt Gallery"
-					>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-		<!-- ========================================
-		     02. FEATURED IMAGE
-		========================================= -->
-
-		<section class="pathart-featured section section-light">
-
-			<div class="container pathart-featured-grid">
-
-				<div class="pathart-featured-image">
-
-					<button
-						class="gallery-arrow gallery-arrow-left"
-						type="button"
-						aria-label="Previous featured image"
-					>
-						‹
-					</button>
-
-
-					<img
-						src="../assets/images/pathart/featured-pathart.jpg"
-						alt="Featured PathArt image showing psoriasiform dermatitis"
-					>
-
-
-					<button
-						class="gallery-arrow gallery-arrow-right"
-						type="button"
-						aria-label="Next featured image"
-					>
-						›
-					</button>
-
-
-					<div
-						class="gallery-dots"
-						aria-label="Featured gallery position"
-					>
-						<span class="gallery-dot active"></span>
-						<span class="gallery-dot"></span>
-						<span class="gallery-dot"></span>
-						<span class="gallery-dot"></span>
-					</div>
-
-				</div>
-
-
-				<div class="pathart-featured-content">
-
-					<span class="gallery-label">
-						Featured
-					</span>
-
-					<h2>
-						Case 01
-					</h2>
-
-					<p>
-						A representative microscopic specimen highlighting tissue
-						architecture and staining pattern.
-					</p>
-
-
-					<ul class="pathart-meta-list">
-
-						<li>
-							<strong>Category:</strong>
-							Inflammatory Dermatoses
-						</li>
-
-						<li>
-							<strong>Stain:</strong>
-							H&amp;E
-						</li>
-
-						<li>
-							<strong>Magnification:</strong>
-							20x
-						</li>
-
-					</ul>
-
-
-					<a
-						href="#image-details"
-						class="button button-outline"
-					>
-						View Details
-					</a>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-		<!-- ========================================
-		     03. IMAGE GALLERY GRID
-		========================================= -->
-
-		<section
-			id="gallery"
-			class="pathart-gallery section"
-		>
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Browse the Gallery
-					</h2>
-
-				</div>
-
-
-				<div class="gallery-controls">
-
-					<select aria-label="Filter gallery by category">
-
-						<option>
-							All Categories
-						</option>
-
-						<option>
-							Inflammatory Dermatoses
-						</option>
-
-						<option>
-							Neoplastic Lesions
-						</option>
-
-						<option>
-							Podiatric Pathology
-						</option>
-
-						<option>
-							Infectious Diseases
-						</option>
-
-						<option>
-							Other Conditions
-						</option>
-
-					</select>
-
-
-					<select aria-label="Filter gallery by stain">
-
-						<option>
-							All Stains
-						</option>
-
-						<option>
-							H&amp;E
-						</option>
-
-					</select>
-
-
-					<select aria-label="Filter gallery by magnification">
-
-						<option>
-							All Magnifications
-						</option>
-
-						<option>
-							20x
-						</option>
-
-						<option>
-							40x
-						</option>
-
-					</select>
-
-
-					<div class="gallery-search">
-
-						<input
-							type="search"
-							placeholder="Search images..."
-							aria-label="Search PathArt gallery"
-						>
-
-						<span aria-hidden="true">
-							⌕
-						</span>
-
-					</div>
-
-				</div>
-
-
-				<div class="gallery-grid">
-
-					<article class="gallery-card">
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Case 01
-						</h3>
-
-						<p>
-							Inflammatory Dermatoses
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card">
-
-						<img
-							src="../assets/images/pathart/gallery-2.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Case 02
-						</h3>
-
-						<p>
-							Neoplastic Lesions
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card">
-
-						<img
-							src="../assets/images/pathart/gallery-3.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Case 03
-						</h3>
-
-						<p>
-							Podiatric Pathology
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card">
-
-						<img
-							src="../assets/images/pathart/gallery-4.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Case 04
-						</h3>
-
-						<p>
-							Infectious Diseases
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card">
-
-						<img
-							src="../assets/images/pathart/gallery-5.png"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Case 05
-						</h3>
-
-						<p>
-							Other Conditions
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card gallery-card-hidden">
-
-						<img
-							src="../assets/images/pathart/gallery-6.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Image Title
-						</h3>
-
-						<p>
-							Category Name
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card gallery-card-hidden">
-
-						<img
-							src="../assets/images/pathart/gallery-7.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Image Title
-						</h3>
-
-						<p>
-							Category Name
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card gallery-card-hidden">
-
-						<img
-							src="../assets/images/pathart/gallery-8.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Image Title
-						</h3>
-
-						<p>
-							Category Name
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card gallery-card-hidden">
-
-						<img
-							src="../assets/images/pathart/gallery-9.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Image Title
-						</h3>
-
-						<p>
-							Category Name
-						</p>
-
-					</article>
-
-
-					<article class="gallery-card gallery-card-hidden">
-
-						<img
-							src="../assets/images/pathart/gallery-10.jpg"
-							alt="PathArt gallery image"
-						>
-
-						<h3>
-							Image Title
-						</h3>
-
-						<p>
-							Category Name
-						</p>
-
-					</article>
-
-				</div>
-
-
-				<div class="section-action">
-
-					<button
-						type="button"
-						class="button button-outline"
-					>
-						View Full Gallery
-					</button>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-		<!-- ========================================
-		     04. IMAGE DETAILS
-		========================================= -->
-
-		<section
-			id="image-details"
-			class="pathart-details section section-light"
-		>
-
-			<div class="container pathart-details-grid">
-
-				<div class="pathart-details-images">
-
-					<div class="pathart-detail-main">
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="Detailed pathology image"
-						>
-
-					</div>
-
-
-					<div class="pathart-thumbnails">
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="Alternate pathology image view"
-						>
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="Alternate pathology image view"
-						>
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="Alternate pathology image view"
-						>
-
-						<img
-							src="../assets/images/pathart/gallery-1.jpg"
-							alt="Alternate pathology image view"
-						>
-
-					</div>
-
-				</div>
-
-
-				<div class="pathart-details-content">
-
-					<h2>
-						Case 01
-					</h2>
-
-
-					<dl class="pathart-detail-list">
-
-						<div>
-							<dt>Category</dt>
-							<dd>Inflammatory Dermatoses</dd>
-						</div>
-
-						<div>
-							<dt>Stain</dt>
-							<dd>H&amp;E</dd>
-						</div>
-
-						<div>
-							<dt>Magnification</dt>
-							<dd>20x</dd>
-						</div>
-
-						<div>
-							<dt>Case Type</dt>
-							<dd>Biopsy</dd>
-						</div>
-
-						<div>
-							<dt>Case ID</dt>
-							<dd>BD-CASE-001</dd>
-						</div>
-
-						<div>
-							<dt>Date Acquired</dt>
-							<dd>May 12, 2024</dd>
-						</div>
-
-					</dl>
-
-
-					<div class="pathart-detail-actions">
-
-						<a
-							href="../assets/images/pathart/gallery-1.jpg"
-							class="button button-primary"
-							target="_blank"
-							rel="noopener"
-						>
-							View Full Size
-						</a>
-
-
-						<a
-							href="../assets/images/pathart/gallery-1.jpg"
-							class="button button-outline"
-							download
-						>
-							Download Image
-						</a>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-		<!-- ========================================
-		     05. EDUCATIONAL NOTES
-		========================================= -->
-
-		<section class="pathart-education section">
-
-			<div class="container">
-
-				<div class="section-heading centered">
-
-					<h2>
-						Educational Notes
-					</h2>
-
-					<p>
-						PathArt microscopy study focused on repeating visual structure
-						and tissue pattern.
-					</p>
-
-				</div>
-
-
-				<div class="pathart-learning-grid">
-
-					<article class="pathart-learning-card">
-
-						<div class="pathart-learning-icon" aria-hidden="true">
-							♧
-						</div>
-
-						<h3>Specimen Context</h3>
-
-						<p>
-							Review the PathArt collection in context with specimen
-							architecture.
-						</p>
-
-						<span class="pathart-learning-label">
-							<strong>01</strong>
-							Architecture
-						</span>
-
-					</article>
-
-
-					<article class="pathart-learning-card">
-
-						<div class="pathart-learning-icon" aria-hidden="true">
-							▱
-						</div>
-
-						<h3>Staining Patterns</h3>
-
-						<p>
-							Compare staining context and tissue distribution.
-						</p>
-
-						<span class="pathart-learning-label">
-							<strong>02</strong>
-							Staining
-						</span>
-
-					</article>
-
-
-					<article class="pathart-learning-card">
-
-						<div class="pathart-learning-icon" aria-hidden="true">
-							⌕
-						</div>
-
-						<h3>Visual Recognition</h3>
-
-						<p>
-							Identify repeating visual structures and tissue patterns.
-						</p>
-
-						<span class="pathart-learning-label">
-							<strong>03</strong>
-							Patterns
-						</span>
-
-					</article>
-
-
-					<article class="pathart-learning-card">
-
-						<div class="pathart-learning-icon" aria-hidden="true">
-							▤
-						</div>
-
-						<h3>Educational Reference</h3>
-
-						<p>
-							Use the image as an educational visual reference for
-							continued study.
-						</p>
-
-						<span class="pathart-learning-label">
-							<strong>04</strong>
-							Learning
-						</span>
-
-					</article>
-
-				</div>
-
-
-				<div class="pathart-learning-callout">
-
-					<div class="pathart-learning-callout-icon" aria-hidden="true">
-						!
-					</div>
-
-					<p>
-						These notes are intended for educational purposes and to
-						support visual learning in pathology.
-					</p>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-
-
-		<!-- ========================================
-		     08. CONTACT CTA
-		========================================= -->
-
-		<section class="pathart-cta">
-
-			<div class="container pathart-cta-inner">
-
-				<div class="pathart-cta-content">
-
-					<div class="pathart-cta-icon" aria-hidden="true">
-						🔬
-					</div>
-
-
-					<div>
-
-						<h2>
-							Have a Case to Share or a Question?
-						</h2>
-
-						<p>
-							We welcome submissions and inquiries
-							from our physician partners.
-						</p>
-
-					</div>
-
-				</div>
-
-
-				<a
-					href="contact.html"
-					class="button button-primary"
-				>
-					Contact Our Laboratory
-				</a>
-
-			</div>
-
-		</section>
-
-	</main>
-
-
-
-	<!-- ========================================
-	     FOOTER
-	========================================= -->
-
-	<footer class="site-footer">
-
-		<div class="container footer-grid">
-
-			<div class="footer-brand">
-
-				<a href="../index.html" class="site-logo">
-
-					<img
-						src="../assets/images/branding/logo.jpg"
-						alt="Benchmark Diagnostics"
-						class="site-logo-image"
-					>
-
-				</a>
-
-				<p>
-					Advancing pathology through expertise,
-					research, and physician partnership.
-				</p>
-
-
-				<div class="social-links">
-
-					<a href="https://www.linkedin.com/company/benchmark-diagnostics/" aria-label="Benchmark Diagnostics LinkedIn" target="_blank" rel="noopener noreferrer">
-						in
-					</a>
-
-				</div>
-
-			</div>
-
-
-			<div class="footer-column">
-
-				<h3>
-					Quick Links
-				</h3>
-
-				<ul>
-
-					<li>
-						<a href="about.html">
-							About
-						</a>
-					</li>
-
-					<li>
-						<a href="services.html">
-							Services
-						</a>
-					</li>
-
-					<li>
-						<a href="physician-resources.html">
-							Physician Resources
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Research
-						</a>
-					</li>
-
-					<li>
-						<a href="contact.html">
-							Contact
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-
-
-			<div class="footer-column">
-
-				<h3>
-					Research
-				</h3>
-
-				<ul>
-
-					<li>
-						<a href="research.html#featured-research">
-							Featured Research
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Publications
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Lab Reports
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Educational Resources
-						</a>
-					</li>
-
-					<li>
-						<a href="research.html">
-							Presentations
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-
-
-			<div class="footer-column footer-contact">
-
-				<h3>
-					Contact Us
-				</h3>
-
-				<p>
-					6777 Engle Rd, Suite M<br>
-					Middleburg Heights, OH 44130
-				</p>
-
-				<p>
-					<a href="tel:+14403597115">(440) 359-7115</a>
-				</p>
-
-				<p>
-					<a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a>
-				</p>
-
-			</div>
-
-		</div>
-
-
-		<div class="container footer-bottom">
-
-			<p>
-				&copy; 2026 Benchmark Diagnostics, LLC.
-				All Rights Reserved.
-			</p>
-
-
-			<div class="footer-legal">
-
-				<a href="privacy-policy.html">
-					Privacy Policy
-				</a>
-
-				<a href="terms-of-use.html">
-					Terms of Use
-				</a>
-
-				<a href="accessibility.html">
-					Accessibility
-				</a>
-
-			</div>
-
-		</div>
-
-	</footer>
-
-
-	<script src="../js/components/navigation.js"></script>
-	<script src="../js/components/gallery.js"></script>
-
+<body class="page-inner page-pathart">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+    <div class="header-inner">
+        <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/branding/logo.png" width="900" height="316" alt="Benchmark Diagnostics"></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="pathart-gallery.html" class="nav-link active" aria-current="page">PathArt</a></li>
+                <li class="mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="pill header-contact">Contact</a>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero i-hero pa-hero" aria-labelledby="pa-title" data-hero>
+    <canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="wrap i-hero-grid">
+        <div class="hero-content">
+            <p class="kicker">PathArt Gallery</p>
+            <h1 id="pa-title">
+                <span class="line"><span>The Art and Science</span></span>
+                <span class="line"><span>of Pathology</span></span>
+            </h1>
+            <p class="hero-lead">Explore curated pathology images that educate, inspire, and highlight the beauty of microscopic detail.</p>
+            <div class="hero-actions">
+                <a href="#gallery" class="pill pill-solid" data-magnetic><span>Explore the Gallery</span></a>
+                <a href="#image-details" class="pill pill-ghost" data-magnetic><span>View Case Details</span></a>
+            </div>
+        </div>
+        <div class="pa-stage" data-parallax aria-hidden="true">
+            <div class="pa-orbit pa-orbit-1"></div><div class="pa-orbit pa-orbit-2"></div>
+            <div class="pa-lens"><img src="../assets/images/pathart/gallery-1.jpg" alt="" loading="eager"><i class="pa-scan"></i></div>
+            <figure class="pa-frame pf-1"><img src="../assets/images/pathart/gallery-3.jpg" alt="" loading="eager"></figure>
+            <figure class="pa-frame pf-2"><img src="../assets/images/pathart/gallery-4.jpg" alt="" loading="eager"></figure>
+            <figure class="pa-frame pf-3"><img src="../assets/images/pathart/totem-pole 1.jpg" alt="" loading="eager"></figure>
+            <figure class="pa-frame pf-4"><img src="../assets/images/pathart/gallery-2.jpg" alt="" loading="eager"></figure>
+            <span class="pa-dot d1"></span><span class="pa-dot d2"></span><span class="pa-dot d3"></span>
+        </div>
+    </div>
+</section>
+
+<section class="pathart-featured pa-featured" aria-labelledby="featured-title">
+    <div class="wrap pathart-featured-grid">
+        <div class="pathart-featured-image" data-tilt data-reveal>
+            <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Previous featured image">‹</button>
+            <img src="../assets/images/pathart/featured-pathart.jpg" alt="Featured PathArt image showing psoriasiform dermatitis">
+            <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Next featured image">›</button>
+            <div class="gallery-dots" aria-label="Featured gallery position"></div>
+        </div>
+        <div class="pathart-featured-content" data-reveal style="--d:.1s">
+            <p class="kicker kicker-dark">Featured</p>
+            <h2 id="featured-title">Case 01</h2>
+            <p>A representative microscopic specimen highlighting tissue architecture and staining pattern.</p>
+            <ul class="pathart-meta-list">
+                <li><strong>Category:</strong> Inflammatory Dermatoses</li>
+                <li><strong>Stain:</strong> H&amp;E</li>
+                <li><strong>Magnification:</strong> 20x</li>
+            </ul>
+            <button type="button" class="pill pill-dark button" data-magnetic><span>View Details</span></button>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="pathart-gallery pa-gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <p class="kicker kicker-dark">Collection</p>
+            <h2 id="gallery-title">Browse the Gallery</h2>
+            <p class="section-sub">Filter by category, stain, or magnification, or search across the PathArt collection.</p>
+        </div>
+
+        <div class="gallery-controls" data-reveal>
+            <select aria-label="Filter gallery by category"></select>
+            <select aria-label="Filter gallery by stain"></select>
+            <select aria-label="Filter gallery by magnification"></select>
+            <div class="gallery-search">
+                <input type="search" placeholder="Search images..." aria-label="Search PathArt gallery">
+            </div>
+        </div>
+
+        <div class="gallery-grid" data-reveal></div>
+
+        <div class="section-action" data-reveal>
+            <button type="button" class="pill pill-ghost button"><span>View Full Gallery</span></button>
+        </div>
+    </div>
+</section>
+
+<section id="image-details" class="pathart-details pa-details" aria-labelledby="details-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <p class="kicker">Case study</p>
+            <h2 id="details-title">Image Details</h2>
+            <p class="section-sub pa-details-lead">Select a gallery image to review metadata, alternate views, and educational context.</p>
+        </div>
+        <div class="pathart-details-grid">
+            <div class="pathart-details-images" data-tilt data-reveal>
+                <div class="pathart-detail-main">
+                    <img src="../assets/images/pathart/gallery-1.jpg" alt="Detailed pathology image">
+                </div>
+                <div class="pathart-thumbnails"></div>
+            </div>
+            <div class="pathart-details-content" data-reveal style="--d:.1s">
+                <h2>Case 01</h2>
+                <div class="pathart-education-text"><p class="pa-case-summary">Educational notes for the selected case appear here.</p></div>
+                <dl class="pathart-detail-list">
+                    <div><dt>Category</dt><dd>Inflammatory Dermatoses</dd></div>
+                    <div><dt>Stain</dt><dd>H&amp;E</dd></div>
+                    <div><dt>Magnification</dt><dd>20x</dd></div>
+                    <div><dt>Case Type</dt><dd>Biopsy</dd></div>
+                    <div><dt>Case ID</dt><dd>BD-CASE-001</dd></div>
+                    <div><dt>Date Acquired</dt><dd>May 12, 2024</dd></div>
+                </dl>
+                <div class="learning-points">
+                    <p class="kicker kicker-dark">Learning focus</p>
+                    <ul></ul>
+                </div>
+                <div class="pathart-detail-actions">
+                    <a href="../assets/images/pathart/gallery-1.jpg" class="pill pill-solid" target="_blank" rel="noopener noreferrer"><span>View Full Size</span></a>
+                    <a href="../assets/images/pathart/gallery-1.jpg" class="pill pill-ghost" download><span>Download Image</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pathart-education pa-education" aria-labelledby="edu-title">
+    <div class="wrap">
+        <div class="section-head" data-reveal>
+            <p class="kicker kicker-dark">Education</p>
+            <h2 id="edu-title">Educational Notes</h2>
+            <p class="section-sub">PathArt supports visual learning through specimen architecture, staining patterns, and pattern recognition.</p>
+        </div>
+        <div class="pathart-learning-grid">
+            <article class="pathart-learning-card" data-tilt data-reveal>
+                <h3>Specimen Context</h3>
+                <p>Review the PathArt collection in context with specimen architecture.</p>
+            </article>
+            <article class="pathart-learning-card" data-tilt data-reveal style="--d:.08s">
+                <h3>Staining Patterns</h3>
+                <p>Compare staining context and tissue distribution across related images.</p>
+            </article>
+            <article class="pathart-learning-card" data-tilt data-reveal style="--d:.16s">
+                <h3>Visual Recognition</h3>
+                <p>Identify repeating visual structures and tissue patterns under the microscope.</p>
+            </article>
+            <article class="pathart-learning-card" data-tilt data-reveal style="--d:.24s">
+                <h3>Educational Reference</h3>
+                <p>Use these images as visual references for continued study and teaching.</p>
+            </article>
+        </div>
+        <p class="pathart-learning-callout" data-reveal>These notes are intended for educational purposes and to support visual learning in pathology.</p>
+    </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title" data-cta>
+    <div class="cta-glow" aria-hidden="true"></div>
+    <canvas class="a-canvas" aria-hidden="true"></canvas>
+    <div class="wrap cta-inner">
+        <p class="kicker">PathArt</p>
+        <h2 id="cta-title">Have a Case to Share or a Question?</h2>
+        <p class="cta-lead">We welcome submissions and inquiries from our physician partners.</p>
+        <a href="contact.html" class="pill pill-solid pill-large" data-magnetic><span>Contact Our Laboratory</span></a>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Benchmark Diagnostics Home"><img src="../assets/images/branding/logo.png" width="900" height="316" alt="Benchmark Diagnostics" loading="lazy"></a>
+            <p><strong>Precision Diagnostics. Personalized Service.</strong><br>Providing dermatopathology, podiatric pathology, and selected surgical pathology services with a commitment to diagnostic excellence and responsive physician support.</p>
+            <div class="social-links"><a href="https://www.linkedin.com/company/benchmark-diagnostics/" class="social-linkedin" aria-label="Follow Benchmark Diagnostics on LinkedIn" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span><span class="social-label">Follow us on LinkedIn</span></a></div>
+        </div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="physician-resources.html">Physician Resources</a></li><li><a href="research.html">Educational Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="pathart-gallery.html">PathArt</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h3>Our Services</h3><ul><li><a href="services.html#dermatopathology">Dermatopathology</a></li><li><a href="services.html#podiatric-pathology">Podiatric Pathology</a></li><li><a href="services.html#surgical-pathology">Surgical Pathology</a></li><li><a href="technical-laboratory-services.html">Technical Laboratory Services</a></li></ul></div>
+        <div class="footer-column footer-contact"><h3>Contact Us</h3><p>6777 Engle Rd, Suite M<br>Middleburg Heights, OH 44130</p><p><a href="tel:+14403597115">(440) 359-7115</a></p><p><a href="mailto:info@benchmarkdiagnostics.com">info@benchmarkdiagnostics.com</a></p></div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Benchmark Diagnostics, LLC. All Rights Reserved.</p><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div>
+</footer>
+
+<script src="../js/components/gallery.js"></script>
+<script src="../js/inner-pages.js" defer></script>
 </body>
-
 </html>

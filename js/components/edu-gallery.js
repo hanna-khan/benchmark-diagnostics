@@ -1,11 +1,11 @@
 /* Educational Resources hero — same cover-flow pattern as Monthly Lab Reports */
 const eduGallery = [
-    { title: 'Research', label: 'Pathology Research', image: '../assets/images/research/research-hero.jpg' },
-    { title: 'Featured Case', label: 'Case Spotlight', image: '../assets/images/research/featured-research.png' },
-    { title: 'Lab Reports', label: 'Laboratory Communications', image: '../assets/images/research/laboratory-communications.png' },
-    { title: 'Education', label: 'Educational Presentations', image: '../assets/images/research/educational-presentation.png' },
-    { title: 'Perspectives', label: 'Pathology Perspectives', image: '../assets/images/research/blogs-pathology.png' },
-    { title: 'Publications', label: 'Scientific Publications', image: '../assets/images/research/featured-journal-article.png' }
+    { title: 'Microscopy', label: 'Dermatopathology Slides', image: '../assets/images/research/edu-hero-1.jpg' },
+    { title: 'Featured Case', label: 'Case Spotlight', image: '../assets/images/research/featured-case-1.jpg' },
+    { title: 'Lab Reports', label: 'Laboratory Communications', image: '../assets/images/research/edu-hero-2.jpg' },
+    { title: 'Histology', label: 'Tissue Morphology', image: '../assets/images/research/edu-hero-3.jpg' },
+    { title: 'Perspectives', label: 'Pathology Perspectives', image: '../assets/images/research/edu-hero-4.jpg' },
+    { title: 'Publications', label: 'Scientific Publications', image: '../assets/images/research/featured-case-2.jpg' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
