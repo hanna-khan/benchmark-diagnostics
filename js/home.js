@@ -202,7 +202,7 @@ void main(){float a=smoothstep(.5,.05,length(gl_PointCoord-.5))*vC.a;gl_FragColo
         addEventListener("pagehide", () => { cancelAnimationFrame(raf); const x = g.getExtension("WEBGL_lose_context"); x && x.loseContext(); });
     })();
 
-    /* ---------- Hero: microscope-lens tissue shader (logo-blue tinted) ---------- */
+    /* ---------- Hero: microscope-lens fine-tissue shader (tiny H&E cells, logo-blue tinted) ---------- */
     const hero = document.querySelector(".hero");
     const canvas = hero.querySelector(".hero-canvas");
     const gl = canvas.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
@@ -211,34 +211,46 @@ void main(){float a=smoothstep(.5,.05,length(gl_PointCoord-.5))*vC.a;gl_FragColo
     const VERT = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
     const FRAG = `precision highp float;
 uniform vec2 uR,uM;uniform float uT;
+float h1(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 vec2 h2(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return fract(sin(p)*43758.5453);}
+float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h1(i),h1(i+vec2(1,0)),f.x),mix(h1(i+vec2(0,1)),h1(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){return .5*vn(p)+.25*vn(p*2.03+7.1)+.125*vn(p*4.1+3.7);}
 vec3 vor(vec2 p,float t){vec2 g=floor(p),f=fract(p);float d1=8.,d2=8.;vec2 id=vec2(0.);
  for(int j=-1;j<=1;j++)for(int i=-1;i<=1;i++){vec2 o=vec2(float(i),float(j));vec2 r=h2(g+o);
-  r=.5+.38*sin(t+6.2831*r);vec2 v=o+r-f;float d=dot(v,v);
+  r=.5+.36*sin(t+6.2831*r);vec2 v=o+r-f;float d=dot(v,v);
   if(d<d1){d2=d1;d1=d;id=g+o;}else if(d<d2){d2=d;}}
- return vec3(sqrt(d1),sqrt(d2),h2(id).x);}
+ return vec3(sqrt(d1),sqrt(d2),h1(id));}
+vec3 he(vec3 v,vec2 q,float detail){
+ float edge=smoothstep(.0,.075,v.y-v.x);
+ float gran=fbm(q*detail);
+ float nr=.30+.05*v.z;
+ float nuc=smoothstep(nr,nr-.07,v.x);
+ vec3 eos=mix(vec3(.60,.22,.40),vec3(.95,.60,.74),v.z);
+ vec3 cyt=eos*(.45+.55*edge)*(.82+.36*gran);
+ vec3 hem=vec3(.17,.14,.44)*(.7+.6*fbm(q*detail*1.7));
+ vec3 c=mix(cyt,hem,nuc*.92);
+ c+=vec3(.55,.55,.95)*smoothstep(nr-.02,nr-.07,v.x)*(1.-smoothstep(nr-.07,nr-.13,v.x))*.18;
+ c*=1.-.55*smoothstep(.07,.02,v.x)*nuc;
+ c+=vec3(.9,.8,1.)*smoothstep(.10,.0,v.x)*nuc*.05;
+ return c;}
 void main(){
  vec2 uv=gl_FragCoord.xy/uR;float asp=uR.x/uR.y;
  vec2 p=(uv-.5)*vec2(asp,1.),m=(uM-.5)*vec2(asp,1.);
- float R=.155;float dl=length(p-m);
- float lens=smoothstep(R,R-.022,dl);
- vec2 q=mix(p,m+(p-m)*.6,lens);
- float sc=8.;
- vec3 v=vor(q*sc,uT*.22);
- float edge=smoothstep(.0,.07,v.y-v.x);
- float nuc=smoothstep(.30,.24,v.x);
- vec3 navy=vec3(.027,.078,.20);                 // logo-family ink
- vec3 col=navy+vec3(.04,.10,.22)*(1.-edge)+vec3(.02,.05,.12)*nuc;
- vec3 eos=mix(vec3(.50,.17,.34),vec3(.92,.52,.68),v.z);
- vec3 hem=vec3(.12,.18,.48);
- vec3 tis=eos*(.30+.7*edge);
- tis=mix(tis,hem,nuc*.9);
- tis+=vec3(.20,.40,.82)*(1.-edge)*.24;          // brand blue sheen
- tis+=vec3(.9,.8,1.)*smoothstep(.12,.0,v.x)*nuc*.12;
- col=mix(col,tis,lens);
- col+=vec3(.36,.53,.91)*smoothstep(.007,.0,abs(dl-R))*.85; // lens rim
- col*=mix(.45,1.,smoothstep(.15,.85,uv.x));
- col*=1.-.55*dot(uv-.5,uv-.5);
+ float t=uT;
+ vec3 navy=vec3(.027,.078,.20);
+ float fadeL=mix(.40,1.,smoothstep(.12,.85,uv.x));
+ vec2 d=p-m;float f=exp(-dot(d,d)*55.);
+ vec2 pw=p+vec2(-d.y,d.x)*f*.35*sin(t*1.6)+vec2(.004*sin(p.y*30.+t*.7),.004*cos(p.x*30.+t*.6));
+ float R=.15;float dl=length(p-m);float lens=smoothstep(R,R-.02,dl);
+ vec2 q=mix(pw,m+(pw-m)*.5,lens);
+ float sc=26.;vec3 v=vor(q*sc,t*.16);
+ float edge=smoothstep(.0,.08,v.y-v.x);float nuc=smoothstep(.32,.24,v.x);
+ vec3 bg=navy+vec3(.04,.10,.22)*(1.-edge)*.9+vec3(.03,.07,.17)*nuc;
+ bg+=vec3(.25,.45,.9)*(1.-edge)*.05;
+ vec3 col=mix(bg,he(v,q*sc,5.),lens);
+ col+=vec3(.36,.53,.91)*smoothstep(.006,.0,abs(dl-R))*.8;
+ col*=fadeL;
+ col*=1.-.5*dot(uv-.5,uv-.5);
  gl_FragColor=vec4(col,1.);}`;
 
     const compile = (type, src) => {
